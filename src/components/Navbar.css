@@ -167,6 +167,8 @@
         justify-content:space-between;
         gap:2rem;
         padding:2rem;
+        position: sticky;
+        top: 0;
     }
     .menuIcon{
          display:block;
@@ -184,6 +186,9 @@
 }
 
 @media (max-width:576px){
+    body{
+        overflow-x: hidden;
+    }
     .nav{
         display:flex;
         justify-content:space-between;

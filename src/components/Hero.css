@@ -177,53 +177,53 @@
 }
 
 @media (max-width:576px){
+    .hero-container{
+        padding:4rem 1.8rem;
+    }
 
-.hero-container{
-    padding:4rem 1.8rem;
-}
+    .summerTx{
+        font-size:1.2rem;
+    }
 
-.summerTx{
-    font-size:1.2rem;
-}
+    .heroH1{
+        font-size:3.5rem;
+        line-height:1.2;
+    }
 
-.heroH1{
-    font-size:3.5rem;
-    line-height:1.2;
-}
+    .heroText{
+        font-size:1.6rem;
+        line-height:1.6;
+    }
 
-.heroText{
-    font-size:1.6rem;
-    line-height:1.6;
-}
+    .heroTechImg{
+        width:100%;
+        max-width:21rem;
+    }
 
-.heroTechImg{
-    width:100%;
-    max-width:30rem;
-}
+    .shopNow.btn{
+        width:100%;
+        font-size: 1.6rem;
+        backdrop-filter: blur(2rem);
+        padding: 1.4rem;
+    }
+    .blob1{
+        width:18rem;
+        height:18rem;
+    }
 
-.shopNow.btn{
-    width:100%;
-    max-width:24rem;
-}
+    .blob2{
+        width:15rem;
+        height:15rem;
+    }
 
-}
-
-@media (max-width:576px){
-
-.blob1{
-    width:18rem;
-    height:18rem;
-}
-
-.blob2{
-    width:15rem;
-    height:15rem;
-}
-
-.blob3{
-    width:18rem;
-    height:18rem;
-}
+    .blob3{
+        width:18rem;
+        height:18rem;
+    }
 
 }
+
+
+
+
 
