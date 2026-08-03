@@ -43,40 +43,6 @@ src/
 
 ---
 
-## 🚀 Getting Started
-
-Clone the repository
-
-```bash
-git clone https://github.com/Immanuelchika099/phone-hub.git
-```
-
-Navigate into the project
-
-```bash
-cd phone-hub
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Start the development server
-
-```bash
-npm run dev
-```
-
----
-
-## 📸 Screenshots
-
-You can add screenshots of the homepage, shopping cart, and responsive mobile layout here.
-
----
-
 ## 🎯 Future Improvements
 
 - User authentication
