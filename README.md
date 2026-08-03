@@ -1,16 +1,71 @@
-# React + Vite
+# 📱 Phone Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Phone Hub is a modern e-commerce web application built with **React** and **Vite**. It allows users to browse a collection of premium smartphones, search for products, manage a shopping cart, and enjoy a clean, responsive user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🛒 Add products to cart
+- ➕ Increase and decrease product quantity
+- 🗑️ Remove products from the cart
+- 💰 Automatic subtotal and total price calculation
+- 🔍 Search phones by name, brand, or category
+- 📱 Responsive design for desktop, tablet, and mobile
+- 📰 Latest smartphone news section
+- ❓ Interactive FAQ section
+- ⚡ Fast performance powered by Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Vite
+- React Router DOM
+- React Icons
+- CSS3
+- JavaScript (ES6)
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│── components/
+│── pages/
+│── data/
+│── assets/
+│── App.jsx
+│── main.jsx
+```
+
+---
+
+## 🎯 Future Improvements
+
+- User authentication
+- Wishlist functionality
+- Product details page
+- Checkout process
+- Payment gateway integration
+- Product filtering and sorting
+- Backend database integration
+
+---
+
+## 👨‍💻 Author
+
+**Iman**
+
+Frontend Developer
+
+GitHub:
+https://github.com/Immanuelchika099
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
