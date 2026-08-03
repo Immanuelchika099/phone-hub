@@ -15,23 +15,19 @@
     width: 90%;
     margin: 4rem auto 2rem;
 }
-
 .searchResults h2{
     font-size: 2.4rem;
     color: #333;
 }
-
 .searchResults span{
     color: var(--primary-color);
 }
-
 .noResults{
     text-align:center;
     padding:60px;
     font-size:28px;
     color:#777;
 }
-
 .phoneTx{
     font-size: 2rem;
     padding-bottom: 2rem;
@@ -41,26 +37,28 @@
     color: var(--dark-color);
     padding-bottom: 5rem;
 }
-
+.phoneHeading.main{
+    padding-bottom: 0;
+}
 .phone-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(31rem,1fr));
-    justify-items:center;
-    gap:2rem;
-    max-width:90%;
-    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+    width: min(95%, 1400px);
+    margin: 0 auto;
+    padding-top: 9rem;
 }
 
 .togglePages{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 88%;
+    width: 70%;
     margin: 0 auto;
     padding-top: 5rem;
 }
 .prevPages{
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--secondary-color);
     display: flex;
     align-items: center;
@@ -73,51 +71,81 @@
 
 
 /* TRENDS SESSION */
-
 .trend-session{
     padding-top: 12rem;
     margin: 0 auto;
     width: 89%;
 }
-
 .phoneHeading.trendHead{
-    padding-bottom: 2.5rem;
-    font-size: 4.8rem;
+    padding-bottom:1rem;
 }
 .phoneTx.trendd{
-    padding-bottom: 5rem;
+    padding-bottom:0;
+    max-width:60rem;
 }
-
 .trendGrid{
     display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    justify-content: center;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
 }
-
+.trendGrid::-webkit-scrollbar{
+    display: none;
+}
 .trendBetween{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     gap: 2rem;
 }
-
 .trendCard{
-    width: 39rem;
-    background: #f4f4f488;
-    border: 1px solid #e7e7e7;
-    border-radius: 18px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: .3s ease;
+    flex:0 0 42%;
+    flex-shrink:0;
+    background:#f4f4f488;
+    border:1px solid #e7e7e7;
+    border-radius:18px;
+    overflow:hidden;
 }
-
 .trendCard:hover{
-    box-shadow: 0 12px 25px rgba(0,0,0,.08);
+    background: linear-gradient(to bottom right , #dcdcdc, #fffefe9e);
 }
+.trendHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:3rem;
+}
+.trendButtons{
+    display:flex;
+    gap:1rem;
+}
+.trendButtons button{
+    width:48px;
+    height:48px;
 
+    border:none;
+    border-radius:50%;
+
+    background:#fff;
+
+    font-size:1.3rem;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.25s;
+}
+.trendButtons button:hover{
+    transform:translateY(-2px);
+    background:var(--primary-color);
+    color:white;
+}
 .trendImage{
     width: 100%;
     height: 230px;
@@ -128,7 +156,6 @@
     transform: scaleX(1.05);
     filter: brightness(  .5);
 }
-
 .trendContent{
     padding: 1.5rem;
     height: 31rem;
@@ -137,19 +164,16 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
 .trendSource{
     font-size: 1.2rem;
     color: var(--dark-color) ;
     margin-bottom: .8rem;
 }
-
 .trendTitle{
     font-weight: 600;
     line-height: 1.4;
     color: #222;
 }
-
 .trendDescription{
     color: var(--secondary-color);
     line-height: 1.6;
@@ -161,7 +185,6 @@
     align-items: center;
     margin-bottom: .8rem;
 }
-
 .trendBadge{
     background: rgba(37,99,235,.1);
     color: var(--primary-color);
@@ -202,7 +225,6 @@
     justify-content: space-between;
     transition: 0.2s ease-in-out;
 }
-
 .faqAnswer{
     font-size: 1.8rem;
     background: #f6f6f6;
@@ -216,11 +238,175 @@
     transition: 0.2s ease-in-out;
     border-top: 1px solid rgb(212, 211, 211);
 }
-
 .faqPlusIcon{
     transition: transform .3s ease;
     
 }
 .faqPlusIcon.rotate{
     transform: rotate(45deg);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width:768px){
+
+    .phoneHeadContainer{
+        padding-top:10rem;
+    }
+
+        .phoneHeading{
+            font-size:3rem;
+            text-align:center;
+        }
+
+        .phoneTx{
+            font-size:1.7rem;
+            text-align:center;
+        }
+
+        .phone-container{
+            width:95%;
+            grid-template-columns:repeat(2, minmax(0, 1fr));
+            gap:1.2rem;
+             padding-top:6rem;
+        }
+
+        .togglePages{
+            width:90%;
+        }
+
+        .phoneHeading.trendHead{
+            font-size:3.5rem;
+            text-align:center;
+        }
+
+        .phoneTx.trendd{
+            text-align:center;
+        }
+
+        .trendHeader{
+            display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:1.5rem;
+    margin-bottom:2rem;
+        }
+        .trendButtons{
+             width:100%;
+    display:flex;
+    justify-content:flex-end;
+        }
+
+        .phoneHeading.trendHead{
+    text-align:left;
+    padding-bottom:.8rem;
+}
+.phoneTx.trendd{
+    text-align:left;
+    padding-bottom:0;
+}
+        .trendCard{
+            flex:0 0 70%;
+        }
+
+        .faq{
+            width:90%;
+        }
+
+        .faqItem,
+        .faqAnswer{
+            font-size:1.6rem;
+        }
+
+        .searchResults h2{
+            font-size:2rem;
+        }
+
+}
+
+@media (max-width:480px){
+
+.phoneHeading{
+    font-size:2.3rem;
+    line-height:1.3;
+}
+
+.phoneTx{
+    font-size:1.4rem;
+}
+
+.phone-container{
+    width:92%;
+    grid-template-columns:1fr;
+    gap: .3rem;
+}
+
+.togglePages{
+    width:100%;
+    padding:4rem 2rem 0;
+}
+
+.prevPages{
+    font-size:1.5rem;
+}
+
+.phoneHeading.trendHead{
+    font-size:2.5rem;
+}
+
+.trendCard{
+    flex:0 0 95%;
+}
+
+.phoneTx.trendd{
+    padding-bottom:1rem;
+}
+
+.trendHeader{
+    gap:.8rem;
+    margin-bottom:2rem;
+}
+
+.trendButtons{
+    width:100%;
+    justify-content:flex-end;
+}
+
+.trendButtons button{
+    width:40px;
+    height:40px;
+}
+
+.trendContent{
+    height:auto;
+}
+
+.trendImage{
+    height:190px;
+}
+
+.faq{
+    width:95%;
+}
+
+.faqItem{
+    font-size:1.5rem;
+    padding:2rem;
+}
+
+.faqAnswer{
+    font-size:1.4rem;
+    padding:2rem;
+}
+
+.searchResults h2{
+    font-size:1.6rem;
+    text-align:center;
+}
+
+.noResults{
+    font-size:2rem;
+    padding:40px 20px;
+}
+
 }

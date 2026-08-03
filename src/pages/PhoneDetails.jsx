@@ -1,7 +1,7 @@
 import PhoneCard from "../components/PhoneCard";
 import { Link } from "react-router-dom";
 import products from "../data/products";
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+import { IoChevronBack } from "react-icons/io5";
 import "./Home.css"
 import Footer from "../components/Footer";
 import { useState } from "react";
@@ -29,7 +29,7 @@ const phoneCards = filteredPhones.map((product) => (
             </ul>
             <ul className="togglePages">
 
-                <Link to="/" className="prevPages"><HiOutlineArrowLeft /> Previous Page </Link>
+                <Link to="/" className="prevPages"><IoChevronBack /> Previous </Link>
                 <Link to="/phones" className="prevPages"> </Link>
             </ul>
             <Footer />

@@ -100,9 +100,10 @@
 
 .heroTechImg{
     position: relative;
-    width: 49rem;
     z-index: 1;
     padding-top: 7rem;
+    width:100%;
+    max-width:49rem;
 }
 
 .hero-footerTx{
@@ -117,3 +118,112 @@
     font-weight: bold;
     text-decoration: #fff underline;
 }
+
+
+@media (max-width:992px){
+
+.heroFlex{
+    padding:0 3rem;
+    gap:3rem;
+}
+
+.heroH1{
+    font-size:5rem;
+    width:100%;
+}
+
+.heroText{
+    width:100%;
+}
+
+.heroTechImg{
+    width:40rem;
+}
+
+}
+
+@media (max-width:768px){
+
+.hero-container{
+    height:auto;
+    padding:6rem 2rem;
+}
+
+.heroFlex{
+    flex-direction:column;
+    text-align:center;
+    gap:5rem;
+}
+
+.heroH1{
+    width:100%;
+    font-size:4.4rem;
+}
+
+.heroText{
+    width:100%;
+    font-size:1.8rem;
+}
+
+.shopNow.btn{
+    margin:auto;
+}
+
+.heroTechImg{
+    width:36rem;
+    padding-top:0;
+}
+
+}
+
+@media (max-width:576px){
+
+.hero-container{
+    padding:4rem 1.8rem;
+}
+
+.summerTx{
+    font-size:1.2rem;
+}
+
+.heroH1{
+    font-size:3.5rem;
+    line-height:1.2;
+}
+
+.heroText{
+    font-size:1.6rem;
+    line-height:1.6;
+}
+
+.heroTechImg{
+    width:100%;
+    max-width:30rem;
+}
+
+.shopNow.btn{
+    width:100%;
+    max-width:24rem;
+}
+
+}
+
+@media (max-width:576px){
+
+.blob1{
+    width:18rem;
+    height:18rem;
+}
+
+.blob2{
+    width:15rem;
+    height:15rem;
+}
+
+.blob3{
+    width:18rem;
+    height:18rem;
+}
+
+}
+

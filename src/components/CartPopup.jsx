@@ -1,8 +1,8 @@
 import { FaTimes, FaTrash } from "react-icons/fa";
-import "./PhoneCard.css";
+import "./CartPopup.css";
 
 function CartPopup({
-setCartPopup,
+    setCartPopup,
     cart,
     increaseQuantity,
     decreaseQuantity,

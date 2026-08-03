@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import products from "../data/products";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
-import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import Trends from "../components/Trends";
 import Faq from "../components/Faq";
 
@@ -36,7 +36,7 @@ const phoneCards = filteredPhones.map((product) => (
         <section>
             <ul className="phoneHeadContainer">
               <p className="phoneTx">THE PHONES</p>
-              <h1 className="phoneHeading">Our Impressive Phone Models</h1>
+              <h1 className="phoneHeading main">Our Impressive Phone Models</h1>
             </ul>
 
             <ul className="phone-container">
@@ -49,8 +49,8 @@ const phoneCards = filteredPhones.map((product) => (
             </ul>
 
             <ul className="togglePages">
-              <Link to="/" className="prevPages"><HiOutlineArrowLeft /> Previous Page </Link>
-              <Link to="/phones" className="prevPages"> Next Page <HiOutlineArrowRight /> </Link>
+              <span></span>
+              <Link to="/phones" className="prevPages"> Next <IoChevronForward /> </Link>
             </ul>
         </section>
 

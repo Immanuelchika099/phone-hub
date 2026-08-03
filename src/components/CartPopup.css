@@ -1,0 +1,409 @@
+/* ==========================
+   CART POPUP
+========================== */
+
+.backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(4px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:3000;
+    animation:fadeIn .25s ease;
+}
+
+.cartPopup-container{
+    width:min(850px,95vw);
+    max-height:90vh;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(20px);
+    border-radius:22px;
+    padding:2.5rem;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+    animation:popUp .3s ease;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.cartHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:1.8rem;
+    border-bottom:1px solid var(--card-border-color);
+}
+
+.cartTitle{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.cartHeader h2{
+    font-size:2.3rem;
+}
+
+.itemBadge{
+    background:var(--primary-color);
+    color:#fff;
+    padding:.45rem 1rem;
+    border-radius:999px;
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+.closeBtn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#f3f3f3;
+    cursor:pointer;
+    font-size:1.7rem;
+    transition:.25s;
+}
+
+.closeBtn:hover{
+    background:#e8e8e8;
+    transform:rotate(90deg);
+}
+
+
+/* ==========================
+   ITEMS
+========================== */
+
+.cartItems{
+    flex:1;
+    overflow-y:auto;
+    padding:1rem 0;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+.cartContent{
+    flex:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:2rem;
+}
+
+.cartItems::-webkit-scrollbar{
+    display:none;
+}
+
+.cartItem{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    padding:2rem 0;
+    border-bottom:1px solid #ececec;
+}
+
+.cartItem img{
+    width:85px;
+    height:85px;
+    object-fit:contain;
+    background:#f7f7f7;
+    border-radius:15px;
+    padding:.8rem;
+    flex-shrink:0;
+}
+
+.cartInfo{
+    flex:1;
+    text-align:left;
+}
+
+.cartInfo h3{
+    font-size:1.8rem;
+    margin-bottom:.8rem;
+}
+
+.cartInfo p{
+    color:var(--primary-color);
+    font-size:1.6rem;
+    font-weight:700;
+}
+
+.cartActions{
+    display:flex;
+    align-items:center;
+    gap:1.2rem;
+}
+
+
+/* ==========================
+   QUANTITY
+========================== */
+
+.quantityControls{
+    display:flex;
+    align-items:center;
+    border:1px solid #e4e4e4;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.quantityControls button{
+    width:40px;
+    height:40px;
+    border:none;
+    background:#f5f5f5;
+    cursor:pointer;
+    font-size:2rem;
+    transition:.25s;
+}
+
+.quantityControls button:hover{
+    background:var(--primary-color);
+    color:white;
+}
+
+.quantityControls span{
+    width:45px;
+    text-align:center;
+    font-weight:700;
+}
+
+
+/* ==========================
+   DELETE BUTTON
+========================== */
+
+.deleteBtn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#ffeeee;
+    color:crimson;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.deleteBtn:hover{
+    background:crimson;
+    color:white;
+}
+
+
+/* ==========================
+   EMPTY CART
+========================== */
+
+.emptyCart{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:1.8rem;
+    height:100%;
+    text-align:center;
+}
+
+.emptyCart h2{
+    font-size:6rem;
+}
+
+.emptyCart h3{
+    font-size:2.5rem;
+}
+
+.ItemText{
+    color:#777;
+    font-size:1.6rem;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.cartFooter{
+    border-top:1px solid var(--card-border-color);
+    padding-top:2rem;
+}
+
+.summary{
+    display:flex;
+    flex-direction:column;
+    gap:1.2rem;
+    margin-bottom:2rem;
+}
+
+.summary div{
+    display:flex;
+    justify-content:space-between;
+    font-size:1.5rem;
+}
+
+.grandTotal{
+    border-top:1px solid #ececec;
+    padding-top:1.5rem;
+    margin-top:.5rem;
+    font-size:1.8rem;
+}
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+.checkoutBtn{
+    width:100%;
+    padding:1.7rem;
+    border:none;
+    border-radius:14px;
+    background:var(--primary-color);
+    color:white;
+    font-size:1.6rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.checkoutBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
+
+
+/* ==========================
+   ERROR PAGE
+========================== */
+
+.errorPage{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.errorHeading{
+    font-size:12rem;
+}
+
+.errorTx{
+    font-size:4rem;
+}
+
+
+/* ==========================
+   TABLET
+========================== */
+
+@media(max-width:768px){
+
+.cartPopup-container{
+    width:95%;
+    max-height:88vh;
+    padding:2rem;
+}
+
+.cartItem{
+    gap:1.5rem;
+}
+
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:480px){
+
+.cartPopup-container{
+    width:100%;
+    height:100%;
+    max-height:100%;
+    border-radius:0;
+    padding:2rem 1.5rem;
+}
+
+.cartHeader h2{
+    font-size:2rem;
+}
+
+.itemBadge{
+    font-size:1rem;
+}
+
+.cartItem{
+    align-items:flex-start;
+}
+
+.cartContent{
+    flex-direction:column;
+    align-items:flex-start;
+    width:100%;
+    gap:1rem;
+}
+
+.cartItem img{
+    width:100px;
+    height:100px;
+    align-self:center;
+}
+
+.cartInfo{
+    width:100%;
+}
+
+.cartActions{
+    width:100%;
+    justify-content:space-between;
+}
+
+.quantityControls{
+    width:135px;
+    justify-content:space-between;
+}
+
+.checkoutBtn{
+    font-size:1.5rem;
+}
+
+}
+
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+@keyframes popUp{
+
+from{
+opacity:0;
+transform:translateY(35px) scale(.96);
+}
+
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+}

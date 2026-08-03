@@ -1,14 +1,31 @@
 .nav{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 1.2rem 0;
+    justify-content:space-between;
+    padding: .8rem 6%;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 1000;
     background: rgba(255, 255, 255, 0.834);
     backdrop-filter: blur(1rem);
 }
+
+
+.menuIcon{
+    display:none;
+    font-size:3rem;
+    cursor:pointer;
+    position:relative;
+    z-index:2001;
+    margin-left:auto;
+}
+.overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    z-index: 998;
+}
+
 .navLinks{
     display: flex;
     gap: 3rem;
@@ -78,7 +95,7 @@
     background: var(--secondary-color);
     color: #fefefe;
     width: 4.5rem;
-    height: 9rem;
+    height:100%;
 }
 ::placeholder{
     color: var(--secondary-color);
@@ -114,4 +131,108 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
+}
+
+
+/* RESPONSIVE SCREENS */
+@media (max-width:1200px){
+    .searchInput{
+        width:30rem;
+    }
+}
+
+@media (max-width:992px){
+    .nav{
+        justify-content:space-between;
+        padding:1.5rem 3rem;
+    }
+
+    .navLinks{
+        gap:2rem;
+        font-size:1.6rem;
+    }
+
+    .searchInput{
+        width:22rem;
+    }
+
+    .navSearchCart{
+        gap:1.5rem;
+    }
+}
+
+@media (max-width:768px){
+    .nav{
+        flex-wrap:wrap;
+        justify-content:space-between;
+        gap:2rem;
+        padding:2rem;
+    }
+    .menuIcon{
+         display:block;
+    }
+
+
+    .search-container{
+        flex:1;
+    }
+
+    .searchInput{
+        width:100%;
+    }
+
+}
+
+@media (max-width:576px){
+    .nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:1.5rem;
+    }
+
+   .navLinks{
+        position:fixed;
+        top:0;
+        right:-27rem;
+        left:auto;
+        width:27rem;
+        height:100vh;
+        background:#fff;
+        align-items:flex-start;
+        display:flex;
+        flex-direction:column;
+        justify-content:flex-start;
+        padding:9rem 2rem 2rem;
+        gap:2rem;
+        transition:.35s ease;
+        box-shadow:-10px 0 30px rgba(0,0,0,.08);
+        z-index:2000;
+    }
+    .navLinkText{
+        padding:.8rem 0;
+        width:100%;
+    }
+    .logo{
+        margin-right:auto;
+    }
+    .menuIcon{
+        display:block;
+        margin-left:auto;
+        position:relative;
+        z-index:2001;
+    }
+    .activeMenu{
+        right: 0;
+    }
+    .navSearchCart{
+        width:100%;
+    }
+    .search-container{
+        width:100%;
+    }
+    .searchInput{
+        width:100%;
+    }
+
 }

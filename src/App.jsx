@@ -5,7 +5,7 @@ import NotFound from './pages/NotFound'
 import PhoneDetails from './pages/PhoneDetails'
 import Navbar from './components/Navbar'
 import Contact from './pages/Contact'
-import CartPopup from './components/CartPopop'
+import CartPopup from './components/CartPopup'
 import { useState } from 'react'
 
 

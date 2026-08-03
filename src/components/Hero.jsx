@@ -7,7 +7,7 @@ function Hero(){
         <main className="hero-container">
             <div className="heroFlex">
                 <ul >
-                    <p className="summerTx">"Summer Sale - Up to 50% off Smartphones"</p>
+                    <p className="summerTx">"Summer Sale - Up to 50% Off"</p>
                     <h1 className="heroH1"> Shop the Latest <br />Phones & Accesories </h1>
                     <p className="heroText">
                         Discover premuim smartphones from top brands at unbeatable prices.
