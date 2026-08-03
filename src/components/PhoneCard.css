@@ -1,0 +1,84 @@
+
+
+.phoneCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border: 1px solid var(--card-border-color);
+    background: #f7f7f7;
+    backdrop-filter: blur(15px);
+    border-radius: 0.4rem;
+    padding: var(--spacing-lg);
+    height: 40rem;
+    width: 100%;
+    max-width: 31rem;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+    gap: 0.7rem;
+    font-size: var(--font-size-sm);
+}
+.phoneCard:hover{
+    box-shadow: inset 0 0 17px rgba(31, 31, 31, 0.1);
+    background-color: #fff;
+}
+
+.phoneCard img{
+    width: 35%;
+    height: auto;
+    padding-bottom: 2rem;
+}
+.phoneImgFlex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PHONE CARD FLEX */
+.phoneCardFlex{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+
+.phoneCardFlex.outline{
+    border-bottom: 1px solid var(--card-border-color);
+    padding-bottom: 2rem;
+}
+
+.phoneCard-title{
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    margin: var(--spacing-sm) 0;
+}
+.phoneCard-price{
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin: var(--spacing-sm) 0;
+    color: var(--dark-color);
+}
+
+.btn{
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s all linear;
+    box-shadow: 0 7px 11px var(--primary-color-shadow);
+    margin-top: 1rem;
+    font-weight: bold;
+    
+}
+.btn.buy:hover{
+    background: transparent;
+    color: var(--secondary-color);
+    box-shadow: inset 0 0 3px var(--secondary-color);
+}
+

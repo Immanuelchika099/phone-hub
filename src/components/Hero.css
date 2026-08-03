@@ -1,0 +1,119 @@
+.hero-container{
+    width: 100%;
+    height: 95vh;
+    background-color: #fffaf4;
+    overflow: hidden;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 170, 0, .10), transparent 30%),    
+        radial-gradient(circle at 80% 70%, rgba(255, 120, 0, .08), transparent 35%),    
+        radial-gradient(rgba(249, 104, 0, .08)1px , transparent 1px);
+    background-size:
+        auto,
+        auto,
+        28px 28px;
+        position: relative;
+}
+.heroFlex{
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.summerTx{
+    display: inline-block;
+    padding: .6rem 1.5rem;
+    border-radius: 15rem;
+    background: #fff1e5f1;
+    backdrop-filter: blur(2rem);
+    color: var(--primary-color-light);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+.heroH1{
+    font-size: 6.4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    width: 75%;
+    padding: 3.3rem 0;
+}
+.heroText{
+    font-size: 2rem;
+    color: var(--secondary-color);
+    width: 61%;
+    line-height: 1.2;
+    padding-bottom: 4rem;
+}
+.shopNow.btn{
+    width: fit-content;
+    padding: 1.5rem 3rem;
+    box-shadow: none;
+    border-radius: 1rem;
+    font-size: var(--font-size-lg);
+}
+.shopNow.btn:hover{
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+
+
+/* -------------------------- */
+
+.blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(6rem);
+    opacity: 0.16;
+    z-index: 0;
+}
+
+.blob1{
+    width: 30rem; height: 30rem;
+    background: rgb(251, 255, 147);
+    top: 19%; right: 18%;
+    animation: floatBlob 10s ease-in-out infinite;
+}
+.blob2{
+    width: 25rem; height: 25rem;
+    background: rgb(255, 125, 125);
+    top: 15%; right: 5%;
+    animation: floatBlob 14s ease-in-out infinite;
+}
+.blob3{
+    width: 30rem; height: 30rem;
+    background: rgb(9, 65, 139);
+    bottom: 22%; right: 13%;
+    animation: floatBlob 18s ease-in-out infinite;
+}
+@keyframes floatBlob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(25px, -20px) scale(1.08);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.heroTechImg{
+    position: relative;
+    width: 49rem;
+    z-index: 1;
+    padding-top: 7rem;
+}
+
+.hero-footerTx{
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.4rem;
+    background: var(--primary-color-mid);
+    width: 100%;
+    text-align: center;
+}
+.callNo{
+    font-weight: bold;
+    text-decoration: #fff underline;
+}

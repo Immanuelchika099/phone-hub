@@ -1,0 +1,226 @@
+.home-container{
+    height: auto;
+}
+.phoneHeadContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 13rem;
+}
+
+
+/* SHOWING RESULTS FOR */
+.searchResults{
+    width: 90%;
+    margin: 4rem auto 2rem;
+}
+
+.searchResults h2{
+    font-size: 2.4rem;
+    color: #333;
+}
+
+.searchResults span{
+    color: var(--primary-color);
+}
+
+.noResults{
+    text-align:center;
+    padding:60px;
+    font-size:28px;
+    color:#777;
+}
+
+.phoneTx{
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+.phoneHeading{
+    font-size: 4.2rem;
+    color: var(--dark-color);
+    padding-bottom: 5rem;
+}
+
+.phone-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(31rem,1fr));
+    justify-items:center;
+    gap:2rem;
+    max-width:90%;
+    margin:0 auto;
+}
+
+.togglePages{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+.prevPages{
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.prevPages:hover, .prevPages:active{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+
+/* TRENDS SESSION */
+
+.trend-session{
+    padding-top: 12rem;
+    margin: 0 auto;
+    width: 89%;
+}
+
+.phoneHeading.trendHead{
+    padding-bottom: 2.5rem;
+    font-size: 4.8rem;
+}
+.phoneTx.trendd{
+    padding-bottom: 5rem;
+}
+
+.trendGrid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+}
+
+.trendBetween{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.trendCard{
+    width: 39rem;
+    background: #f4f4f488;
+    border: 1px solid #e7e7e7;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.trendCard:hover{
+    box-shadow: 0 12px 25px rgba(0,0,0,.08);
+}
+
+.trendImage{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: .3s ease;
+}
+.trendImage:hover{
+    transform: scaleX(1.05);
+    filter: brightness(  .5);
+}
+
+.trendContent{
+    padding: 1.5rem;
+    height: 31rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.trendSource{
+    font-size: 1.2rem;
+    color: var(--dark-color) ;
+    margin-bottom: .8rem;
+}
+
+.trendTitle{
+    font-weight: 600;
+    line-height: 1.4;
+    color: #222;
+}
+
+.trendDescription{
+    color: var(--secondary-color);
+    line-height: 1.6;
+    padding-bottom: 2rem;
+}
+.trendTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .8rem;
+}
+
+.trendBadge{
+    background: rgba(37,99,235,.1);
+    color: var(--primary-color);
+    padding: .3rem 1.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.trendFooter{
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ececec;
+}
+
+
+/* FAQ SECTION */
+.faq{
+    padding: 11rem 0;
+    width: 65%;
+    margin: 0 auto;
+}
+.phoneHeading.faqHead{
+    text-align: center;
+}
+.faqContainer{
+    display: flex;
+    flex-direction: column;
+}
+.faqMarginContainer{
+    margin-bottom: 3rem;
+}
+.faqItem{
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: #f6f6f6;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.2s ease-in-out;
+}
+
+.faqAnswer{
+    font-size: 1.8rem;
+    background: #f6f6f6;
+    padding: 3rem;
+    color: var(--secondary-color);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 11px 15px -17px rgb(144, 144, 144);
+    transition: 0.2s ease-in-out;
+    border-top: 1px solid rgb(212, 211, 211);
+}
+
+.faqPlusIcon{
+    transition: transform .3s ease;
+    
+}
+.faqPlusIcon.rotate{
+    transform: rotate(45deg);
+}

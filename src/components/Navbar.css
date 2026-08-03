@@ -1,0 +1,117 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.834);
+    backdrop-filter: blur(1rem);
+}
+.navLinks{
+    display: flex;
+    gap: 3rem;
+    font-size: 1.8rem;
+    justify-content: center;
+}
+.logo img{
+    width: 4rem;
+}
+.navLinkText.active{
+    font-weight: bolder;
+    border-bottom: 3px solid var(--secondary-color);
+}
+.navLinkText{
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: relative;
+}
+.navLinkText::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    left: 0;
+    bottom: -3px;
+    transform-origin: left;
+    transition: transform .3s;
+    transform: scale(0);
+}
+.navLinkText:hover::after{
+    transform: scale(1);
+    transform-origin: left;
+}
+
+.navSearchCart{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* SEARH BAR AND CART ICON */
+.search-container{
+    align-items: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #f5f5f5;
+    height: 4rem;
+}
+
+
+.searchInput{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 2rem;
+    width: 39rem;
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+}
+.search-icon{
+    font-size: 2rem;
+    color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: #fefefe;
+    width: 4.5rem;
+    height: 9rem;
+}
+::placeholder{
+    color: var(--secondary-color);
+}
+
+
+.cartContainer{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 939rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.cartIcon{
+    font-size: 1.8rem;
+    color: inherit;
+}
+.cartCount{
+    font-size: 1.2rem;
+    position: absolute;
+    background: var(--danger-color) ;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    color: #fefefe;
+    right: -8px;
+    top: -8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
