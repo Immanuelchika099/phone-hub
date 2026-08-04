@@ -1,4 +1,5 @@
 import "./PhoneCard.css"
+import { motion } from "framer-motion"
 
 function PhoneCard({ phone, addToCart }) {
 

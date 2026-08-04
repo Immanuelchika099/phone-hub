@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import "../pages/Home.css"
 import { HiPlus } from "react-icons/hi2"
+import { div } from "framer-motion/client"
 
 function Faq (){
 
@@ -8,7 +10,7 @@ function Faq (){
 
     return(
         <>
-            <section className="faq">
+            <section id="faq" className="faq">
                 <h2 className="phoneHeading faqHead">Frequently Asked Questions</h2>
 
                 <div className="faqContainer">
@@ -18,8 +20,17 @@ function Faq (){
                             <p> Do your phone come with a warranty?</p>
                             <span className= {activeFaq === 1 ? "faqPlusIcon rotate" : "faqPlusIcon"} > < HiPlus /> </span>
                         </div>
-
-                       { activeFaq === 1 && <p className="faqAnswer">Yes. All eligible devices include an official manufacturer warranty</p> }
+                    
+                       { activeFaq === 1 && 
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                                <p className="faqAnswer">Yes. All eligible devices include an official manufacturer warranty</p> 
+                        </motion.div>
+                       }
                     </div>
                     
 
@@ -30,7 +41,16 @@ function Faq (){
 
                         </div>
 
-                            { activeFaq === 2 && <p className="faqAnswer">Returns are accepted within our return window as long as the phone meets the return conditions</p>  }
+                            { activeFaq === 2 &&
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                        <p className="faqAnswer">Returns are accepted within our return window as long as the phone meets the return conditions</p> 
+                                </motion.div>
+                          }
                     </div>
                     
                     <div className="faqMarginContainer">
@@ -39,7 +59,16 @@ function Faq (){
                             <span className= {activeFaq === 3 ? "faqPlusIcon rotate" : "faqPlusIcon"} >< HiPlus /> </span>
 
                         </div>
-                        { activeFaq  === 3 && <p className="faqAnswer">Yes. We deliver across Nigeria with secure packaging and tracking</p>  }
+                            { activeFaq  === 3 &&                                
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                        <p className="faqAnswer">Yes. We deliver across Nigeria with secure packaging and tracking</p> 
+                                </motion.div>
+                            }
                     </div>
 
                     <div className="faqMarginContainer">
@@ -50,7 +79,16 @@ function Faq (){
                             </p>
                             <span className= {activeFaq === 4 ? "faqPlusIcon rotate" : "faqPlusIcon"} > < HiPlus /> </span>
                         </div>
-                             { activeFaq === 4 && <p className="faqAnswer">Yes. Every Phone listed is brand new, sealed, and sourced from trusted suppliers</p>  }
+                             { activeFaq === 4 &&
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <p className="faqAnswer">Yes. Every Phone listed is brand new, sealed, and sourced from trusted suppliers</p> 
+                                </motion.div>
+                             }
                     </div>
 
                     <div className="faqMarginContainer">
@@ -60,7 +98,16 @@ function Faq (){
                             </p>
                             <span className= {activeFaq === 5 ? "faqPlusIcon rotate" : "faqPlusIcon"} >< HiPlus /> </span>
                         </div>
-                        { activeFaq === 5 && <p className="faqAnswer">We accept bank transfers, debit cards, and other supported payment options during checkout</p>  }
+                        { activeFaq === 5 && 
+                            <motion.div
+                                initial={{ opacity: 0, y: -10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <p className="faqAnswer">We accept bank transfers, debit cards, and other supported payment options during checkout</p>
+                            </motion.div>
+                        }
                     </div>
 
                 </div>

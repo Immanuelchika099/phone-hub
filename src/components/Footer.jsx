@@ -1,8 +1,11 @@
 import "./Footer.css"
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-
 import { FaXTwitter } from "react-icons/fa6";
+import { MdMail } from "react-icons/md";
+import { MdLocationOn } from "react-icons/md";
 import navLogo from "../assets/logo/navLogo.PNG"
+import {Link} from "react-router-dom"
+import { motion } from "framer-motion"
 
 function Footer(){
 
@@ -38,7 +41,7 @@ function Footer(){
                                 <FaLinkedin />
                             </a>
 
-                            <a href="https://github.com/hi_imanw"
+                            <a href="https://instagram.com/hi_imanw"
                                 target="_blank"
                                 rel="noopener noreferrer">
                                 <FaInstagram />
@@ -59,9 +62,9 @@ function Footer(){
 
                         <h3>Quick Links</h3>
 
-                        <a href="/">Home</a>
-                        <a href="#trends">Latest News</a>
-                        <a href="#contact">Contact</a>
+                        <Link to="/">Home</Link>
+                        <Link to="#trends">Latest News</Link>
+                        <Link to="#contact">Contact</Link>
 
                     </div>
 
@@ -72,7 +75,7 @@ function Footer(){
 
                         <a href="/">Products</a>
                         <a href="#faq">FAQs</a>
-                        <a href="/">Support</a>
+                        <a href="#contact">Support</a>
 
                     </div>
 
@@ -81,10 +84,12 @@ function Footer(){
 
                         <h3>Contact</h3>
 
-                        <p>📍 Port Harcourt, Nigeria</p>
+                        <p>
+                            <MdLocationOn /> Port Harcourt, Nigeria
+                        </p>
 
                         <p>
-                            ✉️ iman67@gmail.com
+                            <MdMail/> iman67@gmail.com
                         </p>
 
                         <p className="available">

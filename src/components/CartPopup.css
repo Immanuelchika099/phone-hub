@@ -51,7 +51,7 @@
 }
 
 .itemBadge{
-    background:var(--primary-color);
+    background: var(--primary-color-light);
     color:#fff;
     padding:.45rem 1rem;
     border-radius:999px;
@@ -263,7 +263,7 @@
     padding:1.7rem;
     border:none;
     border-radius:14px;
-    background:var(--primary-color);
+    background:var(--primary-color-light);
     color:white;
     font-size:1.6rem;
     font-weight:700;

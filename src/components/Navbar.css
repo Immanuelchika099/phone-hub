@@ -162,13 +162,19 @@
 }
 
 @media (max-width:768px){
+    body{
+        background: red;
+        padding-top: 12rem;
+    }
     .nav{
         flex-wrap:wrap;
         justify-content:space-between;
-        gap:2rem;
+        gap:1rem;
         padding:2rem;
-        position: sticky;
+        position: fixed;
+        width: 100%;
         top: 0;
+
     }
     .menuIcon{
          display:block;
@@ -186,14 +192,12 @@
 }
 
 @media (max-width:576px){
-    body{
-        overflow-x: hidden;
-    }
     .nav{
         display:flex;
         justify-content:space-between;
         align-items:center;
-        padding:1.5rem;
+        padding: 1rem 1.5rem;
+        gap: .7rem;
     }
 
    .navLinks{

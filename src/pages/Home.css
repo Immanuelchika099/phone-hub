@@ -23,9 +23,9 @@
     color: var(--primary-color);
 }
 .noResults{
-    text-align:center;
-    padding:60px;
-    font-size:28px;
+    text-align: center;
+    padding: 60px;
+    font-size: 3rem;
     color:#777;
 }
 .phoneTx{
@@ -59,10 +59,13 @@
 }
 .prevPages{
     font-size: 1.8rem;
-    color: var(--secondary-color);
     display: flex;
     align-items: center;
     gap: 1rem;
+    background: #f2f2f2;
+    color: var(--dark-color);
+    border-radius: 2rem;
+    padding: .4rem 1.3rem;
 }
 .prevPages:hover, .prevPages:active{
     font-weight: bold;
@@ -81,7 +84,10 @@
 }
 .phoneTx.trendd{
     padding-bottom:0;
-    max-width:60rem;
+    max-width: 65rem;
+    color: var(--secondary-color);
+    letter-spacing: .3px;
+    font-size: 2rem;
 }
 .trendGrid{
     display: flex;
@@ -115,30 +121,26 @@
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-    margin-bottom:3rem;
+    margin-bottom: 6rem;
 }
 .trendButtons{
     display:flex;
-    gap:1rem;
+    gap:1.5rem;
 }
+
 .trendButtons button{
     width:48px;
     height:48px;
-
     border:none;
     border-radius:50%;
-
     background:#fff;
-
-    font-size:1.3rem;
+    color: var(--dark-color);
+    font-size:1.4rem;
     cursor:pointer;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     box-shadow:0 5px 15px rgba(0,0,0,.08);
-
     transition:.25s;
 }
 .trendButtons button:hover{
@@ -172,10 +174,12 @@
 .trendTitle{
     font-weight: 600;
     line-height: 1.4;
+    font-size: 1.9rem;
     color: #222;
 }
 .trendDescription{
     color: var(--secondary-color);
+    font-size: 1.6rem;
     line-height: 1.6;
     padding-bottom: 2rem;
 }
@@ -224,6 +228,9 @@
     display: flex;
     justify-content: space-between;
     transition: 0.2s ease-in-out;
+}
+.faqItem:hover, .faqItem.active{
+    background: #ebebeb;
 }
 .faqAnswer{
     font-size: 1.8rem;
@@ -275,36 +282,34 @@
             width:90%;
         }
 
+        .trend-session{
+            padding-top: 8rem;
+        }
         .phoneHeading.trendHead{
-            font-size:3.5rem;
-            text-align:center;
+            font-size: 4rem;
+            font-weight: bolder;
+            text-align: left;
+            padding-bottom:.9rem;
         }
 
         .phoneTx.trendd{
-            text-align:center;
+            text-align: left;
+            font-size: 1.6rem;
         }
 
         .trendHeader{
             display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:1.5rem;
-    margin-bottom:2rem;
+            flex-direction:column;
+            align-items:flex-start;
+            gap:1.5rem;
+            margin-bottom:2rem;
         }
         .trendButtons{
-             width:100%;
-    display:flex;
-    justify-content:flex-end;
+            width:100%;
+            display:flex;
+            justify-content:flex-end;
         }
 
-        .phoneHeading.trendHead{
-    text-align:left;
-    padding-bottom:.8rem;
-}
-.phoneTx.trendd{
-    text-align:left;
-    padding-bottom:0;
-}
         .trendCard{
             flex:0 0 70%;
         }
@@ -348,8 +353,13 @@
 
 .prevPages{
     font-size:1.5rem;
+    font-weight: bold;
+    border-radius: 2rem;
+    padding: .4rem 1.3rem;
 }
-
+.trend-session{
+    padding-top: 6rem;
+}
 .phoneHeading.trendHead{
     font-size:2.5rem;
 }
@@ -360,11 +370,15 @@
 
 .phoneTx.trendd{
     padding-bottom:1rem;
+    font-size: 1.5rem;
 }
-
+.phoneHeading.trendHead{
+    font-size: 3.4rem;
+    font-weight: bolder;
+}
 .trendHeader{
     gap:.8rem;
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
 }
 
 .trendButtons{
@@ -376,15 +390,27 @@
     width:40px;
     height:40px;
 }
-
-.trendContent{
-    height:auto;
+.trendBetween{
+    gap: 1.8rem;
 }
-
+.trendContent{
+    height: 34rem;
+}
+.trendTop{
+    margin-bottom: 0;
+}
 .trendImage{
     height:190px;
 }
-
+.trendTitle{
+    font-size: 1.8rem;
+}
+.trendDescription{
+    font-size: 1.5rem;
+}
+.trendFooter{
+    margin-top: 0;
+}
 .faq{
     width:95%;
 }

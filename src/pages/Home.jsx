@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import Trends from "../components/Trends";
 import Faq from "../components/Faq";
+import { motion } from "framer-motion"
 
 function Home({ addToCart, search }) {
 
@@ -19,11 +20,15 @@ function Home({ addToCart, search }) {
 );
 const phoneCards = filteredPhones.map((product) => (
 
-    <PhoneCard
-        key={product.id}
-        phone={product}
-        addToCart={addToCart}
-    />
+  <motion.div
+    key={product.id}
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5 }}
+  >
+    <PhoneCard phone={product} addToCart={addToCart} />
+  </motion.div>
 
 ));
 
@@ -53,9 +58,24 @@ const phoneCards = filteredPhones.map((product) => (
               <Link to="/phones" className="prevPages"> Next <IoChevronForward /> </Link>
             </ul>
         </section>
+        <motion.section
+          initial={{ opacity: 0, y: 90 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Trends />
+        </motion.section>
 
-        <Trends />
-        <Faq/>
+        <motion.section
+          initial={{ opacity: 0, y: 90 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Faq />
+        </motion.section>
+
         <Footer />
       </main>
     </>

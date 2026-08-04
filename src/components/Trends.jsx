@@ -45,11 +45,11 @@ const scrollRight = () => {
 
                         <div className="trendButtons">
                             <button onClick={scrollLeft}>
-                                <IoChevronBack />
+                                <IoChevronBack className="trend-btnArrow" />
                             </button>
 
                             <button onClick={scrollRight}>
-                                <IoChevronForward />
+                                <IoChevronForward className="trend-btnArrow" />
                             </button>
                         </div>
 
@@ -149,7 +149,7 @@ const scrollRight = () => {
                                 </div>
 
                                 <h3 className="trendTitle">
-                                iPhone 18 Camera Upgrade Could Be Apple's Biggest Leap Yet
+                                iPhone 18 Camera Upgrade Could Be Apple's Biggest Leap
                                 </h3>
 
                                 <p className="trendDescription">

@@ -6,7 +6,7 @@
     width:100%;
     height:40rem;
     border:1px solid var(--card-border-color);
-    background:#f7f7f7;
+    background:#f6f6f6de;
     border-radius:.4rem;
     padding:var(--spacing-lg);
     transition:.2s ease;
@@ -15,7 +15,7 @@
     font-size:var(--font-size-sm);
 }
 .phoneCard:hover{
-    box-shadow: inset 0 0 17px rgba(31, 31, 31, 0.1);
+    box-shadow: inset 0 0 21px rgba(31, 31, 31, 0.1);
     background-color: #fff;
 }
 
@@ -75,9 +75,12 @@
     
 }
 .btn.buy:hover{
-    background: transparent;
+    background: #fff7f7de;
     color: var(--secondary-color);
-    box-shadow: inset 0 0 3px var(--secondary-color);
+    box-shadow: inset 0 0 7px -3px var(--primary-color-shadow);
+}
+.btn.buy:active{
+    transform: scale(.8);
 }
 
 

@@ -33,7 +33,7 @@
 }
 .heroH1{
     font-size: 6.4rem;
-    font-weight: 800;
+    font-weight: bolder;
     line-height: 1.1;
     width: 75%;
     padding: 3.3rem 0;
@@ -50,6 +50,7 @@
     padding: 1.5rem 3rem;
     box-shadow: none;
     border-radius: 1rem;
+    background: var(--primary-color-light);
     font-size: var(--font-size-lg);
 }
 .shopNow.btn:hover{
@@ -110,7 +111,7 @@
     color: #fff;
     padding: 1rem;
     font-size: 1.4rem;
-    background: var(--primary-color-mid);
+    background: var(--primary-color-light);
     width: 100%;
     text-align: center;
 }

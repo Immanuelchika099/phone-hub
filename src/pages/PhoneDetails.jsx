@@ -4,6 +4,7 @@ import products from "../data/products";
 import { IoChevronBack } from "react-icons/io5";
 import "./Home.css"
 import Footer from "../components/Footer";
+import { motion } from "framer-motion"
 import { useState } from "react";
 
 function PhoneDetails({phone, addToCart, search }){
@@ -14,12 +15,19 @@ const filteredPhones = products.filter((phone) =>
 
 );
 const phoneCards = filteredPhones.map((product) => (
-    <PhoneCard
+    <motion.div
         key={product.id}
-        phone={product}
-        addToCart={addToCart}
-    />
-
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, }}
+    >
+        <PhoneCard
+            key={product.id}
+            phone={product}
+            addToCart={addToCart}
+        />
+    </motion.div>
 ));
 
     return (        
@@ -28,7 +36,6 @@ const phoneCards = filteredPhones.map((product) => (
                 { phoneCards }
             </ul>
             <ul className="togglePages">
-
                 <Link to="/" className="prevPages"><IoChevronBack /> Previous </Link>
                 <Link to="/phones" className="prevPages"> </Link>
             </ul>
