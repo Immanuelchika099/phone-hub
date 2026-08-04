@@ -11,7 +11,7 @@ function Faq (){
     return(
         <>
             <section id="faq" className="faq">
-                <h2 className="phoneHeading faqHead">Frequently Asked Questions</h2>
+                <h2 className="phoneHeading faqHead">FAQ's</h2>
 
                 <div className="faqContainer">
                     

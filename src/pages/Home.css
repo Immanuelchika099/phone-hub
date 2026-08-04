@@ -36,6 +36,7 @@
     font-size: 4.2rem;
     color: var(--dark-color);
     padding-bottom: 5rem;
+    font-weight: 800;
 }
 .phoneHeading.main{
     padding-bottom: 0;
@@ -59,6 +60,7 @@
 }
 .prevPages{
     font-size: 1.8rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -86,7 +88,7 @@
     padding-bottom:0;
     max-width: 65rem;
     color: var(--secondary-color);
-    letter-spacing: .3px;
+    letter-spacing: 0.2px;
     font-size: 2rem;
 }
 .trendGrid{
@@ -170,12 +172,14 @@
     font-size: 1.2rem;
     color: var(--dark-color) ;
     margin-bottom: .8rem;
+    font-weight: 700;
 }
 .trendTitle{
-    font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.2;
     font-size: 1.9rem;
-    color: #222;
+    letter-spacing: -0.6px;
+    color: var(--dark-color);
+    font-weight: 700;
 }
 .trendDescription{
     color: var(--secondary-color);

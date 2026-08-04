@@ -8,6 +8,7 @@
     z-index: 1000;
     background: rgba(255, 255, 255, 0.834);
     backdrop-filter: blur(1rem);
+    width: 100%;
 }
 
 
@@ -33,7 +34,7 @@
     justify-content: center;
 }
 .logo img{
-    width: 4rem;
+    width: 3rem;
 }
 .navLinkText.active{
     font-weight: bolder;
@@ -41,7 +42,7 @@
 }
 .navLinkText{
     color: var(--secondary-color);
-    font-weight: bold;
+    font-weight: 700;
     position: relative;
 }
 .navLinkText::after {
@@ -88,6 +89,7 @@
     width: 39rem;
     color: var(--secondary-color);
     font-size: 1.6rem;
+    font-weight: 700;
 }
 .search-icon{
     font-size: 2rem;
@@ -99,6 +101,7 @@
 }
 ::placeholder{
     color: var(--secondary-color);
+    font-weight: 700;
 }
 
 
@@ -163,7 +166,6 @@
 
 @media (max-width:768px){
     body{
-        background: red;
         padding-top: 12rem;
     }
     .nav{
@@ -172,7 +174,6 @@
         gap:1rem;
         padding:2rem;
         position: fixed;
-        width: 100%;
         top: 0;
 
     }
@@ -196,7 +197,7 @@
         display:flex;
         justify-content:space-between;
         align-items:center;
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.4rem;
         gap: .7rem;
     }
 
@@ -205,7 +206,7 @@
         top:0;
         right:-27rem;
         left:auto;
-        width:27rem;
+        width:24rem;
         height:100vh;
         background:#fff;
         align-items:flex-start;
