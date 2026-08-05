@@ -18,6 +18,11 @@
     src: url("./assets/fonts/Trap-ExtraBold.otf") format("opentype");
     font-weight: 900;
 }
+@font-face {
+    font-family: "Inter";
+    src: url("./assets/fonts/Inter-Bold.ttf") format("truetype");
+    font-weight: 800;
+}
 
 
 :root{
@@ -58,7 +63,6 @@
     --spacing-sm: 0.5rem;
     --spacing-base: 1rem;
     --spacing-lg: 2rem;
-
 
     /* border radius */
     --border-radius: 0.8rem;

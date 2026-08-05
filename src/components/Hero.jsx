@@ -13,7 +13,7 @@ function Hero(){
                     transition={{ duration: 0.8 }}
                 >
                     <p className="summerTx">"Summer Sale - Up to 50% Off"</p>
-                    <h1 className="heroH1"> Shop the Latest <br />Phones & Accesories </h1>
+                    <h1 className="heroH1"> Smarter Technology <br />Better Living.</h1>
                     <p className="heroText">
                         Discover premuim smartphones from top brands at unbeatable prices.
                         Find perfect device for work, gaming, and everyday life.
