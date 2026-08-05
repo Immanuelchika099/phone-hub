@@ -1,5 +1,6 @@
 import "./PhoneCard.css"
 import { motion } from "framer-motion"
+import { FaStar } from "react-icons/fa"
 
 function PhoneCard({ phone, addToCart }) {
 
@@ -18,7 +19,11 @@ function PhoneCard({ phone, addToCart }) {
                     <p className="phoneCard-storage">{phone.storage}</p>
                 </div>
                 <div className="phoneCardFlex">
-                    <p className="phoneCard-rating">{phone.rating}</p>
+                    <div className="phoneCard-stars">
+                        {[...Array(5)].map((_, i) => (
+                            <FaStar key={i} className={i < Math.floor(phone.rating) ? "filled" : "empty"} />
+                        ))}
+                    </div>
                     <p className="phoneCard-price">₦{phone.price.toLocaleString() }</p>
                 </div>
                 <div className="phoneCardFlex outline">
