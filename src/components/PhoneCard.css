@@ -17,6 +17,7 @@
 .phoneCard:hover{
     box-shadow: inset 0 0 21px rgba(31, 31, 31, 0.1);
     background-color: #fff;
+    border: 2px solid #e0e0e0;
 }
 
 .phoneCard img{
@@ -58,9 +59,7 @@
 .filled{
     color: var(--primary-color);
 }
-.empty{
-    color: var(--card-border-color);
-}
+
 .phoneCard-price{
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
