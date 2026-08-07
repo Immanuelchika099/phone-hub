@@ -31,7 +31,7 @@ function PhoneCard({ phone, addToCart }) {
                     <p className="phoneCard-storage">{phone.storage}</p>
                 </div>
                 <button className="btn buy"
-                    onClick={(()=> addToCart(phone) )}
+                    onClick={(e) => { e.stopPropagation(); addToCart(phone); }}
                 >
                     Add to Cart
                 </button>

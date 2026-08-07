@@ -1,4 +1,7 @@
-import iphone17pro from "../assets/phones/iphone17pro.PNG";
+import silver17Pro from "../assets/phones/iphone17pro/silver.png";
+import orange17Pro from "../assets/phones/iphone17pro/cosmic-orange.png";
+import blue17Pro from "../assets/phones/iphone17pro/deep-blue.png";
+
 import iphone17 from "../assets/phones/iphone17.PNG";
 import iphone16 from "../assets/phones/iphone16.PNG";
 import iphone16pro from "../assets/phones/iphone16pro.PNG";
@@ -35,10 +38,15 @@ const products = [
             title: "iPhone 17 Pro",
             brand: "Apple",
             price: 1750000,
-            thumbnail: iphone17pro,
+            thumbnail: silver17Pro,
             storage: "256GB",
-            color: "Titanium Gray",
-            rating: "⭐ 4.8 / 5",
+            colors: {
+                Silver: silver17Pro,
+                "Cosmic Orange": orange17Pro,
+                "Deep Blue": blue17Pro
+            },
+            rating: "4.8 / 5",
+            description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
                  
         },
         {
@@ -49,9 +57,9 @@ const products = [
             thumbnail: iphone17,
             storage: "256GB",
             color: "Black",
-            rating: "⭐ 4.5 / 5",
-        
-    },
+            rating: "4.5 / 5",
+            description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
+        },
     {
         id: 3,
         title: "iPhone 16",
@@ -60,7 +68,8 @@ const products = [
         thumbnail: iphone16,
         storage: "128GB",
         color: "Ultramarine",
-        rating: "⭐ 4.6 / 5",
+        rating: "4.6 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 4,
@@ -70,7 +79,8 @@ const products = [
         thumbnail: nothing4a,
         storage: "128GB",
         color: "Black",
-        rating: "⭐ 4.3 / 5",
+        rating: "4.3 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 5,
@@ -80,7 +90,8 @@ const products = [
         thumbnail: iphone16promax,
         storage: "256GB",
         color: "Desert Titanium",
-        rating: "⭐ 4.9 / 5",
+        rating: "4.9 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 6,
@@ -90,7 +101,8 @@ const products = [
         thumbnail: oneplus13,
         storage: "256GB",
         color: "Emerald Green",
-        rating: "⭐ 4.6 / 5",
+        rating: "4.6 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 7,
@@ -100,7 +112,8 @@ const products = [
         thumbnail: iphone15,
         storage: "128GB",
         color: "Blue",
-        rating: "⭐ 4.4 / 5",
+        rating: "4.4 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 8,
@@ -110,7 +123,8 @@ const products = [
         thumbnail: nothing3,
         storage: "256GB",
         color: "White",
-        rating: "⭐ 4.4 / 5",
+        rating: "4.4 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 9,
@@ -120,7 +134,8 @@ const products = [
         thumbnail: iphone14promax,
         storage: "256GB",
         color: "Deep Purple",
-        rating: "⭐ 4.6 / 5",
+        rating: "4.6 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 10,
@@ -130,7 +145,8 @@ const products = [
         thumbnail: samsunga56,
         storage: "128GB",
         color: "Awesome Lilac",
-        rating: "⭐ 4.3 / 5",
+        rating: "4.3 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 11,
@@ -140,7 +156,8 @@ const products = [
         thumbnail: iphonese,
         storage: "64GB",
         color: "Starlight",
-        rating: "⭐ 4.1 / 5",
+        rating: "4.1 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 12,
@@ -150,7 +167,8 @@ const products = [
         thumbnail: iphonexs,
         storage: "64GB",
         color: "Space Gray",
-        rating: "⭐ 4.0 / 5",
+        rating: "4.0 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 13,
@@ -160,7 +178,8 @@ const products = [
         thumbnail: flip6,
         storage: "256GB",
         color: "Mint",
-        rating: "⭐ 4.5 / 5",
+        rating: "4.5 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 14,
@@ -170,7 +189,8 @@ const products = [
         thumbnail: fold6,
         storage: "512GB",
         color: "Navy",
-        rating: "⭐ 4.7 / 5",
+        rating: "4.7 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 15,
@@ -180,7 +200,8 @@ const products = [
         thumbnail: galaxys25plus,
         storage: "256GB",
         color: "Silver Shadow",
-        rating: "⭐ 4.6 / 5",
+        rating: "4.6 / 5",
+        description: "Experience powerful performance, beautiful design and an incredible smartphone experience."
     },
     {
         id: 16,

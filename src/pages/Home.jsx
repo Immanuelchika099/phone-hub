@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import products from "../data/products";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+import ProductModal from "../components/ProductModal";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import Trends from "../components/Trends";
 import Faq from "../components/Faq";
@@ -18,6 +19,7 @@ function Home({ addToCart, search }) {
     phone.title.toLowerCase().includes(search.toLowerCase())
 
 );
+const [selectedPhone, setSelectedPhone] = useState(null);
 const phoneCards = filteredPhones.map((product) => (
 
   <motion.div
@@ -26,11 +28,18 @@ const phoneCards = filteredPhones.map((product) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.5 }}
+
+    onClick={() => setSelectedPhone(product)}
   >
+    
     <PhoneCard phone={product} addToCart={addToCart} />
   </motion.div>
+  
+  
+  
 
 ));
+
 
 
   return (
@@ -53,11 +62,18 @@ const phoneCards = filteredPhones.map((product) => (
                 )}
             </ul>
 
+            <ProductModal
+              phone={selectedPhone}
+              onClose={() => setSelectedPhone(null)}
+              addToCart={addToCart}
+            />
+
             <ul className="togglePages">
               <span></span>
               <Link to="/phones" className="prevPages"> Next <IoChevronForward /> </Link>
             </ul>
         </section>
+
         <motion.section
           initial={{ opacity: 0, y: 90 }}
           whileInView={{ opacity: 1, y: 0 }}

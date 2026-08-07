@@ -1,0 +1,559 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10, 10, 10, 0.58);
+
+    backdrop-filter: blur(12px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+
+    animation: overlayFade 0.25s ease;
+}
+
+
+@keyframes overlayFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.product-modal {
+    position: relative;
+
+    width: min(1000px, 94vw);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fffaf4;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+
+    gap: 42px;
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.35);
+
+    animation: modalPop 0.35s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+@keyframes modalPop {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+.modal-close {
+    position: absolute;
+
+    top: 17px;
+    right: 17px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.06);
+
+    font-size: 27px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.modal-close:hover {
+    transform: rotate(90deg);
+
+    background: rgba(0, 0, 0, 0.11);
+}
+
+
+/* =========================
+   LEFT
+========================= */
+
+.modal-left {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal-image-container {
+    width: 100%;
+    height: 520px;
+
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffffff 0%,
+            #f4f4f4 65%,
+            #eeeeee 100%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+.modal-image-container img {
+    width: 88%;
+    height: 88%;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.45s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.25s ease;
+}
+
+
+.modal-image-container:hover img {
+    transform: scale(1.045);
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.modal-details {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 25px 15px 25px 0;
+}
+
+
+.modal-brand {
+    color: #888;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin: 0 0 6px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+
+.modal-title {
+    color: #20202a;
+
+    font-size: clamp(30px, 4vw, 43px);
+
+    line-height: 1.05;
+
+    margin: 0 0 13px;
+
+    letter-spacing: -0.04em;
+}
+
+
+/* =========================
+   RATING
+========================= */
+
+.modal-rating {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 8px;
+}
+
+
+.modal-rating > span {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+.phoneCard-stars {
+    display: flex;
+
+    gap: 3px;
+
+    font-size: 16px;
+}
+
+
+.phoneCard-stars .filled {
+    color: #f47c20;
+}
+
+
+.phoneCard-stars .empty {
+    color: #ddd;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.modal-price {
+    font-size: 29px;
+
+    color: #20202a;
+
+    margin: 5px 0 25px;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.option-section {
+    margin-bottom: 22px;
+}
+
+
+.option-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 11px;
+}
+
+
+.option-title {
+    color: #292929;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin: 0;
+}
+
+
+.selected-option {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   COLOR PICKER
+========================= */
+
+.color-options {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.color-option {
+    width: 39px;
+    height: 39px;
+
+    padding: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border 0.2s ease;
+}
+
+
+.color-option:hover {
+    transform: scale(1.08);
+}
+
+
+.color-option.selected {
+    border-color: #f47c20;
+
+    transform: scale(1.08);
+}
+
+
+.color-circle {
+    width: 27px;
+    height: 27px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================
+   STORAGE
+========================= */
+
+.storage-options {
+    display: flex;
+
+    gap: 9px;
+
+    flex-wrap: wrap;
+}
+
+
+.storage-option {
+    min-width: 80px;
+
+    padding: 11px 15px;
+
+    border-radius: 9px;
+
+    border: 1px solid #d9d9d9;
+
+    background: #fff;
+
+    color: #333;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.storage-option:hover {
+    border-color: #f47c20;
+
+    transform: translateY(-1px);
+}
+
+
+.storage-option.selected {
+    background: #f47c20;
+
+    border-color: #f47c20;
+
+    color: #fff;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.modal-description {
+    color: #707070;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    margin: 3px 0 20px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+/* =========================
+   CART BUTTON
+========================= */
+
+.modal-cart-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 11px;
+
+    background: #f47c20;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.modal-cart-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(244, 124, 32, 0.3);
+}
+
+
+.modal-cart-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   STOCK
+========================= */
+
+.stock-status {
+    color: #4f7d52;
+
+    font-size: 12px;
+
+    text-align: center;
+
+    margin: 11px 0 0;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    .product-modal {
+        width: min(95vw, 560px);
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding: 18px;
+
+        max-height: 94vh;
+
+        border-radius: 22px;
+    }
+
+
+    .modal-details {
+        padding: 5px 8px 15px;
+    }
+
+
+    .modal-image-container {
+        height: 320px;
+
+        border-radius: 19px;
+    }
+
+
+    .modal-image-container img {
+        width: 75%;
+        height: 90%;
+    }
+
+
+    .modal-title {
+        font-size: 31px;
+    }
+
+
+    .modal-price {
+        font-size: 26px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .modal-close {
+        top: 10px;
+        right: 10px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 24px;
+    }
+
+}
