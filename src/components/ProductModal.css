@@ -501,59 +501,117 @@
 
 @media (max-width: 750px) {
 
+    .modal-overlay {
+        padding: 10px;
+    }
+
     .product-modal {
-        width: min(95vw, 560px);
+        width: 94vw;
+        max-height: 92vh;
 
         grid-template-columns: 1fr;
 
-        gap: 20px;
+        gap: 12px;
 
-        padding: 18px;
+        padding: 14px;
 
-        max-height: 94vh;
-
-        border-radius: 22px;
+        border-radius: 20px;
     }
-
 
     .modal-details {
-        padding: 5px 8px 15px;
+        padding: 2px 5px 10px;
     }
-
 
     .modal-image-container {
-        height: 320px;
+        height: 230px;
+        min-height: 0;
 
-        border-radius: 19px;
+        border-radius: 17px;
     }
 
-
     .modal-image-container img {
-        width: 75%;
+        width: 65%;
         height: 90%;
     }
 
+    .modal-brand {
+        font-size: 11px;
+        margin-bottom: 3px;
+    }
 
     .modal-title {
-        font-size: 31px;
+        font-size: 25px;
+        margin-bottom: 8px;
     }
 
+    .modal-rating {
+        margin-bottom: 4px;
+    }
+
+    .phoneCard-stars {
+        font-size: 13px;
+    }
 
     .modal-price {
-        font-size: 26px;
-
-        margin-bottom: 20px;
+        font-size: 22px;
+        margin: 5px 0 14px;
     }
 
+    .option-section {
+        margin-bottom: 13px;
+    }
+
+    .option-title {
+        font-size: 13px;
+    }
+
+    .color-option {
+        width: 34px;
+        height: 34px;
+    }
+
+    .color-circle {
+        width: 23px;
+        height: 23px;
+    }
+
+    .storage-option {
+        min-width: 70px;
+
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+    .modal-description {
+        font-size: 12px;
+
+        line-height: 1.5;
+
+        margin-bottom: 14px;
+
+        -webkit-line-clamp: 2;
+    }
+
+    .modal-cart-btn {
+        padding: 13px;
+
+        font-size: 14px;
+    }
+
+    .stock-status {
+        font-size: 10px;
+
+        margin-top: 7px;
+    }
 
     .modal-close {
-        top: 10px;
-        right: 10px;
+        top: 8px;
+        right: 8px;
 
-        width: 38px;
-        height: 38px;
+        width: 34px;
+        height: 34px;
 
-        font-size: 24px;
+        font-size: 22px;
     }
-
 }
