@@ -1,6 +1,6 @@
-import silver17Pro from "../assets/phones/iphone17pro/silver.png";
-import orange17Pro from "../assets/phones/iphone17pro/cosmic-orange.png";
-import blue17Pro from "../assets/phones/iphone17pro/deep-blue.png";
+import silver17Pro from "../assets/phones/iphone17pro/silver.PNG";
+import orange17Pro from "../assets/phones/iphone17pro/cosmic-orange.PNG";
+import blue17Pro from "../assets/phones/iphone17pro/deep-blue.PNG";
 
 import iphone17 from "../assets/phones/iphone17.PNG";
 import iphone16 from "../assets/phones/iphone16.PNG";
