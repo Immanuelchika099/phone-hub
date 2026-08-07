@@ -30,6 +30,7 @@ const scrollRight = () => {
 
     return(
         <>
+        <main className="trendMainContainer">
             <section id="trends" className="trend-session">
                     <div className="trendHeader">
 
@@ -302,7 +303,8 @@ const scrollRight = () => {
                     </div>
                     
                 </div>
-        </section>
+            </section>
+        </main>
         </>
     )
 }

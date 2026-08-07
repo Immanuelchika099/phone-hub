@@ -1,5 +1,6 @@
 .home-container{
     height: auto;
+    position: relative;
 }
 .phoneHeadContainer{
     display: flex;
@@ -56,7 +57,7 @@
     align-items: center;
     width: 70%;
     margin: 0 auto;
-    padding-top: 5rem;
+    padding: 5rem 0;
 }
 .prevPages{
     font-size: 1.8rem;
@@ -74,10 +75,40 @@
     color: var(--primary-color);
 }
 
+.phone-section{
+    position: relative;
+    z-index: 1;
+}
 
 /* TRENDS SESSION */
+.trendMainContainer {
+    background: #eeeeee;
+    padding: 10rem 0;
+    position: relative;
+    z-index: 10;
+}
+.trends-scroll-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -90vh;
+    min-height: 100vh;
+    pointer-events: none;
+}
+
+.trends-moving {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.trendMainContainer {
+    background: #eeeeee;
+    padding: 10rem 0;
+    position: relative;
+    z-index: 10;
+}
 .trend-session{
-    padding-top: 12rem;
     margin: 0 auto;
     width: 89%;
 }
@@ -88,8 +119,8 @@
     padding-bottom:0;
     max-width: 65rem;
     color: var(--secondary-color);
-    letter-spacing: 0.2px;
-    font-size: 2rem;
+    letter-spacing: -1px;
+    font-size: 2.1rem;
 }
 .trendGrid{
     display: flex;
@@ -111,13 +142,13 @@
 .trendCard{
     flex:0 0 42%;
     flex-shrink:0;
-    background:#f4f4f488;
+    background:#fcfcfce5;
     border:1px solid #e7e7e7;
     border-radius:18px;
     overflow:hidden;
 }
 .trendCard:hover{
-    background: linear-gradient(to bottom right , #dcdcdc, #fffefe9e);
+    background: linear-gradient(to bottom right , #dcdcdc, #fffbf7b6);
 }
 .trendHeader{
     display:flex;

@@ -12,6 +12,7 @@
     transition:.2s ease;
     cursor:pointer;
     gap:.7rem;
+    font-weight: 500;
     font-size:var(--font-size-sm);
 }
 .phoneCard:hover{

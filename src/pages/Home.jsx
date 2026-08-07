@@ -9,9 +9,24 @@ import ProductModal from "../components/ProductModal";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import Trends from "../components/Trends";
 import Faq from "../components/Faq";
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 function Home({ addToCart, search }) {
+
+  // SCROLL ANIMATION
+   const phoneRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: phoneRef,
+        offset: ["end end", "end start"]
+    });
+
+    const trendsY = useTransform(
+        scrollYProgress,
+        [0, 0.15],
+        ["100vh", "0vh"]
+    );
 
 
   // THE MAPPING FUNCTION FOR PHONES
@@ -47,7 +62,7 @@ const phoneCards = filteredPhones.map((product) => (
       <main className="home-container">
         <Hero />
 
-        <section>
+        <section ref={phoneRef} className="phone-section">
             <ul className="phoneHeadContainer">
               <p className="phoneTx">THE PHONES</p>
               <h1 className="phoneHeading main">Our Impressive Phone Models</h1>
@@ -74,14 +89,14 @@ const phoneCards = filteredPhones.map((product) => (
             </ul>
         </section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 90 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Trends />
-        </motion.section>
+        <div className="trends-scroll-section">
+            <motion.div
+                style={{ y: trendsY }}
+                className="trends-moving"
+            >
+                <Trends />
+            </motion.div>
+        </div>
 
         <motion.section
           initial={{ opacity: 0, y: 90 }}

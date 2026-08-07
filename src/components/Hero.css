@@ -32,7 +32,6 @@
     font-size: var(--font-size-sm);
 }
 .heroH1{
-    font-family: "Inter", sans-serif;
     font-size: 6.6rem;
     font-weight: 800;
     line-height: .95;
@@ -42,7 +41,6 @@
 }
 .heroText{
     font-size: 2rem;
-    font-weight: 600;
     color: var(--secondary-color);
     width: 61%;
     line-height: 1.1;

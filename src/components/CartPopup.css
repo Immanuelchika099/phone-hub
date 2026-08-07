@@ -273,30 +273,8 @@
 
 .checkoutBtn:hover{
     transform:translateY(-2px);
-    box-shadow:0 12px 28px rgba(0,0,0,.18);
 }
 
-
-/* ==========================
-   ERROR PAGE
-========================== */
-
-.errorPage{
-    position:fixed;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-.errorHeading{
-    font-size:12rem;
-}
-
-.errorTx{
-    font-size:4rem;
-}
 
 
 /* ==========================
