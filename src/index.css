@@ -1,30 +1,3 @@
-@font-face {
-    font-family: "Trap";
-    src: url("./assets/fonts/Trap-Regular.otf") format("opentype");
-    font-weight: 600;
-}
-@font-face {
-    font-family: "Trap";
-    src: url("./assets/fonts/Trap-SemiBold.otf") format("opentype");
-    font-weight: 700;
-}
-@font-face {
-    font-family: "Trap";
-    src: url("./assets/fonts/Trap-Bold.otf") format("opentype");
-    font-weight: 800;
-}
-@font-face {
-    font-family: "Trap";
-    src: url("./assets/fonts/Trap-ExtraBold.otf") format("opentype");
-    font-weight: 900;
-}
-@font-face {
-    font-family: "Inter";
-    src: url("./assets/fonts/Inter-Bold.ttf") format("truetype");
-    font-weight: 800;
-}
-
-
 :root{
     /** Define color variables */
     --primary-color: #f47c20;
@@ -49,11 +22,6 @@
     --font-size-base: 1.6rem;
     --font-size-lg: 1.8rem;
 
-    /* font weight */
-    --font-weight-base: 600;
-    --font-weight-bold: bold;
-
-
     /* letter spacing */
     --letter-spacing-sm: -0.05em;
     --letter-spacing-base: 0;
@@ -74,8 +42,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Trap', sans-serif;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 html{
     scroll-behavior: smooth;
@@ -86,19 +54,14 @@ body{
     color: var(--dark-color);
     background-color: white;
     font-size: 1.4rem;
+    font-weight: 600;
 }
-li, ul, a, h1, p{
+li, ul, a, h1, p, input, button{
     list-style: none;
     text-decoration: none;
     margin: 0;
     width: fit-content;
     padding: 0;
     color: inherit;
-}
-input, button{
     border: none;
-    font-weight: 700;
-}
-h3{
-    font-weight: 700;
 }

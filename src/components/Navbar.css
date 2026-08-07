@@ -37,12 +37,10 @@
     width: 3rem;
 }
 .navLinkText.active{
-    font-weight: bolder;
     border-bottom: 3px solid var(--secondary-color);
 }
 .navLinkText{
     color: var(--secondary-color);
-    font-weight: 700;
     position: relative;
 }
 .navLinkText::after {
@@ -89,7 +87,7 @@
     width: 39rem;
     color: var(--secondary-color);
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: inherit;
 }
 .search-icon{
     font-size: 2rem;
@@ -101,7 +99,6 @@
 }
 ::placeholder{
     color: var(--secondary-color);
-    font-weight: 700;
 }
 
 

@@ -16,7 +16,7 @@ function PhoneCard({ phone, addToCart }) {
                 
                 <div className="phoneCardFlex">
                     <h3 className="phoneCard-title">{phone.title}</h3>
-                    <p className="phoneCard-storage">{phone.storage}</p>
+                    
                 </div>
                 <div className="phoneCardFlex">
                     <div className="phoneCard-stars">
@@ -28,7 +28,7 @@ function PhoneCard({ phone, addToCart }) {
                 </div>
                 <div className="phoneCardFlex outline">
                     <p className="phoneCard-brand"> {phone.brand}</p>
-                    <p className="phoneCard-color"> {phone.color}</p>
+                    <p className="phoneCard-storage">{phone.storage}</p>
                 </div>
                 <button className="btn buy"
                     onClick={(()=> addToCart(phone) )}
