@@ -76,11 +76,11 @@
 /* TRENDS SESSION */
 .trendMainContainer {
     background: #eeeeee;
-    padding: 6rem 0;
     margin-top: 3rem;
 }
 .trend-session{
     margin: 0 auto;
+    padding: 6rem 0;
     width: 89%;
 }
 .phoneHeading.trendHead{
