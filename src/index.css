@@ -53,6 +53,7 @@ body{
     color: var(--dark-color);
     background-color: white;
     font-size: 1.4rem;
+    overflow-x: hidden;
 }
 li, ul, a, h1, p, input, button{
     list-style: none;
