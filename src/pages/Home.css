@@ -76,12 +76,8 @@
 /* TRENDS SESSION */
 .trendMainContainer {
     background: #eeeeee;
-    padding: 10rem 0;
-}
-
-.trendMainContainer {
-    background: #eeeeee;
-    padding: 10rem 0;
+    padding: 7rem;
+    margin-top: 3rem;
 }
 .trend-session{
     margin: 0 auto;
