@@ -24,7 +24,7 @@ function Home({ addToCart, search }) {
 
     const trendsY = useTransform(
         scrollYProgress,
-        [0, 0.15],
+        [0, 0.25],
         ["100vh", "0vh"]
     );
 
@@ -62,7 +62,7 @@ const phoneCards = filteredPhones.map((product) => (
       <main className="home-container">
         <Hero />
 
-        <section ref={phoneRef} className="phone-section">
+        <section className="phone-section">
             <ul className="phoneHeadContainer">
               <p className="phoneTx">THE PHONES</p>
               <h1 className="phoneHeading main">Our Impressive Phone Models</h1>
@@ -88,6 +88,7 @@ const phoneCards = filteredPhones.map((product) => (
               <Link to="/phones" className="prevPages"> Next <IoChevronForward /> </Link>
             </ul>
         </section>
+        <div ref={phoneRef} className="trends-trigger"></div>
 
         <div className="trends-scroll-section">
             <motion.div
