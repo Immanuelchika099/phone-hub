@@ -17,7 +17,14 @@ function Home({ addToCart, search }) {
       <main className="home-container">
         <Hero />
 
-        <Categories />
+        <motion.section
+          initial={{ opacity: 0, y: 90 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
+           <Categories />
+        </motion.section>
 
 
         <div className="trends-scroll-section">

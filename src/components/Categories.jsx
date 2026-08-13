@@ -56,9 +56,7 @@ function Categories() {
                     <div className="categoryText">
 
                         <span>01</span>
-
                         <h3>iPhone</h3>
-
                         <p>
                             Explore the latest Apple smartphones.
                         </p>
@@ -96,9 +94,7 @@ function Categories() {
                     <div className="categoryText">
 
                         <span>02</span>
-
                         <h3>Android</h3>
-
                         <p>
                             Discover powerful Android devices.
                         </p>
