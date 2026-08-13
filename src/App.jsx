@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import PhoneCard from './components/PhoneCard'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
@@ -6,7 +6,7 @@ import PhoneDetails from './pages/PhoneDetails'
 import Navbar from './components/Navbar'
 import Contact from './pages/Contact'
 import CartPopup from './components/CartPopup'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 function App() {

@@ -2,11 +2,11 @@ import "./PhoneCard.css"
 import { motion } from "framer-motion"
 import { FaStar } from "react-icons/fa"
 
-function PhoneCard({ phone, addToCart }) {
+function PhoneCard({ phone, addToCart, onClick }) {
 
     return(
         <>
-             <div className="phoneCard">
+             <div className="phoneCard" onClick={() => onClick?.(phone)}>
                 <div className="phoneImgFlex">
                     <img
                         src={phone.thumbnail}

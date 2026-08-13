@@ -1,16 +1,18 @@
 import PhoneCard from "../components/PhoneCard";
 import { Link, useSearchParams } from "react-router-dom";
-import products from "../data/products";
 import { IoChevronBack } from "react-icons/io5";
-import "./Home.css";
-import Footer from "../components/Footer";
-import { motion } from "framer-motion";
+import products from "../data/products";
 import { searchProducts, getProductsByCategory } from "../data/productFunctions";
+import { motion } from "framer-motion";
+import Footer from "../components/Footer";
+import { useState, useEffect } from "react";
+import ProductModal from "../components/ProductModal";
+import "./Home.css";
 
 function PhoneDetails({ addToCart, search }) {
 
+    const [selectedPhone, setSelectedPhone] = useState(null);
     const [searchParams] = useSearchParams();
-
     const category = searchParams.get("category");
 
 
@@ -27,15 +29,20 @@ function PhoneDetails({ addToCart, search }) {
 
 
     const phoneCards = filteredPhones.map((product) => (
-
-
             <PhoneCard
+                key={product.id}
                 phone={product}
                 addToCart={addToCart}
+                onClick={(phone) => setSelectedPhone(phone)}
             />
-
-
     ));
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+    }, [category]);
 
 
     return (
@@ -81,11 +88,11 @@ function PhoneDetails({ addToCart, search }) {
                 <div className="togglePages">
 
                     <Link
-                        to="/"
+                        to="/#categories"
                         className="prevPages"
                     >
                         <IoChevronBack />
-                        Previous
+                        previous
                     </Link>
 
                 </div>
@@ -93,6 +100,14 @@ function PhoneDetails({ addToCart, search }) {
             </section>
 
             <Footer />
+
+            {selectedPhone && (
+                <ProductModal
+                    phone={selectedPhone}
+                    onClose={() => setSelectedPhone(null)}
+                    addToCart={addToCart}
+                />
+            )}
 
         </>
     );
