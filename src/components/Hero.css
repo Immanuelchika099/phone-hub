@@ -1,34 +1,42 @@
-.hero-container{
+.hero-container {
     width: 100%;
-    height: auto;
-    min-height: 90vh;
-    padding: 6rem 2rem 8rem;
-    background-color: var(--hero-background);
-    overflow: visible;
-    background-image:
+    height: 95vh;
+
+    background:
         radial-gradient(
-            circle at 20% 20%,
-            var(--hero-glow-1),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            var(--hero-glow-2),
-            transparent 35%
-        ),
-        radial-gradient(
+            circle,
             var(--hero-dots) 1px,
             transparent 1px
+        ),
+        radial-gradient(
+            circle at 70% 55%,
+            var(--hero-glow-1),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            var(--hero-glow-2),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--hero-bg-1) 0%,
+            var(--hero-bg-2) 50%,
+            var(--hero-bg-3) 100%
         );
 
     background-size:
+        28px 28px,
         auto,
         auto,
-        28px 28px;
+        auto;
 
     position: relative;
-    transition: background-color .4s ease;
+    overflow: hidden;
+
+    transition: background .5s ease;
 }
+
 .hero-content{
     position: relative;
     z-index: 5;
@@ -170,77 +178,6 @@
     transform: translateY(-3px);
 }
 
-
-/* ==================================================
-   HERO BLOBS
-================================================== */
-
-.blob{
-    position: absolute;
-
-    border-radius: 50%;
-
-    filter: blur(6rem);
-
-    opacity: 0.16;
-
-    z-index: 0;
-}
-
-
-.blob1{
-    width: 30rem;
-    height: 30rem;
-
-    background: var(--hero-blob-1);
-
-    top: 19%;
-    right: 18%;
-
-    animation: floatBlob 10s ease-in-out infinite;
-}
-
-
-.blob2{
-    width: 25rem;
-    height: 25rem;
-
-    background: var(--hero-blob-2);
-
-    top: 15%;
-    right: 5%;
-
-    animation: floatBlob 14s ease-in-out infinite;
-}
-
-
-.blob3{
-    width: 30rem;
-    height: 30rem;
-
-    background: var(--hero-blob-3);
-
-    bottom: 22%;
-    right: 13%;
-
-    animation: floatBlob 18s ease-in-out infinite;
-}
-
-
-@keyframes floatBlob {
-
-    0%{
-        transform: translate(0, 0) scale(1);
-    }
-
-    50%{
-        transform: translate(25px, -20px) scale(1.08);
-    }
-
-    100%{
-        transform: translate(0, 0) scale(1);
-    }
-}
 
 
 /* ==================================================
@@ -392,20 +329,5 @@
         backdrop-filter: blur(2rem);
 
         padding: 1.4rem;
-    }
-
-    .blob1{
-        width: 18rem;
-        height: 18rem;
-    }
-
-    .blob2{
-        width: 15rem;
-        height: 15rem;
-    }
-
-    .blob3{
-        width: 18rem;
-        height: 18rem;
     }
 }

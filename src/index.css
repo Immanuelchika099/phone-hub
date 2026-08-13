@@ -32,13 +32,17 @@
        HERO COLORS
     ========================= */
     --hero-background: #fffaf4;
-    --hero-glow-1: rgba(255, 170, 0, .10);
-    --hero-glow-2: rgba(255, 120, 0, .08);
-    --hero-dots: rgba(249, 104, 0, .08);
-    --hero-pill-background: #fff1e5f1;
-    --hero-blob-1: rgb(251, 255, 147);
-    --hero-blob-2: rgb(255, 125, 125);
-    --hero-blob-3: rgb(9, 65, 139);
+
+   --hero-bg-1: #fffaf4;
+   --hero-bg-2: #ffffff;
+   --hero-bg-3: #f8f8f8;
+
+   --hero-dots: rgba(249, 104, 0, .08);
+
+   --hero-glow-1: rgba(255, 166, 102, 0.30);
+   --hero-glow-2: rgba(244, 124, 32, 0.15);
+
+   --hero-pill-background: #fff1e5f1;
     /* =========================
        FONT SIZES
     ========================= */
@@ -82,15 +86,20 @@
     --card-border-color: #2c2c30;
     /* Slightly brighter green for dark backgrounds */
     --primary-color-mid: #2f7d32;
+    
     /* Hero */
-    --hero-background: #2d2624;
-    --hero-glow-1: rgba(255, 170, 0, .07);
-    --hero-glow-2: rgba(255, 120, 0, .05);
-    --hero-dots: rgba(249, 104, 0, 0.151);
-    --hero-pill-background: rgba(40, 35, 30, .85);
-    --hero-blob-1: rgba(255, 170, 0, .07);
-    --hero-blob-2: rgba(255, 170, 0, 0.467);
-    --hero-blob-3: rgba(255, 170, 0, .07);
+      --hero-background: #0d0d0d;
+
+      --hero-bg-1: #0d0d0d;
+      --hero-bg-2: #17110d;
+      --hero-bg-3: #090909;
+
+      --hero-glow-1: rgba(255, 166, 102, 0.14);
+      --hero-glow-2: rgba(244, 124, 32, 0.08);
+
+      --hero-dots: rgba(255, 255, 255, 0.07);
+
+      --hero-pill-background: rgba(40, 35, 30, .85);
 }
 /* ==================================================
    GLOBAL

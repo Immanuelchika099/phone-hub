@@ -1,47 +1,101 @@
 import PhoneCard from "../components/PhoneCard";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import products from "../data/products";
 import { IoChevronBack } from "react-icons/io5";
-import "./Home.css"
+import "./Home.css";
 import Footer from "../components/Footer";
-import { motion } from "framer-motion"
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { searchProducts, getProductsByCategory } from "../data/productFunctions";
 
-function PhoneDetails({phone, addToCart, search }){
+function PhoneDetails({ addToCart, search }) {
 
-// THE MAPPING FUNCTION FOR PHONES
-const filteredPhones = products.filter((phone) =>
-    phone.title.toLowerCase().includes(search.toLowerCase())
+    const [searchParams] = useSearchParams();
 
-);
-const phoneCards = filteredPhones.map((product) => (
-    <motion.div
-        key={product.id}
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5, }}
-    >
-        <PhoneCard
-            key={product.id}
-            phone={product}
-            addToCart={addToCart}
-        />
-    </motion.div>
-));
+    const category = searchParams.get("category");
 
-    return (        
+
+    // CATEGORY FILTER
+    let filteredPhones = category
+        ? getProductsByCategory(products, category)
+        : products;
+
+
+    // SEARCH FILTER
+    if (search) {
+        filteredPhones = searchProducts(filteredPhones, search);
+    }
+
+
+    const phoneCards = filteredPhones.map((product) => (
+
+
+            <PhoneCard
+                phone={product}
+                addToCart={addToCart}
+            />
+
+
+    ));
+
+
+    return (
         <>
-            <ul className="phone-container">
-                { phoneCards }
-            </ul>
-            <ul className="togglePages">
-                <Link to="/" className="prevPages"><IoChevronBack /> Previous </Link>
-                <Link to="/phones" className="prevPages"> </Link>
-            </ul>
+
+            <section className="phone-section">
+
+                <div className="phoneHeadContainer">
+
+                    <p className="phoneTx">
+                        {category
+                            ? category.toUpperCase()
+                            : "ALL PHONES"
+                        }
+                    </p>
+
+                    <h1 className="phoneHeading main">
+
+                        {category
+                            ? `${category} Phones`
+                            : "Our Phone Collection"
+                        }
+
+                    </h1>
+
+                </div>
+
+
+                <ul className="phone-container">
+
+                    {phoneCards.length > 0
+                        ? phoneCards
+                        : (
+                            <h2 className="noResults">
+                                No phones found.
+                            </h2>
+                        )
+                    }
+
+                </ul>
+
+
+                <div className="togglePages">
+
+                    <Link
+                        to="/"
+                        className="prevPages"
+                    >
+                        <IoChevronBack />
+                        Previous
+                    </Link>
+
+                </div>
+
+            </section>
+
             <Footer />
+
         </>
-    )
+    );
 }
 
-export default PhoneDetails
+export default PhoneDetails;

@@ -1,0 +1,268 @@
+.categories{
+    width: min(120rem, 92%);
+    margin: 0 auto;
+    padding: 10rem 0 9rem;
+}
+
+
+/* HEADING */
+
+.categoryHeading{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+
+/* CARDS */
+
+.categoryContainer{
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 3rem;
+}
+
+
+/* INDIVIDUAL CARD */
+
+.categoryCard{
+    position: relative;
+
+    min-height: 52rem;
+
+    border: none;
+    border-radius: 3rem;
+
+    padding: 4rem;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+
+    background: var(--hero-background);
+
+    border: 1px solid rgba(0, 0, 0, .08);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+
+/* GLOW */
+
+.categoryCard::before{
+    content: "";
+
+    position: absolute;
+
+    width: 32rem;
+    height: 32rem;
+
+    border-radius: 50%;
+
+    background: var(--hero-glow-1);
+
+    filter: blur(7rem);
+
+    opacity: .35;
+
+    top: 15rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    transition: .5s ease;
+
+    pointer-events: none;
+}
+
+
+.categoryCard:hover::before{
+    transform: translateX(-50%) scale(1.25);
+}
+
+
+/* TEXT */
+
+.categoryText{
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.categoryText > span{
+    font-size: 1.3rem;
+
+    color: var(--secondary-color);
+
+    font-weight: 700;
+}
+
+
+.categoryText h3{
+    font-size: 4.5rem;
+
+    color: var(--page-text);
+
+    margin: 1.5rem 0 1rem;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+.categoryText p{
+    font-size: 1.6rem;
+
+    color: var(--secondary-color);
+
+    max-width: 34rem;
+
+    line-height: 1.5;
+}
+
+
+/* PHONE IMAGE */
+
+.categoryPhoneImage{
+    position: relative;
+
+    z-index: 2;
+
+    width: 24rem;
+    height: 27rem;
+
+    object-fit: contain;
+
+    margin: 1rem auto;
+
+    filter:
+        drop-shadow(0 2rem 2rem rgba(0,0,0,.18));
+
+    transition:
+        transform .5s ease;
+}
+
+
+.categoryCard:hover .categoryPhoneImage{
+    transform:
+        translateY(-1rem)
+        scale(1.06)
+        rotate(-2deg);
+}
+
+
+/* ARROW */
+
+.categoryArrow{
+    position: absolute;
+
+    right: 3rem;
+    bottom: 3rem;
+
+    z-index: 3;
+
+    width: 5rem;
+    height: 5rem;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-color);
+
+    color: white;
+
+    font-size: 2.2rem;
+
+    transition:
+        transform .3s ease,
+        background-color .3s ease;
+}
+
+
+.categoryCard:hover .categoryArrow{
+    transform: translateX(.6rem);
+}
+
+
+.categoryCard.selected{
+    border: 2px solid var(--primary-color);
+}
+
+
+/* TABLET */
+
+@media (max-width: 768px){
+
+    .categories{
+        padding: 7rem 0;
+    }
+
+    .categoryContainer{
+        grid-template-columns: 1fr;
+    }
+
+    .categoryCard{
+        min-height: 46rem;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px){
+
+    .categories{
+        width: 90%;
+    }
+
+    .categoryCard{
+        min-height: 40rem;
+
+        padding: 3rem 2rem;
+
+        border-radius: 2.5rem;
+    }
+
+    .categoryText h3{
+        font-size: 3.5rem;
+    }
+
+    .categoryText p{
+        font-size: 1.4rem;
+    }
+
+    .categoryPhoneImage{
+        width: 19rem;
+        height: 22rem;
+    }
+
+    .categoryArrow{
+        width: 4.2rem;
+        height: 4.2rem;
+
+        right: 2rem;
+        bottom: 2rem;
+    }
+
+}
