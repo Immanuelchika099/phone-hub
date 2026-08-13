@@ -1,7 +1,7 @@
 import heroTechImg from "../assets/phones/heroImg.png";
 import "../components/Hero.css";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Hero() {
 
@@ -51,21 +51,6 @@ function Hero() {
         },
     ];
 
-
-    // AUTOMATIC SLIDER
-    useEffect(() => {
-
-        const interval = setInterval(() => {
-
-            setCurrentSlide((prev) =>
-                (prev + 1) % slides.length
-            );
-
-        }, 15000);
-
-        return () => clearInterval(interval);
-
-    }, [slides.length]);
 
 
     const slide = slides[currentSlide];

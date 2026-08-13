@@ -19,9 +19,7 @@ function Categories() {
 
 
     const handleCategory = (category) => {
-
         setSelectedCategory(category);
-
         navigate(`/phones?category=${category.toLowerCase()}`);
     };
 

@@ -11,9 +11,6 @@ import Categories from "../components/Categories";
 
 function Home({ addToCart, search }) {
 
-  
-
-
 
   return (
     <>

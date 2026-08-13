@@ -15,47 +15,35 @@
 
 /* CARDS */
 
-.categoryContainer{
-    width: 100%;
-
+.categoryContainer {
+    width: min(110rem, 92%);
+    margin: 0 auto;
     display: grid;
-
     grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 3rem;
+    gap: 4rem;
+    justify-items: center;
+    justify-content: center;
 }
 
 
 /* INDIVIDUAL CARD */
 
 .categoryCard{
+    min-height: 55rem;
+    border-radius: 2.5rem;
+    overflow: hidden;
     position: relative;
 
-    min-height: 52rem;
-
-    border: none;
-    border-radius: 3rem;
-
-    padding: 4rem;
-
-    overflow: hidden;
-
-    cursor: pointer;
+    background-size: cover;
+    background-position: center;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
 
-    text-align: center;
+    padding: 3.5rem;
 
-    background: var(--hero-background);
-
-    border: 1px solid rgba(0, 0, 0, .08);
-
-    transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+    isolation: isolate;
 }
 
 
@@ -103,9 +91,12 @@
     flex-direction: column;
     align-items: center;
 }
+.categoryHeading p.phoneTx{
+    text-align: center;
+    width: 100%;
+}
 
-
-.categoryText > span{
+.categoryText  span{
     font-size: 1.3rem;
 
     color: var(--secondary-color);
@@ -129,11 +120,8 @@
 
 .categoryText p{
     font-size: 1.6rem;
-
     color: var(--secondary-color);
-
-    max-width: 34rem;
-
+    text-align: center;
     line-height: 1.5;
 }
 
