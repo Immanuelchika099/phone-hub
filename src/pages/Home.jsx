@@ -4,7 +4,7 @@ import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { searchProducts, getProductsByCategory } from "../utils/productFunctions";
+import { searchProducts, getProductsByCategory } from "../data/productFunctions";
 import PhoneCard from "../components/PhoneCard";
 import products from "../data/products";
 import Hero from "../components/Hero";
