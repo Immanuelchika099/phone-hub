@@ -61,7 +61,7 @@ function Hero() {
                 (prev + 1) % slides.length
             );
 
-        }, 8000);
+        }, 15000);
 
         return () => clearInterval(interval);
 
@@ -87,6 +87,26 @@ function Hero() {
                         exit={{ opacity: 0, x: -80 }}
 
                         transition={{ duration: 0.6 }}
+
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.2}
+
+                        onDragEnd={(event, info) => {
+
+                            if (info.offset.x < -80) {
+                                setCurrentSlide((prev) =>
+                                    (prev + 1) % slides.length
+                                );
+                            }
+
+                            if (info.offset.x > 80) {
+                                setCurrentSlide((prev) =>
+                                    (prev - 1 + slides.length) % slides.length
+                                );
+                            }
+
+                        }}
                     >
 
                         {/* LEFT CONTENT */}
