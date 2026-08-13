@@ -36,10 +36,8 @@
         auto,
         auto;
     color: #ffffff;
-
     padding: 7rem 8% 3rem;
     margin-top: 8rem;
-
     isolation: isolate;
 }
 
@@ -67,9 +65,8 @@
 
     top: -12rem;
     left: -8rem;
-
     background: var(--hero-glow-1);
-    opacity: .35;
+    opacity: .25;
 }
 
 
@@ -81,7 +78,7 @@
     right: -10rem;
     bottom: -15rem;
     background: var(--hero-glow-2);
-    opacity: .35;
+    opacity: .25;
 }
 
 

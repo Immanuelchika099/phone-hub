@@ -182,7 +182,7 @@
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
-    color: var(--light-color);
+    color: #fff;
     right: -8px;
     top: -8px;
     display: flex;
