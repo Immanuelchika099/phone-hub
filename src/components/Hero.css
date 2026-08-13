@@ -59,17 +59,12 @@
 
 .hero-dots{
     position: absolute;
-
     bottom: 2.5rem;
     left: 50%;
-
     transform: translateX(-50%);
-
     display: flex;
     align-items: center;
-
     gap: .8rem;
-
     z-index: 20;
 }
 
@@ -77,19 +72,12 @@
 .hero-dot{
     width: .8rem;
     height: .8rem;
-
     padding: 0;
-
     border: none;
-
     border-radius: 50%;
-
     background: var(--secondary-color);
-
     opacity: .35;
-
     cursor: pointer;
-
     transition:
         width .3s ease,
         opacity .3s ease,
@@ -99,32 +87,25 @@
 
 .hero-dot.active{
     width: 2.5rem;
-
     border-radius: 999px;
-
     opacity: 1;
-
     background: var(--primary-color-light);
 }
 
 .heroFlex{
     max-width: 120rem;
     margin: 0 auto;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     height: 100%;
 }
 
 
 .summerTx{
     display: inline-block;
-
     padding: .6rem 1.5rem;
     border-radius: 15rem;
-
     background: var(--hero-pill-background);
 
     backdrop-filter: blur(2rem);
@@ -264,9 +245,7 @@
 
     .heroFlex{
         flex-direction: column;
-
         text-align: center;
-
         gap: 5rem;
     }
 
@@ -298,8 +277,7 @@
 @media (max-width: 576px){
 
     .hero-container{
-        min-height: 90vh;
-        padding: 4rem 1.8rem 7rem;
+        padding: 14rem 1.8rem 7rem;
     }
 
     .summerTx{
@@ -325,11 +303,8 @@
 
     .shopNow.btn{
         width: 60%;
-
         font-size: 1.6rem;
-
         backdrop-filter: blur(2rem);
-
         padding: 1.4rem;
     }
 }

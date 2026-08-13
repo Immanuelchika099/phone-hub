@@ -241,9 +241,6 @@
 ========================= */
 
 @media (max-width: 768px) {
-    body{
-        padding-top: 10rem;
-    }
     .nav {
         position: fixed;
         top: 0;
