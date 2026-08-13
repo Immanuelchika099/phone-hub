@@ -33,17 +33,13 @@
     border-radius: 2.5rem;
     overflow: hidden;
     position: relative;
-
     background-size: cover;
     background-position: center;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     padding: 3.5rem;
-
-    isolation: isolate;
+    width: 41rem;
 }
 
 
@@ -76,7 +72,6 @@
 .categoryText{
     position: relative;
     z-index: 2;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,7 +125,7 @@
 .categoryCard:hover .categoryPhoneImage{
     transform:
         translateY(-1rem)
-        scale(1)
+        scale(.9)
         rotate(-2deg);
 }
 

@@ -1,3 +1,6 @@
+.phone-container{
+    padding-bottom: 6rem;
+}
 .phoneCard{
     display:flex;
     flex-direction:column;

@@ -125,7 +125,13 @@ function Navbar({
                             className="searchInput"
                             type="text"
                             value={searchInput}
-                            onChange={(e) => setSearchInput(e.target.value)}
+                            onChange={(e) => {
+                                const value = e.target.value;
+                                setSearchInput(value);
+                                if (value.trim() === "") {
+                                    setSearch("");
+                                }
+                            }}
                             placeholder="Search phones, and categories..."
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
