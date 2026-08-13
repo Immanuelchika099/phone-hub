@@ -4,7 +4,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.834);
+    background: var(--navbar-background);
     backdrop-filter: blur(1rem);
 }
 
@@ -46,6 +46,7 @@
     cursor: pointer;
     position: relative;
     z-index: 2001;
+    color: var(--dark-color);
 }
 
 
@@ -61,12 +62,12 @@
 }
 
 .navLinkText {
-    color: var(--secondary-color);
+    color: var(--page-text);
     position: relative;
 }
 
 .navLinkText.active {
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 3px solid var(--page-text);
 }
 
 .navLinkText::after {
@@ -74,7 +75,7 @@
     position: absolute;
     width: 100%;
     height: 3px;
-    background-color: var(--secondary-color);
+    background-color: var(--dark-color);
     border-radius: 10px;
     left: 0;
     bottom: -3px;
@@ -112,44 +113,35 @@
 .search-container {
     width: 100%;
     height: 4rem;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
     border-radius: 999px;
-
-    background: #f5f5f5;
+    font-size: 1.8rem;
+    background: var(--light-color);
 }
 
 .searchInput {
     flex: 1;
     width: 100%;
-
     border: none;
     outline: none;
     background: transparent;
-
     padding: 1.2rem 2rem;
-
     color: var(--secondary-color);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: inherit;
 }
 
 .search-icon {
     width: 4.5rem;
     height: 100%;
-
     border: none;
     background: var(--secondary-color);
-
-    color: #fefefe;
-
+    color: var(--light-color);
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 2rem;
     cursor: pointer;
 }
@@ -180,30 +172,22 @@
 
 .cartIcon {
     font-size: 1.8rem;
-    color: inherit;
+    color: var(--dark-color);
 }
 
 .cartCount {
     font-size: 1.2rem;
-
     position: absolute;
-
     background: var(--danger-color);
-
     border-radius: 50%;
-
     width: 2rem;
     height: 2rem;
-
-    color: #fefefe;
-
+    color: var(--light-color);
     right: -8px;
     top: -8px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-weight: bold;
 }
 
@@ -214,7 +198,7 @@
 
 .darkModeIcon {
     font-size: 1.8rem;
-    color: black;
+    color: var(--dark-color);
     cursor: pointer;
 }
 
@@ -226,9 +210,7 @@
 .overlay {
     position: fixed;
     inset: 0;
-
     background: rgba(0, 0, 0, .35);
-
     z-index: 998;
 }
 
@@ -242,7 +224,6 @@
     .nav {
         padding: 1.2rem 3rem;
     }
-
     .navLinks {
         gap: 2rem;
         font-size: 1.6rem;
@@ -260,15 +241,15 @@
 ========================= */
 
 @media (max-width: 768px) {
-
+    body{
+        padding-top: 10rem;
+    }
     .nav {
         position: fixed;
         top: 0;
         left: 0;
-
         padding: 1.2rem 2rem;
-
-        background: rgba(255, 255, 255, 0.9);
+        background: var(--navbar-background );
         backdrop-filter: blur(1rem);
     }
 
@@ -283,9 +264,7 @@
         right: auto;
         width: 24rem;
         height: 100vh;
-
-        background: #fff;
-
+        background: var(--surface-color-2);
         display: flex;
         flex-direction: column;
 
@@ -334,39 +313,31 @@
 @media (max-width: 576px) {
 
     .nav {
-        padding: 1rem 1.4rem;
+        padding: 1.2rem 1.4rem .8rem;
     }
-
     .navLeft {
         gap: .8rem;
     }
-
     .logo img {
         width: 3rem;
     }
-
     .menuIcon {
         font-size: 2.5rem;
     }
-
     .navActions {
-        gap: 1rem;
+        gap: 2rem;
     }
-
     .cartContainer {
         width: 3rem;
         height: 3rem;
     }
-
     .darkModeIcon {
         font-size: 1.7rem;
     }
-
     .searchInput {
-        padding: 1.2rem 1.5rem;
+        padding: 1.2rem 2rem;
         font-size: 1.4rem;
     }
-
     .search-icon {
         width: 4rem;
     }

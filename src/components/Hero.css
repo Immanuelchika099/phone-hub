@@ -1,6 +1,8 @@
 .hero-container{
     width: 100%;
-    height: 95vh;
+    height: auto;
+    min-height: 90vh;
+    padding: 6rem 2rem 8rem;
     background-color: var(--hero-background);
     overflow: visible;
     background-image:
@@ -25,10 +27,75 @@
         28px 28px;
 
     position: relative;
-
     transition: background-color .4s ease;
 }
+.hero-content{
+    position: relative;
+    z-index: 5;
+}
 
+
+.hero-image-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* ==================================================
+   HERO SLIDER DOTS
+================================================== */
+
+.hero-dots{
+    position: absolute;
+
+    bottom: 2.5rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: .8rem;
+
+    z-index: 20;
+}
+
+
+.hero-dot{
+    width: .8rem;
+    height: .8rem;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--secondary-color);
+
+    opacity: .35;
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+
+.hero-dot.active{
+    width: 2.5rem;
+
+    border-radius: 999px;
+
+    opacity: 1;
+
+    background: var(--primary-color-light);
+}
 
 .heroFlex{
     max-width: 120rem;
@@ -292,7 +359,8 @@
 @media (max-width: 576px){
 
     .hero-container{
-        padding: 4rem 1.8rem;
+        min-height: 90vh;
+        padding: 4rem 1.8rem 7rem;
     }
 
     .summerTx{

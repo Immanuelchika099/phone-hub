@@ -3,6 +3,7 @@
        THEME COLORS
     ========================= */
     --primary-color: #f47c20;
+    --navbar-background: #ffffffd5;
     --primary-color-mid: #1e5a1e;
     --primary-color-light: #f47c20;
     --primary-color-shadow: #ffa663;
@@ -71,9 +72,11 @@
 .darkMode{
     /* Global */
     --page-background: #0b0b0d;
+    --navbar-background: #0b0b0dd5;
     --page-text: #f5f5f7;
     --muted-text: #a1a1a6;
     --surface-color: #151518;
+    --dark-color: #f5f5f7;
     --surface-color-2: #1d1d21;
     --border-color: #2c2c30;
     --card-border-color: #2c2c30;
