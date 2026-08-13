@@ -73,44 +73,15 @@
     color: var(--primary-color);
 }
 
-.phone-section{
-    position: relative;
-    z-index: 1;
-}
-
 /* TRENDS SESSION */
 .trendMainContainer {
     background: #eeeeee;
-    padding: 10rem 0;
-    position: relative;
-    z-index: 10;
-}
-.trends-scroll-section {
-    position: relative;
-    z-index: 10;
-    min-height: 100vh;
-    pointer-events: none;
-}
-
-.trends-moving {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    pointer-events: auto;
-}
-.trends-trigger{
-    height: 1px;
-}
-
-.trendMainContainer {
-    background: #eeeeee;
-    padding: 10rem 0;
-    position: relative;
-    z-index: 10;
+    margin-top: 3rem;
 }
 .trend-session{
     margin: 0 auto;
-    width: 89%;
+    padding: 6rem 0;
+    width: 91%;
 }
 .phoneHeading.trendHead{
     padding-bottom:1rem;
