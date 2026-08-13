@@ -1,16 +1,17 @@
 import "../pages/Home.css"
 import { useState, useEffect } from "react";
-import PhoneCard from "../components/PhoneCard";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { searchProducts, getProductsByCategory } from "../utils/productFunctions";
+import PhoneCard from "../components/PhoneCard";
 import products from "../data/products";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import ProductModal from "../components/ProductModal";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import Trends from "../components/Trends";
 import Faq from "../components/Faq";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
 function Home({ addToCart, search }) {
 
@@ -27,13 +28,7 @@ function Home({ addToCart, search }) {
         [0, 0.25],
         ["100vh", "0vh"]
     );
-
-
-  // THE MAPPING FUNCTION FOR PHONES
-  const filteredPhones = products.filter((phone) =>
-    phone.title.toLowerCase().includes(search.toLowerCase())
-
-);
+const filteredPhones = searchProducts(products, search);
 const [selectedPhone, setSelectedPhone] = useState(null);
 const phoneCards = filteredPhones.map((product) => (
 

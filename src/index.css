@@ -1,5 +1,7 @@
 :root{
-    /** Define color variables */
+    /* =========================
+       THEME COLORS
+    ========================= */
     --primary-color: #f47c20;
     --primary-color-mid: #1e5a1e;
     --primary-color-light: #f47c20;
@@ -16,29 +18,80 @@
     --card-color-light: #ffffff7f;
     --background-light: #fffff8f1;
     --dark-color: #393939;
-
-    /* font sizes */
+    /* =========================
+       GLOBAL THEME COLORS
+    ========================= */
+    --page-background: #ffffff;
+    --page-text: #393939;
+    --muted-text: #6e6e73;
+    --surface-color: #f5f5f7;
+    --surface-color-2: #e8e8ed;
+    --border-color: #c7c7c7;
+    /* =========================
+       HERO COLORS
+    ========================= */
+    --hero-background: #fffaf4;
+    --hero-glow-1: rgba(255, 170, 0, .10);
+    --hero-glow-2: rgba(255, 120, 0, .08);
+    --hero-dots: rgba(249, 104, 0, .08);
+    --hero-pill-background: #fff1e5f1;
+    --hero-blob-1: rgb(251, 255, 147);
+    --hero-blob-2: rgb(255, 125, 125);
+    --hero-blob-3: rgb(9, 65, 139);
+    /* =========================
+       FONT SIZES
+    ========================= */
     --font-size-sm: 1.4rem;
     --font-size-base: 1.6rem;
     --font-size-lg: 1.8rem;
-
-    /* letter spacing */
+    /* =========================
+       LETTER SPACING
+    ========================= */
     --letter-spacing-sm: -0.05em;
     --letter-spacing-base: 0;
     --letter-spacing-lg: 0.05em;
-
-    /* spacing */
+    /* =========================
+       SPACING
+    ========================= */
     --spacing-sm: 0.5rem;
     --spacing-base: 1rem;
     --spacing-lg: 2rem;
-
-    /* border radius */
+    /* =========================
+       BORDER RADIUS
+    ========================= */
     --border-radius: 0.8rem;
-
-    /* ----- NAV-BAR ----- */
+    /* =========================
+       NAV-BAR
+    ========================= */
     --nav-height: 5rem;
 }
-
+/* ==================================================
+   DARK MODE
+================================================== */
+.darkMode{
+    /* Global */
+    --page-background: #0b0b0d;
+    --page-text: #f5f5f7;
+    --muted-text: #a1a1a6;
+    --surface-color: #151518;
+    --surface-color-2: #1d1d21;
+    --border-color: #2c2c30;
+    --card-border-color: #2c2c30;
+    /* Slightly brighter green for dark backgrounds */
+    --primary-color-mid: #2f7d32;
+    /* Hero */
+    --hero-background: #2d2624;
+    --hero-glow-1: rgba(255, 170, 0, .07);
+    --hero-glow-2: rgba(255, 120, 0, .05);
+    --hero-dots: rgba(249, 104, 0, 0.151);
+    --hero-pill-background: rgba(40, 35, 30, .85);
+    --hero-blob-1: rgba(255, 170, 0, .07);
+    --hero-blob-2: rgba(255, 170, 0, 0.467);
+    --hero-blob-3: rgba(255, 170, 0, .07);
+}
+/* ==================================================
+   GLOBAL
+================================================== */
 *{
     margin: 0;
     padding: 0;
@@ -50,10 +103,10 @@ html{
     font-size: 62.5%;
 }
 body{
-    color: var(--dark-color);
-    background-color: white;
+    color: var(--page-text);
+    background-color: var(--page-background);
     font-size: 1.4rem;
-    overflow-x: hidden;
+    transition: background-color .3s ease, color .3s ease;
 }
 li, ul, a, h1, p, input, button{
     list-style: none;

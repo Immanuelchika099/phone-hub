@@ -1,59 +1,131 @@
-import { Link, NavLink } from "react-router-dom"
-import navLogo from "../assets/logo/navLogo.PNG"
-import { FaShoppingCart } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+import { Link, NavLink } from "react-router-dom";
+import navLogo from "../assets/logo/navLogo.PNG";
+import { FaShoppingCart, FaMoon } from "react-icons/fa";
+import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
 import { useState } from "react";
-import "./Navbar.css"
+import "./Navbar.css";
 
+function Navbar({
+    cartPopup,
+    setCartPopup,
+    cart,
+    search,
+    setSearch,
+    searchInput,
+    setSearchInput,
+    darkMode,
+    setDarkMode
+}) {
 
-function Navbar({cartPopup, setCartPopup, cart, setCart, search, setSearch, searchInput, setSearchInput}) {
-
-    const handleSearch = () => {
-    setSearch(searchInput);
-    };
     const [menuOpen, setMenuOpen] = useState(false);
 
-    return(
+    const handleSearch = () => {
+        setSearch(searchInput);
+    };
+
+    return (
         <>
-            {
-                menuOpen && (
-                    <div
-                        className="overlay"
-                        onClick={() => setMenuOpen(false)}
-                    ></div>
-                )
-            }
-            <nav className="nav">
-                    
-                <div className="logo">
-                   <Link to="/"> <img src= { navLogo } alt="nav logo" /> </Link>
-                </div>
-
+            {menuOpen && (
                 <div
-                        className="menuIcon"
-                        onClick={() => setMenuOpen(!menuOpen)}
-                    >
-                        {
-                            menuOpen
-                            ? <IoClose />
-                            : <HiOutlineMenuAlt3 />
-                        }
+                    className="overlay"
+                    onClick={() => setMenuOpen(false)}
+                ></div>
+            )}
+
+            <nav className="nav">
+
+                {/* TOP ROW */}
+                <div className="navTop">
+
+                    {/* LEFT SIDE - MENU + LOGO */}
+                    <div className="navLeft">
+
+                        <div
+                            className="menuIcon"
+                            onClick={() => setMenuOpen(!menuOpen)}
+                        >
+                            {menuOpen
+                                ? <IoClose />
+                                : <HiOutlineMenuAlt3 />
+                            }
+                        </div>
+
+                        <div className="logo">
+                            <Link to="/">
+                                <img src={navLogo} alt="nav logo" />
+                            </Link>
+                        </div>
+
+                    </div>
+
+
+                    {/* DESKTOP LINKS */}
+                    <div className={`navLinks ${menuOpen ? "activeMenu" : ""}`}>
+                        <NavLink
+                            className="navLinkText"
+                            to="/"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            Home
+                        </NavLink>
+
+                        <a
+                            href="#trends"
+                            className="navLinkText"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            News
+                        </a>
+
+                        <a
+                            href="#contact"
+                            className="navLinkText"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            Contact
+                        </a>
+                    </div>
+
+
+                    {/* RIGHT SIDE - CART + DARK MODE */}
+                    <div className="navActions">
+
+                        <div
+                            className="cartContainer"
+                            onClick={() => {
+                                setCartPopup(prev => !prev);
+                            }}
+                        >
+                            <FaShoppingCart className="cartIcon" />
+
+                            <span className="cartCount">
+                                {cart.length}
+                            </span>
+                        </div>
+
+                        <FaMoon
+                            className="darkModeIcon"
+                            onClick={() => {
+                                setDarkMode(!darkMode);
+                            }}
+                        />
+
+                    </div>
+
                 </div>
 
-                <div className={`navLinks ${menuOpen ? "activeMenu" : ""}`} >
-                    <NavLink className="navLinkText" to="/" onClick={() => setMenuOpen(false)} >Home</NavLink>
-                    <a href="#trends" className="navLinkText" onClick={() => setMenuOpen(false)}>News</a>
-                    <a href="#contact" className="navLinkText" onClick={() => setMenuOpen(false)}>Contact</a>
-                </div>
 
-                <div className="navSearchCart">
+                {/* SEARCH ROW */}
+                <div className="navSearch">
+
                     <div className="search-container">
-                        <input className="searchInput"
+
+                        <input
+                            className="searchInput"
                             type="text"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
                             placeholder="Search phones, and categories..."
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
@@ -61,29 +133,21 @@ function Navbar({cartPopup, setCartPopup, cart, setCart, search, setSearch, sear
                                 }
                             }}
                         />
-                        <button className="search-icon" onClick={handleSearch}>
-                            <IoSearch  />
-                        </button> 
+
+                        <button
+                            className="search-icon"
+                            onClick={handleSearch}
+                        >
+                            <IoSearch />
+                        </button>
+
                     </div>
 
-                    
-        
-                        <div className="cartContainer"
-                            onClick={(()=> { 
-                            setCartPopup( prevCartPopup => !prevCartPopup)
-                        })}
-                        >
-                            { <FaShoppingCart className="cartIcon" /> }
-                            <span className="cartCount">
-                                { cart.length }
-                            </span>
-                        </div>
-            
                 </div>
 
             </nav>
         </>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;

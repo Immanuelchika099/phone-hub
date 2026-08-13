@@ -15,12 +15,11 @@ function App() {
   const [search, setSearch] = useState("")
   const [searchInput, setSearchInput] = useState("");
   const [cartPopup, setCartPopup] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
 
 
 const addToCart = (phone) => {
-
     const existingItem = cart.find((item) => item.id === phone.id);
-
     if (existingItem) {
 
         setCart(
@@ -78,7 +77,7 @@ const removeFromCart = (id) => {
 
 
   return (
-    <>
+    <div className= {darkMode ? "darkMode" : "" } >
 
       <Navbar
         cart={cart}
@@ -91,6 +90,8 @@ const removeFromCart = (id) => {
         setSearch={setSearch}
         searchInput={searchInput}
         setSearchInput={setSearchInput}
+        darkMode= { darkMode }
+        setDarkMode = { setDarkMode }
       />
         <Routes>
           <Route path = "/" element = { <Home addToCart={addToCart} search={search}  /> } />
@@ -105,7 +106,7 @@ const removeFromCart = (id) => {
               removeFromCart={removeFromCart}
               /> }
         
-    </>
+    </div>
   )
 }
 
