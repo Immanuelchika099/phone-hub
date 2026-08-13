@@ -17,6 +17,25 @@ function App() {
   const [cartPopup, setCartPopup] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
 
+//   LOCATION ROUTING
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#categories") {
+        setTimeout(() => {
+            document.getElementById("categories")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 100);
+    } else {
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+    }
+}, [location.pathname, location.search, location.hash]);
+
 
 const addToCart = (phone) => {
     const existingItem = cart.find((item) => item.id === phone.id);
