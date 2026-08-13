@@ -51,27 +51,17 @@
 
 .categoryCard::before{
     content: "";
-
     position: absolute;
-
     width: 32rem;
     height: 32rem;
-
     border-radius: 50%;
-
     background: var(--hero-glow-1);
-
     filter: blur(7rem);
-
     opacity: .35;
-
     top: 15rem;
     left: 50%;
-
     transform: translateX(-50%);
-
     transition: .5s ease;
-
     pointer-events: none;
 }
 
@@ -98,22 +88,16 @@
 
 .categoryText  span{
     font-size: 1.3rem;
-
     color: var(--secondary-color);
-
     font-weight: 700;
 }
 
 
 .categoryText h3{
     font-size: 4.5rem;
-
     color: var(--page-text);
-
     margin: 1.5rem 0 1rem;
-
     font-weight: 800;
-
     letter-spacing: -1px;
 }
 
@@ -130,16 +114,11 @@
 
 .categoryPhoneImage{
     position: relative;
-
     z-index: 2;
-
     width: 24rem;
     height: 27rem;
-
     object-fit: contain;
-
     margin: 1rem auto;
-
     filter:
         drop-shadow(0 2rem 2rem rgba(0,0,0,.18));
 
@@ -151,7 +130,7 @@
 .categoryCard:hover .categoryPhoneImage{
     transform:
         translateY(-1rem)
-        scale(1.06)
+        scale(1)
         rotate(-2deg);
 }
 
