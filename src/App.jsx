@@ -96,6 +96,7 @@ const removeFromCart = (id) => {
 
 
   return (
+
     <div className= {darkMode ? "darkMode" : "" } >
 
       <Navbar
@@ -126,6 +127,7 @@ const removeFromCart = (id) => {
               /> }
         
     </div>
+    
   )
 }
 

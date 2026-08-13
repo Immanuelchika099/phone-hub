@@ -28,7 +28,8 @@
     width: min(1000px, 94vw);
     max-height: 90vh;
     overflow-y: auto;
-    background: #fffaf4;
+    background: var(--surface-color);
+    color: var(--page-text);
     border-radius: 28px;
     padding: 30px;
     display: grid;
@@ -64,7 +65,8 @@
     height: 4rem;
     border: none;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.06);
+    background: var(--surface-color-2);
+    color: var(--page-text);
     font-size: 27px;
     line-height: 1;
     cursor: pointer;
@@ -80,7 +82,6 @@
 
 .modal-left {
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
@@ -91,9 +92,9 @@
     background:
         radial-gradient(
             circle at center,
-            #ffffff 0%,
-            #f4f4f4 65%,
-            #eeeeee 100%
+            var(--surface-color-2) 0%,
+            var(--surface-color) 65%,
+            var(--page-background) 100%
         );
     display: flex;
     align-items: center;
@@ -122,7 +123,7 @@
     padding: 25px 15px 25px 0;
 }
 .modal-brand {
-    color: #888;
+    color: var(--muted-text);
     font-size: 14px;
     font-weight: 600;
     margin: 0 0 6px;
@@ -130,7 +131,7 @@
     letter-spacing: 0.08em;
 }
 .modal-title {
-    color: #20202a;
+    color: var(--page-text);
     font-size: clamp(30px, 4vw, 43px);
     line-height: 1.05;
     margin: 0 0 13px;
@@ -149,7 +150,7 @@
     margin-bottom: 8px;
 }
 .modal-rating > span {
-    color: #777;
+    color: var(--muted-text);
     font-size: 14px;
 }
 .phoneCard-stars {
@@ -161,7 +162,7 @@
     color: #f47c20;
 }
 .phoneCard-stars .empty {
-    color: #ddd;
+    color: var(--border-color);
 }
 
 /* =========================
@@ -170,7 +171,7 @@
 
 .modal-price {
     font-size: 29px;
-    color: #20202a;
+    color: var(--page-text);
     margin: 5px 0 25px;
     letter-spacing: -0.03em;
 }
@@ -189,13 +190,13 @@
     margin-bottom: 11px;
 }
 .option-title {
-    color: #292929;
+    color: var(--page-text);
     font-size: 14px;
     font-weight: 700;
     margin: 0;
 }
 .selected-option {
-    color: #777;
+    color: var(--muted-text);
     font-size: 13px;
 }
 
@@ -253,9 +254,9 @@
     min-width: 80px;
     padding: 11px 15px;
     border-radius: 9px;
-    border: 1px solid #d9d9d9;
-    background: #fff;
-    color: #333;
+    border: 1px solid var(--border-color);
+    background: var(--surface-color-2);
+    color: var(--page-text);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -280,7 +281,7 @@
 ========================= */
 
 .modal-description {
-    color: #707070;
+    color: var(--muted-text);
     font-size: 13px;
     line-height: 1.65;
     margin: 3px 0 20px;

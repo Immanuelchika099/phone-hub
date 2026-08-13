@@ -5,7 +5,7 @@
     top: 0;
     z-index: 1000;
     background: var(--navbar-background);
-    backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1.2rem);
 }
 
 
@@ -128,7 +128,7 @@
     outline: none;
     background: transparent;
     padding: 1.2rem 2rem;
-    color: var(--secondary-color);
+    color: var(--page-text);
     font-size: 1.8rem;
     font-weight: inherit;
 }
@@ -137,8 +137,8 @@
     width: 4.5rem;
     height: 100%;
     border: none;
-    background: var(--secondary-color);
-    color: var(--light-color);
+    background: var(--search-icon-background);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,8 +146,8 @@
     cursor: pointer;
 }
 
-::placeholder {
-    color: var(--secondary-color);
+.searchInput::placeholder {
+    color: var(--muted-text);
 }
 
 

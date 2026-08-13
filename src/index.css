@@ -3,124 +3,216 @@
        THEME COLORS
     ========================= */
     --primary-color: #f47c20;
-    --navbar-background: #ffffffd5;
+    --navbar-background: rgba(255, 255, 255, 0.83);
     --primary-color-mid: #1e5a1e;
     --primary-color-light: #f47c20;
     --primary-color-shadow: #ffa663;
     --primary-dim-color: #89332a;
+
     --secondary-color: #6e6e73;
     --secondary-dim-color: #393c3f;
+
     --card-border-color: #c7c7c7;
+
     --success-color: #28a745;
     --danger-color: #dc3545;
     --warning-color: #ffc107;
     --info-color: #17a2b8;
+
     --light-color: #f8f9fa;
-    --card-color-light: #ffffff7f;
+    --card-color-light: rgba(255,255,255,.5);
     --background-light: #fffff8f1;
     --dark-color: #393939;
+    --search-icon-background: #6e6e73;
+
     /* =========================
        GLOBAL THEME COLORS
     ========================= */
+    --background: #ffffff;
     --page-background: #ffffff;
     --page-text: #393939;
     --muted-text: #6e6e73;
+
     --surface-color: #f5f5f7;
     --surface-color-2: #e8e8ed;
+
     --border-color: #c7c7c7;
+
+    /* =========================
+       COMPONENT BACKGROUNDS
+    ========================= */
+    --card-background: rgba(246, 246, 246, .87);
+    --input-background: #f8f9fa;
+    --modal-background: #fffaf4;
+    --secondary-surface: #eeeeee;
+
     /* =========================
        HERO COLORS
     ========================= */
     --hero-background: #fffaf4;
 
-   --hero-bg-1: #fffaf4;
-   --hero-bg-2: #ffffff;
-   --hero-bg-3: #f8f8f8;
+    --hero-bg-1: #fffaf4;
+    --hero-bg-2: #ffffff;
+    --hero-bg-3: #f8f8f8;
 
-   --hero-dots: rgba(249, 104, 0, .08);
+    --hero-dots: rgba(249, 104, 0, .08);
 
-   --hero-glow-1: rgba(255, 166, 102, 0.30);
-   --hero-glow-2: rgba(244, 124, 32, 0.15);
+    --hero-glow-1: rgba(255, 166, 102, 0.30);
+    --hero-glow-2: rgba(244, 124, 32, 0.15);
 
-   --hero-pill-background: #fff1e5f1;
+    --hero-pill-background: #fff1e5f1;
+
+    /* =========================
+         FOOTER EFFECTS
+      ========================= */
+
+      --footer-background: #1f1f22;
+
+      --footer-dots: rgba(255, 255, 255, 0.04);
+
+      --footer-glow-1: rgba(255, 166, 102, 0.08);
+      --footer-glow-2: rgba(244, 124, 32, 0.05);
+
     /* =========================
        FONT SIZES
     ========================= */
     --font-size-sm: 1.4rem;
     --font-size-base: 1.6rem;
     --font-size-lg: 1.8rem;
+
     /* =========================
        LETTER SPACING
     ========================= */
     --letter-spacing-sm: -0.05em;
     --letter-spacing-base: 0;
     --letter-spacing-lg: 0.05em;
+
     /* =========================
        SPACING
     ========================= */
     --spacing-sm: 0.5rem;
     --spacing-base: 1rem;
     --spacing-lg: 2rem;
+
     /* =========================
        BORDER RADIUS
     ========================= */
     --border-radius: 0.8rem;
+
     /* =========================
        NAV-BAR
     ========================= */
     --nav-height: 5rem;
 }
+
+
 /* ==================================================
    DARK MODE
 ================================================== */
+
 .darkMode{
-    /* Global */
-    --page-background: #0b0b0d;
-    --navbar-background: #0b0b0dd5;
+    /* =========================
+       GLOBAL
+    ========================= */
+
+    --page-background: #17110d;
     --page-text: #f5f5f7;
-    --muted-text: #a1a1a6;
-    --surface-color: #151518;
+    --muted-text: #aaa5a0;
+
+    --surface-color: #211b17;
+    --surface-color-2: #29221d;
+
+    --border-color: #3a312b;
+    --card-border-color: #3a312b;
+
     --dark-color: #f5f5f7;
-    --surface-color-2: #1d1d21;
-    --border-color: #2c2c30;
-    --card-border-color: #2c2c30;
-    /* Slightly brighter green for dark backgrounds */
-    --primary-color-mid: #2f7d32;
-    
-    /* Hero */
-      --hero-background: #0d0d0d;
 
-      --hero-bg-1: #0d0d0d;
-      --hero-bg-2: #17110d;
-      --hero-bg-3: #090909;
+    --secondary-color: #aaa5a0;
+    --secondary-dim-color: #8d8782;
 
-      --hero-glow-1: rgba(255, 166, 102, 0.14);
-      --hero-glow-2: rgba(244, 124, 32, 0.08);
+    --light-color: #302821;
+    --search-icon-background: #f47c20;
 
-      --hero-dots: rgba(255, 255, 255, 0.07);
+    --card-color-light: #29231f;
 
-      --hero-pill-background: rgba(40, 35, 30, .85);
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    --navbar-background: rgba(23, 17, 13, .90);
+
+    /* =========================
+       HERO
+    ========================= */
+
+    --hero-background: #17110d;
+
+    --hero-bg-1: #17110d;
+    --hero-bg-2: #201710;
+    --hero-bg-3: #15110e;
+
+    --hero-dots: rgba(255, 255, 255, .055);
+
+    --hero-glow-1: rgba(255, 166, 102, .14);
+    --hero-glow-2: rgba(244, 124, 32, .08);
+
+    --hero-pill-background: rgba(48, 39, 31, .85);
+
+    /* =========================
+         FOOTER DARK MODE
+      ========================= */
+
+      --footer-background: #111113;
+
+      --footer-dots: rgba(255, 255, 255, 0.07);
+
+      --footer-glow-1: rgba(255, 166, 102, 0.18);
+      --footer-glow-2: rgba(244, 124, 32, 0.12);
 }
+
+
+/* ==================================================
+   GLOBAL APP BACKGROUND
+================================================== */
+
+.darkMode{
+    min-height: 100vh;
+    background: var(--page-background);
+    color: var(--page-text);
+}
+
 /* ==================================================
    GLOBAL
 ================================================== */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: system-ui, -apple-system, sans-serif;
 }
+
 html{
     scroll-behavior: smooth;
     font-size: 62.5%;
 }
+
 body{
+    background: #fff;
     color: var(--page-text);
-    background-color: var(--page-background);
     font-size: 1.4rem;
-    transition: background-color .3s ease, color .3s ease;
+    transition:
+        background-color .3s ease,
+        color .3s ease;
 }
-li, ul, a, h1, p, input, button{
+
+li,
+ul,
+a,
+h1,
+p,
+input,
+button{
     list-style: none;
     text-decoration: none;
     margin: 0;

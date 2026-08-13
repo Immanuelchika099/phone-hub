@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--surface-color);
     padding: 3.5rem;
     width: 41rem;
 }
@@ -116,7 +117,6 @@
     margin: 1rem auto;
     filter:
         drop-shadow(0 2rem 2rem rgba(0,0,0,.18));
-
     transition:
         transform .5s ease;
 }
@@ -134,25 +134,17 @@
 
 .categoryArrow{
     position: absolute;
-
     right: 3rem;
     bottom: 3rem;
-
     z-index: 3;
-
     width: 5rem;
     height: 5rem;
-
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: var(--primary-color);
-
     color: white;
-
     font-size: 2.2rem;
 
     transition:
