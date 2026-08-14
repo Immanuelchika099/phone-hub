@@ -90,12 +90,11 @@
     outline: none;
     border: none;
     background-color: var(--primary-color);
-    color: #fff;
     padding: 1.5rem;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s all linear;
-    box-shadow: 0 7px 11px var(--primary-color-shadow);
+    box-shadow: 0 2px 11px var(--primary-color);
     margin-top: 1rem;
     font-weight: bold;
     

@@ -136,9 +136,9 @@ button.explore.btn{
     padding: 1rem 3rem;
     box-shadow: none;
     border-radius: 99rem;
-    border: 1.5px solid var(--primary-color);
+    border: 1.5px solid var(--primary-color-shadow);
     background: transparent;
-    color: var(--primary-color);
+    color: var(--primary-color-shadow);
     font-size: var(--font-size-lg);
     font-weight: 600;
     transition:

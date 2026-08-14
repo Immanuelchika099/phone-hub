@@ -147,8 +147,8 @@
 
     --surface-color: #11182a;
     --surface-color-2: #17223a;
-    --primary-color: #fff;
     --primary-color-light: #8EA7FF;
+    --primary-color-shadow: #fff;
 
     --border-color: #263453;
     --card-border-color: #263453;
