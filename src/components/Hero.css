@@ -1,6 +1,6 @@
 .hero-container {
     width: 100%;
-    height: 94vh;
+    height: 91vh;
     position: relative;
     overflow: hidden;
     transition: .5s ease;
@@ -74,20 +74,17 @@
     padding: .6rem 1.5rem;
     border-radius: 15rem;
     background: var(--hero-pill-background);
-
     backdrop-filter: blur(2rem);
-
     color: var(--primary-color-light);
-
     font-weight: 600;
     font-size: var(--font-size-sm);
 }
 
 
 .heroH1{
-    font-size: 6.6rem;
+    font-size: 7rem;
     font-weight: 700;
-    line-height: .95;
+    line-height: 1;
     letter-spacing: -1px;
     width: 85%;
     padding: 3.3rem 0;
@@ -112,45 +109,44 @@
     width: 61%;
     line-height: 1.1;
     padding-bottom: 4rem;
-    color: var(--page-text);
 }
 
-
+.hero-buttons{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
 .shopNow.btn{
-    width: fit-content;
+    width: 18rem;
     padding: 1rem 3rem;
     box-shadow: none;
+    font-weight: 600;
     border-radius: 99rem;
     background: var(--primary-color-light);
-
     font-size: var(--font-size-lg);
-
     transition:
         transform .2s ease,
         background-color .3s ease;
 }
-
-
-.shopNow.btn:hover{
-    cursor: pointer;
-    transform: translateY(-3px);
+button.explore.btn{
+    width: 18rem;
+    padding: 1rem 3rem;
+    box-shadow: none;
+    border-radius: 99rem;
+    border: 1.5px solid var(--primary-color-light);
+    background: transparent;
+    color: var(--primary-color-light);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    transition:
+        transform .2s ease,
+        border-color .3s ease;
 }
 
-
-
-/* ==================================================
-   HERO IMAGE
-================================================== */
-
-.heroTechImg{
-    position: relative;
-
-    z-index: 1;
-
-    padding-top: 7rem;
-
-    width: 100%;
-    max-width: 49rem;
+.shopNow.btn:hover,
+.explore.btn{
+    cursor: pointer;
+    background: var(--primary-color);
 }
 
 
@@ -160,22 +156,16 @@
 
 .hero-footerTx{
     color: #fff;
-
     padding: 1rem;
-
     font-size: 1.4rem;
-
     background: var(--primary-color-light);
-
     width: 100%;
-
     text-align: center;
 }
 
-
 .callNo{
-    font-weight: bold;
-
+    font-weight: 700;
+    padding-left: 1rem;
     text-decoration: underline;
     text-decoration-color: #fff;
 }
@@ -204,9 +194,6 @@
         width: 100%;
     }
 
-    .heroTechImg{
-        width: 40rem;
-    }
 }
 
 
@@ -237,14 +224,19 @@
         font-size: 1.8rem;
     }
 
+     .hero-buttons{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
     .shopNow.btn{
         margin: auto;
     }
-
-    .heroTechImg{
-        width: 36rem;
-        padding-top: 0;
+    button.explore.btn{
+        margin: auto;
     }
+
 }
 
 
@@ -271,18 +263,20 @@
     }
 
     .heroText{
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         line-height: 1.5;
         letter-spacing: .1px;
-    }
-
-    .heroTechImg{
-        width: 100%;
-        max-width: 21rem;
+        color: var(--secondary-color);
     }
 
     .shopNow.btn{
-        width: 60%;
+        width: 80%;
+        font-size: 1.6rem;
+        backdrop-filter: blur(2rem);
+        padding: 1.4rem;
+    }
+    button.explore.btn{
+        width: 80%;
         font-size: 1.6rem;
         backdrop-filter: blur(2rem);
         padding: 1.4rem;

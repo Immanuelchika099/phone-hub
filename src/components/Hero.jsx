@@ -1,5 +1,8 @@
-import { button } from "framer-motion/client";
+import { button, image } from "framer-motion/client";
 import heroTechImg from "../assets/phones/heroImg.png";
+import bg1 from "../assets/bg1.png";
+import bg2 from "../assets/bg2.png";
+import bg3 from "../assets/bg3.png";
 import "../components/Hero.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -10,6 +13,7 @@ function Hero() {
 
     const slides = [
         {
+            image: bg1,
             tag: '"Summer Sale - Up to 50% Off"',
             title: (
                 <>
@@ -19,11 +23,12 @@ function Hero() {
             ),
             text:
                 "Discover premium smartphones from top brands at unbeatable prices. Find the perfect device for work, gaming, and everyday life.",
-            button: "Shop Now", 
-            image: heroTechImg,
+            button: "Shop Now",
+            secondButton: "Explore",
         },
 
         {
+            image: bg2,
             tag: '"Latest Technology"',
             title: (
                 <>
@@ -33,11 +38,12 @@ function Hero() {
             ),
             text:
                 "Explore powerful smartphones designed to keep up with your lifestyle, work, entertainment, and everything in between.",
-            button: "Explore Phones",
-            image: heroTechImg,
+            button: "Buy Now",
+            secondButton: "Explore",
         },
 
         {
+            image: bg3,
             tag: '"Built For You"',
             title: (
                 <>
@@ -47,15 +53,14 @@ function Hero() {
             ),
             text:
                 "From powerful Android devices to the latest iPhones, discover technology that fits your style and your needs.",
-            button: "View Collection",
-            image: heroTechImg,
+            button: "Shop Now",
+            secondButton: "Watch Video",
         },
     ];
 
 
 
     const slide = slides[currentSlide];
-
 
     return (
         <>
@@ -131,43 +136,29 @@ function Hero() {
                             </motion.p>
 
 
-                            <motion.button
-                                className="shopNow btn"
-                                initial={{ opacity: 0, scale: 0.8}}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.4, delay: 0.3 }}
-                                whileHover={{ scale: 1.05 }}
-                            >
-                                {slide.button}
-                            </motion.button>
+                            <div className="hero-buttons">
+                                <motion.button
+                                    className="shopNow btn"
+                                    initial={{ opacity: 0, scale: 0.8}}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.1, delay: 0 }}
+                                    whileHover={{ scale: .95 }}
+                                >
+                                    {slide.button}
+                                </motion.button>
+                                <motion.button
+                                    className="explore btn"
+                                    initial={{ opacity: 0, scale: 0.8}}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.1, delay: 0 }}
+                                    whileHover={{ scale: .95 }}
+                                >
+                                    {slide.secondButton}
+                                </motion.button>
+                            </div>
+
 
                         </div>
-
-
-                        {/* RIGHT IMAGE */}
-
-                        <motion.div
-                            className="hero-image-wrapper"
-
-                            initial={{
-                                opacity: 0,
-                                x: 100
-                            }}
-
-                            animate={{
-                                opacity: 1,
-                                x: 0
-                            }}
-
-                            transition={{
-                                duration: 0.7,
-                                delay: 0.1
-                            }}
-                        >
-
-
-
-                        </motion.div>
 
                     </motion.div>
 
