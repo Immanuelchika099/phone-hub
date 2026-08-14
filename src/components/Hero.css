@@ -103,9 +103,9 @@
 .heroH1 span {
     background: linear-gradient(
         90deg,
-        #526ff5 0%,
-        #6f8dff 45%,
-        #74cfcb 100%
+        var(--heroH1-text-1) 0%,
+        var(--heroH1-text-2) 45%,
+        var(--heroH1-text-3) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -257,7 +257,7 @@ button.explore.btn{
     .hero-container{
         height: 95vh;
         padding: 10rem 1.8rem 2rem;
-        background-position: 55% center;
+        background-position: 75% center;
     }
     .hero-container::before{
         background: linear-gradient(
@@ -278,19 +278,6 @@ button.explore.btn{
     .heroH1{
         font-size: 4.2rem;
         line-height: 1.2;
-    }
-    .heroH1 span{
-        background: linear-gradient(
-            111deg,
-            #aac2ff,
-            #e4ecff,
-            #d0ddff
-        );
-
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: none;
     }
 
     .heroText{

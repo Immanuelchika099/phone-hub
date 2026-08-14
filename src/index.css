@@ -54,6 +54,11 @@
     --hero-background: #fffaf4;
     --hero-pill-background: #e5fcfff1;
 
+      --heroH1-text-1: #526ff5;
+      --heroH1-text-2: #6f8dff;
+      --heroH1-text-3: #74cfcb;
+
+
     /* =========================
          FOOTER EFFECTS
       ========================= */
@@ -113,6 +118,10 @@
       --heroLeftShadow: #080d1ae0;
       --heroLeftShadow2: #080d1ae2;
       --heroLeftShadow3: rgb(24, 24, 24);
+
+      --heroH1-text-1: #aac2ff;
+      --heroH1-text-2: #e4ecff;
+      --heroH1-text-3: #d0ddff;
 
     --page-text: #f5f5f7;
     --muted-text: #aaa5a0;
