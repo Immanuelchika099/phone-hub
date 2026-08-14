@@ -247,9 +247,11 @@ button.explore.btn{
 @media (max-width: 576px){
 
     .hero-container{
-        height: 95vh;
+        height: 95svh;
+        min-height: 61rem;
         padding: 10rem 1.8rem 2rem;
         background-position: 65% center;
+        box-sizing: border-box;
     }
     .hero-container::before{
         background: var(--heroShadow12mini);

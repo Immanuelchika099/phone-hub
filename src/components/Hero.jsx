@@ -1,5 +1,3 @@
-import { button, image } from "framer-motion/client";
-import heroTechImg from "../assets/phones/heroImg.png";
 import bg1 from "../assets/bg1.png";
 import bg2 from "../assets/bg2.png";
 import bg3 from "../assets/bg3.png";
@@ -75,12 +73,13 @@ function Hero() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -80 }}
                         transition={{ duration: 0.6 }}
+
                         drag="x"
+                        dragDirectionLock
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={0.2}
 
                         onDragEnd={(event, info) => {
-
                             if (info.offset.x < -80) {
                                 setCurrentSlide((prev) =>
                                     (prev + 1) % slides.length
