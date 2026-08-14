@@ -196,7 +196,7 @@ function Hero() {
                     className="callNo"
                     href="tel:+2349161229138"
                 >
-                    234 916 122 9138
+                    234 704 086 0338
                 </a>
             </p>
 
