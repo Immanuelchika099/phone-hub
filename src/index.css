@@ -2,28 +2,25 @@
     /* =========================
        THEME COLORS
     ========================= */
-    --primary-color: #f47c20;
+    --primary-color: #5B7CFA;
     --navbar-background: rgba(255, 255, 255, 0.83);
-    --primary-color-mid: #1e5a1e;
-    --primary-color-light: #f47c20;
-    --primary-color-shadow: #ffa663;
-    --primary-dim-color: #89332a;
+    --primary-color-light: #8EA7FF;
+    --primary-color-shadow: #6c8cff;
+    --primary-dim-color: #a9b9ff;
 
     --secondary-color: #6e6e73;
     --secondary-dim-color: #393c3f;
 
-    --card-border-color: #c7c7c7;
-
+    --card-border-color: #d9dff0;
     --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
+    --danger-color: #e0526b;
     --info-color: #17a2b8;
 
     --light-color: #f8f9fa;
-    --card-color-light: rgba(255,255,255,.5);
-    --background-light: #fffff8f1;
+    --card-color-light: rgba(255,255,255,.65);
+    --background-light: #f6f8fd;
     --dark-color: #393939;
-    --search-icon-background: #6e6e73;
+    --search-icon-background: ;
 
     /* =========================
        GLOBAL THEME COLORS
@@ -50,28 +47,16 @@
        HERO COLORS
     ========================= */
     --hero-background: #fffaf4;
-
-    --hero-bg-1: #fffaf4;
-    --hero-bg-2: #ffffff;
-    --hero-bg-3: #f8f8f8;
-
-    --hero-dots: rgba(249, 104, 0, .08);
-
-    --hero-glow-1: rgba(255, 166, 102, 0.30);
-    --hero-glow-2: rgba(244, 124, 32, 0.15);
-
-    --hero-pill-background: #fff1e5f1;
+    --hero-pill-background: #e5fcfff1;
 
     /* =========================
          FOOTER EFFECTS
       ========================= */
 
-      --footer-background: #1f1f22;
-
+      --footer-background: #0b1020;
       --footer-dots: rgba(255, 255, 255, 0.04);
-
-      --footer-glow-1: rgba(255, 166, 102, 0.08);
-      --footer-glow-2: rgba(244, 124, 32, 0.05);
+      --footer-glow-1: rgba(108, 140, 255, 0.10);
+      --footer-glow-2: rgba(103, 217, 208, 0.08);
 
     /* =========================
        FONT SIZES
@@ -115,59 +100,37 @@
        GLOBAL
     ========================= */
 
-    --page-background: linear-gradient(#090909, #050505e8);;
+    --page-background: linear-gradient(
+         13deg,
+         #080d1a,
+         #090f1c);;
     --page-text: #f5f5f7;
     --muted-text: #aaa5a0;
 
-    --surface-color: #211b17;
-    --surface-color-2: #29221d;
+    --surface-color: #11182a;
+    --surface-color-2: #17223a;
 
-    --border-color: #3a312b;
-    --card-border-color: #3a312b;
+    --border-color: #263453;
+    --card-border-color: #263453;
 
     --dark-color: #f5f5f7;
 
     --secondary-color: #aaa5a0;
     --secondary-dim-color: #8d8782;
 
-    --light-color: #302821;
-    --search-icon-background: #f47c20;
+    --light-color: #e8eeff;
+    --search-icon-background: #6c8cff;
 
-    --card-color-light: #29231f;
+    --card-color-light: #151f34;
 
     /* =========================
        NAVBAR
     ========================= */
-
-    --navbar-background: rgba(23, 17, 13, .90);
-
-    /* =========================
-       HERO
-    ========================= */
-
-    --hero-background: #17110d;
-
-    --hero-bg-1: #17110d;
-    --hero-bg-2: #201710;
-    --hero-bg-3: #15110e;
-
-    --hero-dots: rgba(255, 255, 255, .055);
-
-    --hero-glow-1: rgba(255, 166, 102, .14);
-    --hero-glow-2: rgba(244, 124, 32, .08);
-
-    --hero-pill-background: rgba(48, 39, 31, .85);
-
-    /* =========================
-         FOOTER DARK MODE
-      ========================= */
+    --navbar-background: rgba(8, 13, 26, .90);
+    --hero-pill-background: rgba(30, 45, 82, .85);
 
       --footer-background: #111113;
 
-      --footer-dots: rgba(255, 255, 255, 0.07);
-
-      --footer-glow-1: rgba(255, 166, 102, 0.18);
-      --footer-glow-2: rgba(244, 124, 32, 0.12);
 }
 
 

@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import navLogo from "../assets/logo/navLogo.PNG";
-import { FaShoppingCart, FaMoon } from "react-icons/fa";
+import { FiShoppingCart} from "react-icons/fi";
+import { FaMoon } from "react-icons/fa";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
@@ -19,6 +20,7 @@ function Navbar({
 }) {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false)
 
     const handleSearch = () => {
         setSearch(searchInput);
@@ -90,14 +92,17 @@ function Navbar({
 
                     {/* RIGHT SIDE - CART + DARK MODE */}
                     <div className="navActions">
-
+                        <IoSearch
+                            className="searchIcon"
+                            onClick={() => setSearchOpen (!searchOpen) }
+                        />
                         <div
                             className="cartContainer"
                             onClick={() => {
                                 setCartPopup(prev => !prev);
                             }}
                         >
-                            <FaShoppingCart className="cartIcon" />
+                            <FiShoppingCart className="cartIcon" />
 
                             <span className="cartCount">
                                 {cart.length}
@@ -119,35 +124,38 @@ function Navbar({
                 {/* SEARCH ROW */}
                 <div className="navSearch">
 
-                    <div className="search-container">
+                    {
+                        searchOpen && (
+                            <div className="search-container">
+                                <input
+                                    className="searchInput"
+                                    type="text"
+                                    value={searchInput}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setSearchInput(value);
+                                        if (value.trim() === "") {
+                                            setSearch("");
+                                        }
+                                    }}
+                                    placeholder="Search phones, and categories..."
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            handleSearch();
+                                        }
+                                    }}
+                                />
 
-                        <input
-                            className="searchInput"
-                            type="text"
-                            value={searchInput}
-                            onChange={(e) => {
-                                const value = e.target.value;
-                                setSearchInput(value);
-                                if (value.trim() === "") {
-                                    setSearch("");
-                                }
-                            }}
-                            placeholder="Search phones, and categories..."
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                    handleSearch();
-                                }
-                            }}
-                        />
+                                <button
+                                    className="search-icon"
+                                    onClick={handleSearch}
+                                >
+                                    <IoSearch />
+                                </button>
 
-                        <button
-                            className="search-icon"
-                            onClick={handleSearch}
-                        >
-                            <IoSearch />
-                        </button>
-
-                    </div>
+                            </div>
+                        )
+                    }
 
                 </div>
 

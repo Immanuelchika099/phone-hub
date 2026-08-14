@@ -1,3 +1,4 @@
+import { button } from "framer-motion/client";
 import heroTechImg from "../assets/phones/heroImg.png";
 import "../components/Hero.css";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,12 +14,12 @@ function Hero() {
             title: (
                 <>
                     Smarter Technology <br />
-                    Better Living.
+                    <span> Better Living. </span>
                 </>
             ),
             text:
                 "Discover premium smartphones from top brands at unbeatable prices. Find the perfect device for work, gaming, and everyday life.",
-            button: "Shop Now",
+            button: "Shop Now", 
             image: heroTechImg,
         },
 
@@ -26,8 +27,8 @@ function Hero() {
             tag: '"Latest Technology"',
             title: (
                 <>
-                    Upgrade Your <br />
-                    Everyday.
+                    Designed for <br />
+                   <span> what's next. </span>
                 </>
             ),
             text:
@@ -40,8 +41,8 @@ function Hero() {
             tag: '"Built For You"',
             title: (
                 <>
-                    Find Your <br />
-                    Perfect Phone.
+                    The future <br />
+                    <span> in your hands. </span>
                 </>
             ),
             text:
@@ -60,19 +61,14 @@ function Hero() {
         <>
 
             <main className="hero-container">
-
                 <AnimatePresence mode="wait">
-
                     <motion.div
                         key={currentSlide}
                         className="heroFlex"
-
                         initial={{ opacity: 0, x: 80 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -80 }}
-
                         transition={{ duration: 0.6 }}
-
                         drag="x"
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={0.2}
@@ -130,35 +126,17 @@ function Hero() {
                                     delay: 0.2
                                 }}
                             >
+                                
                                 {slide.text}
                             </motion.p>
 
 
                             <motion.button
                                 className="shopNow btn"
-
-                                initial={{
-                                    opacity: 0,
-                                    scale: 0.8
-                                }}
-
-                                animate={{
-                                    opacity: 1,
-                                    scale: 1
-                                }}
-
-                                transition={{
-                                    duration: 0.4,
-                                    delay: 0.3
-                                }}
-
-                                whileHover={{
-                                    scale: 1.05
-                                }}
-
-                                whileTap={{
-                                    scale: 0.95
-                                }}
+                                initial={{ opacity: 0, scale: 0.8}}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.4, delay: 0.3 }}
+                                whileHover={{ scale: 1.05 }}
                             >
                                 {slide.button}
                             </motion.button>
@@ -187,11 +165,6 @@ function Hero() {
                             }}
                         >
 
-                            <img
-                                className="heroTechImg"
-                                src={slide.image}
-                                alt="Tech Products"
-                            />
 
 
                         </motion.div>

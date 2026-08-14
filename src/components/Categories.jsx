@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products";
+import { motion } from "framer-motion";
 import "./Categories.css";
 
 function Categories() {
@@ -44,7 +45,11 @@ function Categories() {
 
                 {/* IPHONE */}
 
-                <button
+                <motion.button
+                    initial={{ opacity: 0, y: 90 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.8 }}
                     className={`categoryCard ${
                         selectedCategory === "iPhone"
                             ? "selected"
@@ -77,12 +82,16 @@ function Categories() {
                         →
                     </span>
 
-                </button>
+                </motion.button>
 
 
                 {/* ANDROID */}
 
-                <button
+                <motion.button
+                    initial={{ opacity: 0, y: 90 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.8 }}
                     className={`categoryCard ${
                         selectedCategory === "Android"
                             ? "selected"
@@ -115,7 +124,7 @@ function Categories() {
                         →
                     </span>
 
-                </button>
+                </motion.button>
 
             </div>
 
