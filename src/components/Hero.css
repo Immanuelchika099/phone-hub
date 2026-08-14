@@ -279,6 +279,19 @@ button.explore.btn{
         font-size: 4.2rem;
         line-height: 1.2;
     }
+    .heroH1 span{
+        background: linear-gradient(
+            111deg,
+            #aac2ff,
+            #e4ecff,
+            #d0ddff
+        );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: none;
+    }
 
     .heroText{
         font-size: 1.7rem;
