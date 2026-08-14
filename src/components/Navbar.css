@@ -136,7 +136,7 @@
 .searchInput {
     flex: 1;
     width: 100%;
-    border: 1px solid var(--card-border-color) ;
+    border: none;
     outline: none;
     background: transparent;
     padding: 1.2rem 2rem;
