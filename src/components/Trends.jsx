@@ -40,7 +40,7 @@ const scrollRight = () => {
                             </h1>
 
                             <p className="phoneTx trendd">
-                                Everything happening across Apple's ecosystem, from iPhone and Mac to Watch, AirPods, and iOS.
+                                The latest across Apple, Samsung and the world of tech.
                             </p>
                         </div>
 
