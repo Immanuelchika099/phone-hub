@@ -5,7 +5,7 @@
     top: 0;
     z-index: 1000;
     background: var(--navbar-background);
-    backdrop-filter: blur(1.2rem);
+    backdrop-filter: blur(1rem);
 }
 
 

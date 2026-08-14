@@ -9,9 +9,20 @@
     --primary-dim-color: #a9b9ff;
 
     /* HERO BEFORE PSEUDOCLASS */
-    --heroLeftShadow: rgba(255, 255, 255, 0.878);
-    --heroLeftShadow2: rgba(255, 255, 255, 0.768);
-    --heroLeftShadow3: rgba(255, 255, 255, 0.95);
+ 
+    --heroShadow: linear-gradient(
+               90deg,
+               rgba(255, 255, 255, 0.878) 0%,
+               rgba(255, 255, 255, 0.768) 45%,
+               transparent 100%
+            );
+    --heroShadow12mini: linear-gradient(
+               90deg,
+               rgba(255, 255, 255, 0.878) 0%,
+               rgba(255, 255, 255, 0.768) 100%,
+               transparent 100%
+            );
+
 
     --secondary-color: #6e6e73;
     --secondary-dim-color: #393c3f;
@@ -52,7 +63,7 @@
        HERO COLORS
     ========================= */
     --hero-background: #fffaf4;
-    --hero-pill-background: #e5fcfff1;
+    --hero-pill-background: #e5fcffbd;
 
       --heroH1-text-1: #526ff5;
       --heroH1-text-2: #6f8dff;
@@ -113,11 +124,19 @@
     --page-background: linear-gradient(
          13deg,
          #080d1a,
-         #090f1c);;
+         #090f1c);
 
-      --heroLeftShadow: #080d1ae0;
-      --heroLeftShadow2: #080d1ae2;
-      --heroLeftShadow3: rgb(24, 24, 24);
+         --heroLeftShadow: #080d1ae0;
+         --heroLeftShadow2: #080d1ae2;
+         --heroLeftShadow3: rgb(24, 24, 24);
+
+         --heroShadow: linear-gradient(
+               90deg,
+               var(--heroLeftShadow) 0%,
+               var(--heroLeftShadow2) 100%,
+               transparent 100%
+            );
+         --heroShadow12mini: var(--heroShadow);
 
       --heroH1-text-1: #aac2ff;
       --heroH1-text-2: #e4ecff;
@@ -127,8 +146,9 @@
     --muted-text: #aaa5a0;
 
     --surface-color: #11182a;
-    --surface-color-2: #17223a;
+    --surface-color-2: #17223a98;
     --primary-color: #fff;
+    --primary-color-light: #8EA7FF;
 
     --border-color: #263453;
     --card-border-color: #263453;
@@ -145,8 +165,8 @@
     /* =========================
        NAVBAR
     ========================= */
-    --navbar-background: rgba(8, 13, 26, .90);
-    --hero-pill-background: rgba(30, 45, 82, .85);
+    --navbar-background: rgba(8, 13, 26, 0.647);
+    --hero-pill-background: rgba(30, 45, 82, 0.72);
 
       --footer-background: #111113;
 

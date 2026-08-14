@@ -12,12 +12,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        var(--heroLeftShadow) 0%,
-        var(--heroLeftShadow2) 45%,
-        transparent 65%
-    );
+    background: var(--heroShadow);
     z-index: 1;
     pointer-events: none;
 }
@@ -79,10 +74,10 @@
 
 .summerTx{
     display: inline-block;
-    padding: .6rem 1.5rem;
+    padding: .7rem 1.7rem;
     border-radius: 15rem;
     background: var(--hero-pill-background);
-    backdrop-filter: blur(2rem);
+    backdrop-filter: blur(1rem);
     color: var(--primary-color-light);
     font-weight: 600;
     font-size: var(--font-size-sm);
@@ -150,11 +145,8 @@ button.explore.btn{
         transform .2s ease,
         border-color .3s ease;
 }
-
-.shopNow.btn:hover,
-.explore.btn{
+.explore.btn:hover{
     cursor: pointer;
-    background: var(--primary-color);
 }
 
 
@@ -257,16 +249,10 @@ button.explore.btn{
     .hero-container{
         height: 95vh;
         padding: 10rem 1.8rem 2rem;
-        background-position: 75% center;
+        background-position: 65% center;
     }
     .hero-container::before{
-        background: linear-gradient(
-            90deg,
-            var(--heroLeftShadow) 0%,
-            var(--heroLeftShadow2) 45%,
-            var(--heroLeftShadow3) 100%,
-            transparent 100%
-        );
+        background: var(--heroShadow12mini);
     }
 
     .summerTx{
@@ -290,7 +276,7 @@ button.explore.btn{
     .shopNow.btn{
         width: 80%;
         font-size: 1.6rem;
-        backdrop-filter: blur(2rem);
+        backdrop-filter: blur(1rem);
         padding: 1.4rem;
     }
     button.explore.btn{
