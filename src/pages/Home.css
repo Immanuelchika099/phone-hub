@@ -114,7 +114,6 @@
     flex:0 0 42%;
     flex-shrink:0;
     background:var(--surface-color-2);
-    border:1px solid var(--border-color);
     backdrop-filter: blur(1rem);
     border-radius:18px;
     overflow:hidden;
