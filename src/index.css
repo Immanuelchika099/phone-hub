@@ -146,7 +146,7 @@
     --muted-text: #aaa5a0;
 
     --surface-color: #11182a;
-    --surface-color-2: #17223a98;
+    --surface-color-2: #17223a;
     --primary-color: #fff;
     --primary-color-light: #8EA7FF;
 
@@ -165,10 +165,10 @@
     /* =========================
        NAVBAR
     ========================= */
-    --navbar-background: rgba(8, 13, 26, 0.908);
+    --navbar-background: rgba(8, 13, 26, 0.954);
     --hero-pill-background: rgba(30, 45, 82, 0.72);
 
-      --footer-background: #111113;
+      --footer-background: rgba(8, 13, 26, 0.954);
 
 }
 

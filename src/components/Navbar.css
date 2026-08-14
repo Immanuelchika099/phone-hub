@@ -276,10 +276,10 @@
         right: auto;
         width: 24rem;
         height: 100vh;
-        background: var(--surface-color-2);
+        background: var(--navbar-background);
+        backdrop-filter: blur(92rem);
         display: flex;
         flex-direction: column;
-
         align-items: flex-start;
         justify-content: flex-start;
 
