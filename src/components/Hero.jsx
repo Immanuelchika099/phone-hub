@@ -10,7 +10,6 @@ import { useState } from "react";
 function Hero() {
 
     const [currentSlide, setCurrentSlide] = useState(0);
-
     const slides = [
         {
             image: bg1,
@@ -58,14 +57,16 @@ function Hero() {
         },
     ];
 
-
-
     const slide = slides[currentSlide];
 
     return (
         <>
 
-            <main className="hero-container">
+            <main className="hero-container"
+                style={{
+                    backgroundImage: `url(${slides[currentSlide].image})`
+                }}
+            >
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentSlide}
@@ -168,9 +169,7 @@ function Hero() {
                 {/* SLIDER DOTS */}
 
                 <div className="hero-dots">
-
                     {slides.map((_, index) => (
-
                         <button
                             key={index}
                             className={
