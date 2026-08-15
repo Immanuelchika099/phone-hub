@@ -10,17 +10,14 @@
     z-index: 9999;
     animation: overlayFade 0.25s ease;
 }
-
 @keyframes overlayFade {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
 }
-
 
 /* =========================
    MODAL
@@ -28,12 +25,10 @@
 
 .product-modal {
     position: fixed;
-    overflow: hidden;
-    touch-action: none;
     width: min(1000px, 94vw);
     max-height: 90vh;
+    overflow-y: auto;
     background: var(--surface-color);
-    backdrop-filter: blur(1rem);
     color: var(--page-text);
     border-radius: 28px;
     padding: 30px;
@@ -44,100 +39,13 @@
     z-index: 99999;
     box-shadow:
         0 35px 100px rgba(0, 0, 0, 0.35);
-    animation:
-        modalPop 0.35s cubic-bezier(.16, 1, .3, 1);
-
-    /*
-        Variables used by the Apple-style glow.
-        React updates these while the pointer moves.
-    */
-    --mouse-x: 50%;
-    --mouse-y: 50%;
-    --glow-opacity: 0;
-
-    /*
-        Keeps the glow inside the glass.
-    */
-    isolation: isolate;
+    animation: modalPop 0.35s cubic-bezier(.16, 1, .3, 1);
 }
-
-
-/* =========================
-   APPLE STYLE DARK MODE GLOW
-========================= */
-
-.darkMode .product-modal::before {
-    content: "";
-
-    position: absolute;
-
-    width: 360px;
-    height: 360px;
-
-    left: var(--mouse-x);
-    top: var(--mouse-y);
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.057) 0%,
-            rgba(255, 255, 255, 0.039) 18%,
-            rgba(255, 255, 255, 0.035) 40%,
-            rgba(255, 255, 255, 0.012) 55%,
-            transparent 72%
-        );
-
-    filter: blur(3rem);
-
-    opacity: var(--glow-opacity);
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    transition:
-        opacity 0.35s ease;
-}
-
-
-.darkMode .product-modal::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background:
-        radial-gradient(
-            550px circle at
-            var(--mouse-x)
-            var(--mouse-y),
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.018) 25%,
-            transparent 55%
-        );
-
-    opacity: var(--glow-opacity);
-    pointer-events: none;
-    z-index: -1;
-    transition:
-        opacity 0.35s ease;
-}
-
-.product-modal > * {
-    position: relative;
-    z-index: 1;
-}
-
-
 @keyframes modalPop {
     from {
         opacity: 0;
         transform: scale(0.92) translateY(25px);
     }
-
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -151,33 +59,23 @@
 
 .modal-close {
     position: absolute;
-
     top: 17px;
     right: 17px;
-
     width: 4rem;
     height: 4rem;
-
     border: none;
     border-radius: 50%;
-
     background: var(--surface-color-2);
     color: var(--page-text);
     font-size: 27px;
     line-height: 1;
     cursor: pointer;
-
     z-index: 10;
-
-    transition:
-        transform 0.25s ease;
+    transition:transform 0.25s ease;
 }
-
 .modal-close:hover {
     transform: rotate(90deg);
 }
-
-
 /* =========================
    LEFT
 ========================= */
@@ -187,14 +85,10 @@
     align-items: center;
     justify-content: center;
 }
-
-
 .modal-image-container {
     width: 100%;
     height: 520px;
-
     border-radius: 24px;
-
     background:
         radial-gradient(
             circle at center,
@@ -202,32 +96,22 @@
             var(--surface-color) 65%,
             var(--page-background) 100%
         );
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
 }
-
-
 .modal-image-container img {
     width: 88%;
     height: 88%;
-
     object-fit: contain;
-
     transition:
         transform 0.45s cubic-bezier(.16, 1, .3, 1),
         opacity 0.25s ease;
 }
-
-
 .modal-image-container:hover img {
     transform: scale(1.045);
 }
-
-
 /* =========================
    DETAILS
 ========================= */
@@ -236,32 +120,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     padding: 25px 15px 25px 0;
 }
-
-
 .modal-brand {
     color: var(--muted-text);
-
     font-size: 14px;
     font-weight: 600;
-
     margin: 0 0 6px;
-
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
-
-
 .modal-title {
     color: var(--page-text);
-
     font-size: clamp(30px, 4vw, 43px);
     line-height: 1.05;
-
     margin: 0 0 13px;
-
     letter-spacing: -0.04em;
 }
 
@@ -273,36 +146,24 @@
 .modal-rating {
     display: flex;
     align-items: center;
-
     gap: 9px;
-
     margin-bottom: 8px;
 }
-
-
 .modal-rating > span {
     color: var(--muted-text);
     font-size: 14px;
 }
-
-
 .phoneCard-stars {
     display: flex;
     gap: 3px;
-
     font-size: 16px;
 }
-
-
 .phoneCard-stars .filled {
     color: var(--primary-color);
 }
-
-
 .phoneCard-stars .empty {
     color: var(--border-color);
 }
-
 
 /* =========================
    PRICE
@@ -310,14 +171,10 @@
 
 .modal-price {
     font-size: 29px;
-
     color: var(--page-text);
-
     margin: 5px 0 25px;
-
     letter-spacing: -0.03em;
 }
-
 
 /* =========================
    OPTIONS
@@ -326,27 +183,18 @@
 .option-section {
     margin-bottom: 22px;
 }
-
-
 .option-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     margin-bottom: 11px;
 }
-
-
 .option-title {
     color: var(--page-text);
-
     font-size: 14px;
     font-weight: 700;
-
     margin: 0;
 }
-
-
 .selected-option {
     color: var(--muted-text);
     font-size: 13px;
@@ -362,42 +210,28 @@
     align-items: center;
     gap: 12px;
 }
-
-
 .color-option {
     width: 39px;
     height: 39px;
-
     padding: 0;
-
     border: 2px solid transparent;
     border-radius: 50%;
-
     background: transparent;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
-
     transition:
         transform 0.2s ease,
         border 0.2s ease;
 }
-
-
 .color-option:hover {
     transform: scale(1.08);
 }
-
-
 .color-option.selected {
     border-color: var(--primary-color);
     transform: scale(1.08);
 }
-
-
 .color-circle {
     width: 27px;
     height: 27px;
@@ -411,14 +245,11 @@
 /* =========================
    STORAGE
 ========================= */
-
 .storage-options {
     display: flex;
     gap: 9px;
     flex-wrap: wrap;
 }
-
-
 .storage-option {
     min-width: 80px;
     padding: 11px 15px;
@@ -435,13 +266,15 @@
         color 0.2s ease,
         transform 0.2s ease;
 }
-
+.storage-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
 .storage-option.selected {
     background: var(--primary-color);
     border-color: var(--primary-color);
     color: #fff;
 }
-
 
 /* =========================
    DESCRIPTION
@@ -451,17 +284,12 @@
     color: var(--muted-text);
     font-size: 13px;
     line-height: 1.65;
-
     margin: 3px 0 20px;
-
     display: -webkit-box;
-
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-
     overflow: hidden;
 }
-
 
 /* =========================
    CART BUTTON
@@ -469,31 +297,23 @@
 
 .modal-cart-btn {
     width: 100%;
-
     padding: 16px;
-
     border: none;
     border-radius: 11px;
-
     background: var(--primary-color);
     color: white;
-
     font-size: 16px;
     font-weight: 700;
-
     cursor: pointer;
-
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
-
-
 .modal-cart-btn:hover {
     transform: translateY(-2px);
+    box-shadow:
+        0 12px 28px var(--primary-color-shadow);
 }
-
-
 .modal-cart-btn:active {
     transform: scale(0.98);
 }
@@ -505,11 +325,8 @@
 
 .stock-status {
     color: #4f7d52;
-
     font-size: 12px;
-
     text-align: center;
-
     margin: 11px 0 0;
 }
 
@@ -523,157 +340,82 @@
     .modal-overlay {
         padding: 10px;
     }
-
-
     .product-modal {
         width: 94vw;
-
         max-height: 92vh;
-
         grid-template-columns: 1fr;
-
         gap: 12px;
-
         padding: 14px;
-
         border-radius: 20px;
     }
-
-
-    /*
-       Smaller glow on phones so it
-       doesn't become overwhelming.
-    */
-
-    .darkmode .product-modal::before {
-        width: 250px;
-        height: 250px;
-
-        filter: blur(18px);
-    }
-
-
-    .darkmode .product-modal::after {
-        background:
-            radial-gradient(
-                380px circle at
-                var(--mouse-x)
-                var(--mouse-y),
-                rgba(255, 255, 255, 0.05),
-                transparent 55%
-            );
-    }
-
-
     .modal-details {
         padding: 2px 5px 10px;
     }
-
-
     .modal-image-container {
         height: 230px;
-
         min-height: 0;
-
         border-radius: 17px;
     }
-
-
     .modal-image-container img {
         width: 65%;
         height: 90%;
     }
-
-
     .modal-brand {
         font-size: 11px;
         margin-bottom: 3px;
     }
-
-
     .modal-title {
         font-size: 25px;
         margin-bottom: 8px;
     }
-
-
     .modal-rating {
         margin-bottom: 4px;
     }
-
-
     .phoneCard-stars {
         font-size: 13px;
     }
-
-
     .modal-price {
         font-size: 22px;
         margin: 5px 0 14px;
     }
-
-
     .option-section {
         margin-bottom: 13px;
     }
-
-
     .option-title {
         font-size: 13px;
     }
-
-
     .color-option {
         width: 34px;
         height: 34px;
     }
-
-
     .color-circle {
         width: 23px;
         height: 23px;
     }
-
-
     .storage-option {
         min-width: 70px;
-
         padding: 8px 12px;
-
         font-size: 12px;
     }
-
-
     .modal-description {
         font-size: 12px;
-
         line-height: 1.5;
-
         margin-bottom: 14px;
-
         -webkit-line-clamp: 2;
     }
-
-
     .modal-cart-btn {
         padding: 13px;
         font-size: 14px;
     }
-
-
     .stock-status {
         font-size: 10px;
         margin-top: 7px;
     }
-
-
     .modal-close {
         top: 8px;
         right: 8px;
-
         width: 34px;
         height: 34px;
-
         font-size: 22px;
     }
 }

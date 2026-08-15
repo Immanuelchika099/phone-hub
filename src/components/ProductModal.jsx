@@ -83,79 +83,6 @@ function ProductModal({ phone, onClose, addToCart }) {
     };
 
 
-    /* =========================================
-   APPLE STYLE MOUSE / TOUCH GLOW
-========================================= */
-
-const updateGlowPosition = (e) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    card.style.setProperty("--mouse-x", `${x}px`);
-    card.style.setProperty("--mouse-y", `${y}px`);
-};
-
-
-const handlePointerDown = (e) => {
-    const card = e.currentTarget;
-
-    updateGlowPosition(e);
-
-    card.style.setProperty(
-        "--glow-opacity",
-        "1"
-    );
-};
-
-
-const handlePointerMove = (e) => {
-    updateGlowPosition(e);
-
-    // Keep the glow visible while finger/mouse is moving
-    e.currentTarget.style.setProperty(
-        "--glow-opacity",
-        "1"
-    );
-};
-
-
-const handlePointerUp = (e) => {
-    // On touch, keep the glow visible briefly
-    // instead of immediately killing it.
-    if (e.pointerType === "touch") {
-        setTimeout(() => {
-            e.currentTarget.style.setProperty(
-                "--glow-opacity",
-                "0"
-            );
-        }, 250);
-    }
-};
-
-
-const handlePointerEnter = (e) => {
-    if (e.pointerType === "mouse") {
-        e.currentTarget.style.setProperty(
-            "--glow-opacity",
-            "1"
-        );
-    }
-};
-
-
-const handlePointerLeave = (e) => {
-    if (e.pointerType === "mouse") {
-        e.currentTarget.style.setProperty(
-            "--glow-opacity",
-            "0"
-        );
-    }
-};
-
-
     return (
         <div
             className="modal-overlay"
@@ -165,15 +92,9 @@ const handlePointerLeave = (e) => {
             <div
                 className="product-modal"
                 onClick={(e) => e.stopPropagation()}
-                onPointerDown={handlePointerDown}
-                onPointerMove={handlePointerMove}
-                onPointerUp={handlePointerUp}
-                onPointerEnter={handlePointerEnter}
-                onPointerLeave={handlePointerLeave}
             >
 
                 {/* CLOSE */}
-
                 <button
                     className="modal-close"
                     onClick={onClose}
@@ -184,7 +105,6 @@ const handlePointerLeave = (e) => {
 
 
                 {/* LEFT SIDE */}
-
                 <div className="modal-left">
 
                     <div className="modal-image-container">
@@ -200,7 +120,6 @@ const handlePointerLeave = (e) => {
 
 
                 {/* RIGHT SIDE */}
-
                 <div className="modal-details">
 
                     <p className="modal-brand">
@@ -353,9 +272,11 @@ const handlePointerLeave = (e) => {
                     {/* DESCRIPTION */}
 
                     <p className="modal-description">
+
                         {phone.description ||
                             "Experience powerful performance, beautiful design and an incredible smartphone experience."
                         }
+
                     </p>
 
 
