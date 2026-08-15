@@ -146,7 +146,6 @@
     background: var(--primary-color);
     color: white;
     font-size: 2.2rem;
-
     transition:
         transform .3s ease,
         background-color .3s ease;
@@ -156,12 +155,6 @@
 .categoryCard:hover .categoryArrow{
     transform: translateX(.6rem);
 }
-
-
-.categoryCard.selected{
-    border: 2px solid var(--primary-color);
-}
-
 
 /* TABLET */
 

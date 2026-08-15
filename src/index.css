@@ -18,7 +18,7 @@
             );
     --heroShadow12mini: linear-gradient(
                90deg,
-               rgba(255, 255, 255, 0.878) 0%,
+               rgba(255, 255, 255, 0.693) 0%,
                rgba(255, 255, 255, 0.768) 100%,
                transparent 100%
             );
@@ -123,11 +123,11 @@
 
     --page-background: linear-gradient(
          13deg,
-         #080d1a,
-         #090f1c);
+         #000000,
+         #000001);
 
-         --heroLeftShadow: #080d1ae0;
-         --heroLeftShadow2: #080d1ae2;
+         --heroLeftShadow: rgba(0, 0, 0, 0.92);
+         --heroLeftShadow2: rgba(0, 0, 0, 0.82);
          --heroLeftShadow3: rgb(24, 24, 24);
 
          --heroShadow: linear-gradient(
@@ -145,13 +145,13 @@
     --page-text: #f5f5f7;
     --muted-text: #aaa5a0;
 
-    --surface-color: #11182a;
-    --surface-color-2: #17223a;
+    --surface-color: #3d3d3d9b;
+    --surface-color-2: #1a1a1abf;
     --primary-color-light: #8EA7FF;
     --primary-color-shadow: #fff;
 
-    --border-color: #263453;
-    --card-border-color: #263453;
+    --border-color: #242424;
+    --card-border-color: #242424;
 
     --dark-color: #f5f5f7;
     --secondary-color: #fcfcfc;
@@ -160,7 +160,7 @@
     --light-color: #e8eeff;
     --search-icon-background: #6c8cff;
 
-    --card-color-light: #151f34;
+    --card-color-light: #0a0a0a;
 
     /* =========================
        NAVBAR

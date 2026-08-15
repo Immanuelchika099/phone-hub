@@ -250,7 +250,7 @@ button.explore.btn{
         height: 95svh;
         min-height: 61rem;
         padding: 10rem 1.8rem 2rem;
-        background-position: 75% center right;
+        background-position: 58% center;
         box-sizing: border-box;
     }
     .hero-container::before{
