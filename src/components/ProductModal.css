@@ -28,8 +28,8 @@
 
 .product-modal {
     position: fixed;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
+    touch-action: none;
     width: min(1000px, 94vw);
     max-height: 90vh;
     background: var(--surface-color);
@@ -104,20 +104,11 @@
 }
 
 
-/*
-   Very subtle glass illumination.
-   This makes the surface itself react
-   to the pointer.
-*/
-
 .darkMode .product-modal::after {
     content: "";
-
     position: absolute;
     inset: 0;
-
     border-radius: inherit;
-
     background:
         radial-gradient(
             550px circle at
@@ -129,20 +120,11 @@
         );
 
     opacity: var(--glow-opacity);
-
     pointer-events: none;
-
     z-index: -1;
-
     transition:
         opacity 0.35s ease;
 }
-
-
-/*
-   Keeps all actual modal content
-   above the glow.
-*/
 
 .product-modal > * {
     position: relative;

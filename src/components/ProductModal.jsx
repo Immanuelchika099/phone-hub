@@ -84,37 +84,76 @@ function ProductModal({ phone, onClose, addToCart }) {
 
 
     /* =========================================
-       APPLE STYLE MOUSE / TOUCH GLOW
-    ========================================= */
+   APPLE STYLE MOUSE / TOUCH GLOW
+========================================= */
 
-    const handlePointerMove = (e) => {
+const updateGlowPosition = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
 
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-        card.style.setProperty("--glow-opacity", "1");
-    };
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+};
 
 
-    const handlePointerEnter = (e) => {
+const handlePointerDown = (e) => {
+    const card = e.currentTarget;
+
+    updateGlowPosition(e);
+
+    card.style.setProperty(
+        "--glow-opacity",
+        "1"
+    );
+};
+
+
+const handlePointerMove = (e) => {
+    updateGlowPosition(e);
+
+    // Keep the glow visible while finger/mouse is moving
+    e.currentTarget.style.setProperty(
+        "--glow-opacity",
+        "1"
+    );
+};
+
+
+const handlePointerUp = (e) => {
+    // On touch, keep the glow visible briefly
+    // instead of immediately killing it.
+    if (e.pointerType === "touch") {
+        setTimeout(() => {
+            e.currentTarget.style.setProperty(
+                "--glow-opacity",
+                "0"
+            );
+        }, 250);
+    }
+};
+
+
+const handlePointerEnter = (e) => {
+    if (e.pointerType === "mouse") {
         e.currentTarget.style.setProperty(
             "--glow-opacity",
             "1"
         );
-    };
+    }
+};
 
 
-    const handlePointerLeave = (e) => {
+const handlePointerLeave = (e) => {
+    if (e.pointerType === "mouse") {
         e.currentTarget.style.setProperty(
             "--glow-opacity",
             "0"
         );
-    };
+    }
+};
 
 
     return (
@@ -126,7 +165,9 @@ function ProductModal({ phone, onClose, addToCart }) {
             <div
                 className="product-modal"
                 onClick={(e) => e.stopPropagation()}
+                onPointerDown={handlePointerDown}
                 onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
                 onPointerEnter={handlePointerEnter}
                 onPointerLeave={handlePointerLeave}
             >
