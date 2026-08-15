@@ -229,6 +229,9 @@
     color: var(--page-text);
     padding: 2.5rem;
     display: flex;
+    font-weight: 600;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
     justify-content: space-between;
 }
 
@@ -243,6 +246,8 @@
     justify-content: space-between;
     box-shadow: 0 11px 15px -17px rgb(0,0,0, 0.5);
     transition: 0.2s ease-in-out;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
 }
 .faqPlusIcon{
     transition: transform .2s ease;
@@ -416,18 +421,12 @@
 
 .faqItem{
     font-size:1.7rem;
-    font-weight: 600;
     padding:2.5rem 2.3rem;
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
 }
 
 .faqAnswer{
     font-size:1.6rem;
     padding:2.5rem;
-    border-bottom-left-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-
 }
 
 .searchResults h2{
