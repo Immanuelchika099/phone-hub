@@ -83,6 +83,40 @@ function ProductModal({ phone, onClose, addToCart }) {
     };
 
 
+    /* =========================================
+       APPLE STYLE MOUSE / TOUCH GLOW
+    ========================================= */
+
+    const handlePointerMove = (e) => {
+
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+        card.style.setProperty("--glow-opacity", "1");
+    };
+
+
+    const handlePointerEnter = (e) => {
+        e.currentTarget.style.setProperty(
+            "--glow-opacity",
+            "1"
+        );
+    };
+
+
+    const handlePointerLeave = (e) => {
+        e.currentTarget.style.setProperty(
+            "--glow-opacity",
+            "0"
+        );
+    };
+
+
     return (
         <div
             className="modal-overlay"
@@ -92,9 +126,13 @@ function ProductModal({ phone, onClose, addToCart }) {
             <div
                 className="product-modal"
                 onClick={(e) => e.stopPropagation()}
+                onPointerMove={handlePointerMove}
+                onPointerEnter={handlePointerEnter}
+                onPointerLeave={handlePointerLeave}
             >
 
                 {/* CLOSE */}
+
                 <button
                     className="modal-close"
                     onClick={onClose}
@@ -105,6 +143,7 @@ function ProductModal({ phone, onClose, addToCart }) {
 
 
                 {/* LEFT SIDE */}
+
                 <div className="modal-left">
 
                     <div className="modal-image-container">
@@ -120,6 +159,7 @@ function ProductModal({ phone, onClose, addToCart }) {
 
 
                 {/* RIGHT SIDE */}
+
                 <div className="modal-details">
 
                     <p className="modal-brand">
@@ -272,11 +312,9 @@ function ProductModal({ phone, onClose, addToCart }) {
                     {/* DESCRIPTION */}
 
                     <p className="modal-description">
-
                         {phone.description ||
                             "Experience powerful performance, beautiful design and an incredible smartphone experience."
                         }
-
                     </p>
 
 
