@@ -91,7 +91,7 @@
             transparent 72%
         );
 
-    filter: blur(22px);
+    filter: blur(3rem);
 
     opacity: var(--glow-opacity);
 
