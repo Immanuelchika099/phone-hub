@@ -118,9 +118,6 @@
     border-radius:18px;
     overflow:hidden;
 }
-.trendCard:hover{
-    background: var(--surface-color);
-}
 .trendHeader{
     display:flex;
     justify-content:space-between;
@@ -233,14 +230,11 @@
     padding: 2.5rem;
     display: flex;
     justify-content: space-between;
-    transition: 0.2s ease-in-out;
 }
-.faqItem:hover, .faqItem.active{
-    background: var(--surface-color);
-}
+
 .faqAnswer{
     font-size: 1.8rem;
-    background: var(--surface-color-2);
+    background: var(--surface-color);
     padding: 3rem;
     color: var(--muted-text);
     width: 100%;
@@ -249,11 +243,10 @@
     justify-content: space-between;
     box-shadow: 0 11px 15px -17px rgb(0,0,0, 0.5);
     transition: 0.2s ease-in-out;
-    border-top: 1px solid var(--border-color);
 }
 .faqPlusIcon{
-    transition: transform .3s ease;
-    
+    transition: transform .2s ease;
+    font-weight: 700;
 }
 .faqPlusIcon.rotate{
     transform: rotate(45deg);
@@ -422,13 +415,19 @@
 }
 
 .faqItem{
-    font-size:1.5rem;
-    padding:2.5rem;
+    font-size:1.7rem;
+    font-weight: 600;
+    padding:2.5rem 2.3rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
 }
 
 .faqAnswer{
-    font-size:1.4rem;
+    font-size:1.6rem;
     padding:2.5rem;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+
 }
 
 .searchResults h2{
