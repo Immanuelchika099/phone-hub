@@ -193,7 +193,7 @@ function Hero() {
                 CALL TO ORDER{" "}
                 <a
                     className="callNo"
-                    href="tel:+2349161229138"
+                    href="tel:+2347040860338"
                 >
                     234 704 086 0338
                 </a>

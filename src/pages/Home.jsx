@@ -30,25 +30,18 @@ function Home({ addToCart, search }) {
         ========================== */
 
         <section className="phone-section search-results-section">
-
           <div className="phoneHeadContainer">
-
             <p className="phoneTx">
               SEARCH
             </p>
-
             <h1 className="phoneHeading main">
               Search Results
             </h1>
-
           </div>
-
           <ul className="phone-container">
 
             {filteredProducts.length > 0 ? (
-
               filteredProducts.map((product) => (
-
                 <PhoneCard
                   key={product.id}
                   phone={product}
@@ -57,7 +50,6 @@ function Home({ addToCart, search }) {
                 />
 
               ))
-
             ) : (
 
               <h2 className="noResults">
