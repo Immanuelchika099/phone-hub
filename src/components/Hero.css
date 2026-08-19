@@ -1,6 +1,6 @@
 .hero-container {
     width: 100%;
-    height: 91vh;
+    height: 97vh;
     position: relative;
     transition: .5s ease;
     background-size: cover;
@@ -74,10 +74,10 @@
 
 .summerTx{
     display: inline-block;
-    padding: .7rem 1.7rem;
+    padding: 1rem 1.7rem;
     border-radius: 15rem;
     background: var(--hero-pill-background);
-    backdrop-filter: blur(1rem);
+    backdrop-filter: blur(2rem);
     color: var(--primary-color-light);
     font-weight: 600;
     font-size: var(--font-size-sm);
@@ -85,8 +85,7 @@
 
 
 .heroH1{
-    font-size: 7.4rem;
-    font-weight: 700;
+    font-size: 7.8rem;
     line-height: 1;
     letter-spacing: -1px;
     width: 85%;
@@ -247,7 +246,7 @@ button.explore.btn{
 @media (max-width: 576px){
 
     .hero-container{
-        height: 95svh;
+        height: 96vh;
         min-height: 61rem;
         padding: 10rem 1.8rem 2rem;
         background-position: 58% center;

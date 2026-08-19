@@ -1,9 +1,13 @@
 .nav {
     width: 100%;
     padding: 1rem 6%;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
+    background: none;
+    
+}
+.navScroll{
     background: var(--navbar-background);
     backdrop-filter: blur(2rem);
 }
@@ -48,6 +52,12 @@
     z-index: 2001;
     color: var(--dark-color);
 }
+.ioclose{
+    transition: .2s linear;
+}
+.ioclose:hover{
+    transform:rotate(90deg);
+}
 
 
 /* =========================
@@ -57,13 +67,14 @@
 .navLinks {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 5rem;
     font-size: 1.8rem;
 }
 
 .navLinkText {
     color: var(--page-text);
     position: relative;
+    padding: 1rem 0;
 }
 
 .navLinkText.active {
@@ -79,7 +90,7 @@
     background-color: var(--primary-color);
     border-radius: 10px;
     left: 0;
-    bottom: -3px;
+    bottom: -2px;
     transform-origin: left;
     transition: transform .3s;
     transform: scale(0);
@@ -140,7 +151,7 @@
     outline: none;
     background: transparent;
     padding: 1.2rem 2rem;
-    color: var(--page-text);
+    color: var(--black-color);
     font-size: 1.8rem;
     font-weight: inherit;
 }
@@ -162,7 +173,7 @@
 }
 
 .searchInput::placeholder {
-    color: var(--muted-text);
+    color: var(--black-color);
 }
 
 
@@ -193,17 +204,16 @@
 .cartCount {
     font-size: 1.2rem;
     position: absolute;
-    background: var(--danger-color);
+    background: var(--primary-color);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     color: #fff;
-    right: -8px;
-    top: -8px;
+    right: -5px;
+    top: -2px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
 }
 
 
@@ -257,12 +267,7 @@
 
 @media (max-width: 768px) {
     .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
         padding: 1.2rem 2rem;
-        background: var(--navbar-background );
-        backdrop-filter: blur(1rem);
     }
 
     .menuIcon {
@@ -338,6 +343,11 @@
     }
     .navActions {
         gap: 2rem;
+    }
+    .cartCount {
+        right: -7px;
+        top: -5px;
+      
     }
     .cartContainer {
         width: 3rem;

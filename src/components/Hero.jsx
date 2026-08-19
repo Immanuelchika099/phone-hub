@@ -14,7 +14,7 @@ function Hero() {
             tag: '"Summer Sale - Up to 50% Off"',
             title: (
                 <>
-                    Smarter Technology <br />
+                    Smarter Tech <br />
                     <span> Better Living. </span>
                 </>
             ),

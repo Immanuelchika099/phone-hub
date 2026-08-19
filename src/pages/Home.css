@@ -113,11 +113,17 @@
 .trendCard{
     flex:0 0 42%;
     flex-shrink:0;
-    background:var(--surface-color-2);
+    background: var(--trend-color);
     backdrop-filter: blur(1rem);
     border-radius:18px;
     overflow:hidden;
+    transition: .3s linear;
 }
+.trendCard:hover{
+    backdrop-filter: blur(2rem);
+    background: var(--trend-color-2);
+}
+
 .trendHeader{
     display:flex;
     justify-content:space-between;
@@ -157,7 +163,7 @@
 }
 .trendImage:hover{
     transform: scaleX(1.05);
-    filter: brightness(  .5);
+    filter: brightness(  .4);
 }
 .trendContent{
     padding: 1.5rem;
@@ -367,7 +373,9 @@
 .phoneHeading.trendHead{
     font-size:2.5rem;
 }
-
+.trendGrid{
+    gap: .7rem;
+}
 .trendCard{
     flex:0 0 95%;
 }

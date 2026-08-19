@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import navLogo from "../assets/logo/navLogo.PNG";
 import { FiShoppingCart} from "react-icons/fi";
-import { FaMoon } from "react-icons/fa";
+import { FaCloudMoon, FaCloudSunRain, FaMoon, FaRegMoon, FaShirtsinbulk, FaSoundcloud, FaStar, FaSun, FaUser, FaUserNurse } from "react-icons/fa";
+import { FaCloudSun } from "react-icons/fa";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Navbar.css";
+import { FaCableCar, FaCloudBolt, FaMountainSun, FaS, FaSection, FaSpaghettiMonsterFlying, FaSunPlantWilt, FaUserInjured } from "react-icons/fa6";
 
 function Navbar({
     cartPopup,
@@ -19,8 +21,16 @@ function Navbar({
     setDarkMode
 }) {
 
+    const[scrolled,setScrolled]=useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false)
+
+
+    useEffect(()=>{
+        const f=()=>setScrolled(window.scrollY>50);
+        window.addEventListener('scroll',f);
+            return()=>window.removeEventListener('scroll',f)
+        },[]);
 
     const handleSearch = () => {
         setSearch(searchInput);
@@ -35,11 +45,12 @@ function Navbar({
                 ></div>
             )}
 
-            <nav className="nav">
+            <nav className= { `nav ${scrolled ? "navScroll": "nav" }` } >
 
                 {/* TOP ROW */}
                 <div className="navTop">
 
+        
                     {/* LEFT SIDE - MENU + LOGO */}
                     <div className="navLeft">
 
@@ -48,7 +59,7 @@ function Navbar({
                             onClick={() => setMenuOpen(!menuOpen)}
                         >
                             {menuOpen
-                                ? <IoClose />
+                                ? <IoClose className="ioclose"/>
                                 : <HiOutlineMenuAlt3 />
                             }
                         </div>
@@ -73,13 +84,27 @@ function Navbar({
                         </NavLink>
 
                         <a
+                            href="#products"
+                            className="navLinkText"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            Products
+                        </a>
+                        <a
                             href="#trends"
                             className="navLinkText"
                             onClick={() => setMenuOpen(false)}
                         >
-                            News
+                            Trends
                         </a>
 
+                        <a
+                            href="#"
+                            className="navLinkText"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            About
+                        </a>
                         <a
                             href="#contact"
                             className="navLinkText"
@@ -109,12 +134,17 @@ function Navbar({
                             </span>
                         </div>
 
-                        <FaMoon
-                            className="darkModeIcon"
-                            onClick={() => {
-                                setDarkMode(!darkMode);
-                            }}
-                        />
+                        {
+                            darkMode &&
+                            <FaSun className="darkModeIcon"
+                                  onClick={() => { setDarkMode(!darkMode);}}  />
+                                   ||
+                            <FaMoon
+                                className="darkModeIcon"
+                                onClick={() => { setDarkMode(!darkMode);}} 
+                            />  
+                        }
+                        
 
                     </div>
 
