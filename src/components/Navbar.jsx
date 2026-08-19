@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import navLogo from "../assets/logo/navLogo.PNG";
-import { FiShoppingCart} from "react-icons/fi";
-import { FaCloudMoon, FaCloudSunRain, FaMoon, FaRegMoon, FaShirtsinbulk, FaSoundcloud, FaStar, FaSun, FaUser, FaUserNurse } from "react-icons/fa";
-import { FaCloudSun } from "react-icons/fa";
+import { FiShoppingCart, FiMoon, FiSun} from "react-icons/fi";
+import { FaMoon, FaSun} from "react-icons/fa";
+import { LuUserRound } from "react-icons/lu";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useState, useEffect } from "react";
@@ -117,6 +117,7 @@ function Navbar({
 
                     {/* RIGHT SIDE - CART + DARK MODE */}
                     <div className="navActions">
+                        
                         <IoSearch
                             className="searchIcon"
                             onClick={() => setSearchOpen (!searchOpen) }
@@ -134,16 +135,18 @@ function Navbar({
                             </span>
                         </div>
 
+        
                         {
                             darkMode &&
-                            <FaSun className="darkModeIcon"
+                            <FiSun className="darkModeIcon"
                                   onClick={() => { setDarkMode(!darkMode);}}  />
                                    ||
-                            <FaMoon
+                            <FiMoon
                                 className="darkModeIcon"
                                 onClick={() => { setDarkMode(!darkMode);}} 
                             />  
                         }
+                        <LuUserRound className="darkModeIcon user"/>
                         
 
                     </div>

@@ -111,7 +111,10 @@
     align-items: center;
     gap: 2rem;
 }
-
+.darkMode.user{
+    color: none;
+    font-size: inherit;
+}
 
 /* =========================
    SEARCH ROW
