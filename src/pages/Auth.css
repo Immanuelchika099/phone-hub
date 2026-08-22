@@ -26,7 +26,7 @@
 .auth-back {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 8.1px;
     color: var(--auth-muted);
     text-decoration: none;
     font-size: 14px
