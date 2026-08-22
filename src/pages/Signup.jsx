@@ -25,7 +25,7 @@ function Signup({ darkMode, setDarkMode }) {
       <motion.section className="auth-card" initial={{ opacity: 0, y: 35, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
         <div className="auth-brand"><span>PHONE</span>HUB</div>
         <p className="auth-eyebrow">JOIN PHONEHUB</p>
-        <h1>Create your account.</h1>
+        <h1 className="auth-title">Create your account.</h1>
         <p className="auth-subtitle">Join PhoneHub and make your next device search simpler.</p>
         <motion.button type="button" className="google-submit" whileHover={{ y: -2 }} whileTap={{ scale: .98 }} onClick={() => alert("Google sign-in will be connected when authentication is added.")}><FcGoogle /> Continue with Google</motion.button>
         <div className="auth-divider"><span>or continue with email</span></div>
