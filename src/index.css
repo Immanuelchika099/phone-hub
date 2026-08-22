@@ -59,7 +59,7 @@
     --nav-height:5rem;
 }
 .darkMode{
-    --page-background:linear-gradient(13deg,#000000,#000001);
+    --page-background:#050505;
     --heroLeftShadow:rgba(0,0,0,.92);
     --heroLeftShadow2:rgba(0,0,0,.82);
     --heroLeftShadow3:rgb(24,24,24);
@@ -99,8 +99,11 @@
 .darkMode{min-height:100vh;background:var(--page-background);color:var(--page-text)}
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
 #root{min-height:100vh;background:var(--page-background)}
-html{scroll-behavior:smooth;font-size:62.5%;background:var(--page-background)}
-html.dark-theme{background:#080808}
-body{background:var(--page-background);color:var(--page-text);font-size:1.4rem;transition:background-color .3s ease,color .3s ease}
+html{scroll-behavior:smooth;font-size:62.5%;background:#ffffff}
+html.dark-theme,html.dark-theme body,html.dark-theme #root{background:#050505}
+html:not(.dark-theme),html:not(.dark-theme) body,html:not(.dark-theme) #root{background:#ffffff}
+html,body{min-height:100%;transition:background-color .3s ease,color .3s ease}
+body{background:#ffffff;color:var(--page-text);font-size:1.4rem;transition:background-color .3s ease,color .3s ease}
 li,ul,a,h1,p,input,button{list-style:none;text-decoration:none;margin:0;width:fit-content;padding:0;color:inherit;border:none}
+button{font:inherit}
 .btn{color:#fff}
