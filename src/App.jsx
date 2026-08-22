@@ -19,6 +19,8 @@ function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark-theme', darkMode)
+    document.body.classList.toggle('dark-theme', darkMode)
+    document.documentElement.style.colorScheme = darkMode ? 'dark' : 'light'
   }, [darkMode])
 
   useEffect(() => {
@@ -47,8 +49,8 @@ function App() {
         <Route path="/" element={<Home addToCart={addToCart} search={search} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/phones" element={<PhoneDetails addToCart={addToCart} search={search} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login darkMode={darkMode} setDarkMode={setDarkMode} />} />
+        <Route path="/signup" element={<Signup darkMode={darkMode} setDarkMode={setDarkMode} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {cartPopup && !authPage && <CartPopup setCartPopup={setCartPopup} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />}
