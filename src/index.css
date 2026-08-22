@@ -2,9 +2,11 @@
     --primary-color: #5B7CFA;
     --navbar-background: rgba(255, 255, 255, .83);
     --mobile-menu-background: #ffffff;
+
     --primary-color-light: #8EA7FF;
     --primary-color-shadow: #6c8cff;
     --primary-dim-color: #a9b9ff;
+
     --heroShadow: linear-gradient(90deg, rgba(255, 255, 255, .878) 0%, rgba(255, 255, 255, .768) 45%, transparent 100%);
     --heroShadow12mini: linear-gradient(90deg, rgba(255, 255, 255, .693) 0%, rgba(255, 255, 255, .768) 100%, transparent 100%);
     --secondary-color: #6e6e73;
