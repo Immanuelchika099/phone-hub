@@ -18,7 +18,7 @@ function Login({ darkMode, setDarkMode }) {
   return (
     <main className="auth-page">
       <div className="auth-topbar">
-        <Link to="/" className="auth-back"><FiArrowLeft /> Back to PhoneHub</Link>
+        <Link to="/" className="auth-back"><FiArrowLeft /> Back</Link>
         <button className="auth-theme-toggle" onClick={() => setDarkMode(!darkMode)} aria-label="Toggle theme">
           {darkMode ? <FiSun /> : <FiMoon />}
         </button>

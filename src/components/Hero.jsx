@@ -189,15 +189,7 @@ function Hero() {
             </main>
 
 
-            <p className="hero-footerTx">
-                CALL TO ORDER{" "}
-                <a
-                    className="callNo"
-                    href="tel:+2347040860338"
-                >
-                    234 704 086 0338
-                </a>
-            </p>
+           
 
         </>
     );

@@ -15,7 +15,7 @@ function Signup({ darkMode, setDarkMode }) {
   return (
     <main className="auth-page">
       <div className="auth-topbar">
-        <Link to="/" className="auth-back"><FiArrowLeft /> Back to PhoneHub</Link>
+        <Link to="/" className="auth-back"><FiArrowLeft /> Back</Link>
         <button className="auth-theme-toggle" onClick={() => setDarkMode(!darkMode)} aria-label="Toggle theme">
           {darkMode ? <FiSun /> : <FiMoon />}
         </button>
@@ -37,9 +37,19 @@ function Signup({ darkMode, setDarkMode }) {
           <label>Password</label>
           <div className="auth-input-wrap"><FiLock /><input name="password" value={form.password} onChange={handleChange} type={showPassword ? "text" : "password"} placeholder="Create a password" minLength="6" required /><button type="button" className="password-toggle" onClick={() => setShowPassword(!showPassword)} aria-label="Toggle password visibility">{showPassword ? <FiEyeOff /> : <FiEye />}</button></div>
           <label className="terms"><input type="checkbox" required /> I agree to the terms and privacy policy.</label>
-          <motion.button whileHover={{ y: -2 }} whileTap={{ scale: .98 }} className="auth-submit" type="submit">Create account</motion.button>
+          <motion.button
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: .98 }}
+            className="auth-submit"
+            type="submit"
+          >
+            Create account
+          </motion.button>
         </form>
-        <p className="auth-switch">Already have an account? <Link to="/login">Sign in</Link></p>
+        <p className="auth-switch">
+          Already have an account?
+          <Link to="/login">Sign in</Link>
+        </p>
       </motion.section>
     </main>
   );

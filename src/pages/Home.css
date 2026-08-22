@@ -406,7 +406,7 @@
     gap: 1.8rem;
 }
 .trendContent{
-    height: 34rem;
+    height: 31rem;
 }
 .trendTop{
     margin-bottom: 0;
@@ -416,9 +416,10 @@
 }
 .trendTitle{
     font-size: 1.8rem;
+    font-weight: 600;
 }
 .trendDescription{
-    font-size: 1.5rem;
+    font-size: 1.42rem;
 }
 .trendFooter{
     margin-top: 0;

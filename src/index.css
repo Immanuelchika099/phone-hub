@@ -1,109 +1,173 @@
-:root{
-    --primary-color:#5B7CFA;
-    --navbar-background:rgba(255,255,255,.83);
-    --mobile-menu-background:#ffffff;
-    --primary-color-light:#8EA7FF;
-    --primary-color-shadow:#6c8cff;
-    --primary-dim-color:#a9b9ff;
-    --heroShadow:linear-gradient(90deg,rgba(255,255,255,.878) 0%,rgba(255,255,255,.768) 45%,transparent 100%);
-    --heroShadow12mini:linear-gradient(90deg,rgba(255,255,255,.693) 0%,rgba(255,255,255,.768) 100%,transparent 100%);
-    --secondary-color:#6e6e73;
-    --secondary-dim-color:#393c3f;
-    --card-border-color:#d9dff0;
-    --success-color:#28a745;
-    --danger-color:#e0526b;
-    --info-color:#17a2b8;
-    --light-color:#f8f9fa;
-    --card-color-light:rgba(255,255,255,.65);
-    --background-light:#f6f8fd;
-    --dark-color:#393939;
-    --search-icon-background:;
-    --background:#ffffff;
-    --page-background:#ffffff;
-    --page-text:#393939;
-    --muted-text:#6e6e73;
-    --surface-color:#f5f5f7;
-    --trend-color:#ededed5b;
-    --trend-color-2:#fffffffe;
-    --surface-color-2:#e8e8ed;
-    --border-color:#c7c7c7;
-    --card-background:rgba(246,246,246,.87);
-    --input-background:#f8f9fa;
-    --modal-background:#fffaf4;
-    --secondary-surface:#eeeeee;
-    --hero-background:#fffaf4;
-    --hero-pill-background:rgba(227,236,255,.437);
-    --heroH1-text-1:#526ff5;
-    --heroH1-text-2:#6f8dff;
-    --heroH1-text-3:#74cfcb;
-    --footer-background:#060911;
-    --footer-dots:rgba(255,255,255,.04);
-    --footer-glow-1:rgba(108,140,255,.10);
-    --footer-glow-2:rgba(103,217,208,.08);
-    --auth-background:#f5f5f7;
-    --auth-card-background:#ffffff;
-    --auth-input-background:#f8f9fa;
-    --auth-border:#d9d9df;
-    --auth-heading:#242426;
-    --auth-muted:#6e6e73;
-    --font-size-sm:1.4rem;
-    --font-size-base:1.6rem;
-    --font-size-lg:1.8rem;
-    --letter-spacing-sm:-.05em;
-    --letter-spacing-base:0;
-    --letter-spacing-lg:.05em;
-    --spacing-sm:.5rem;
-    --spacing-base:1rem;
-    --spacing-lg:2rem;
-    --border-radius:.8rem;
-    --nav-height:5rem;
+:root {
+    --primary-color: #5B7CFA;
+    --navbar-background: rgba(255, 255, 255, .83);
+    --mobile-menu-background: #ffffff;
+    --primary-color-light: #8EA7FF;
+    --primary-color-shadow: #6c8cff;
+    --primary-dim-color: #a9b9ff;
+    --heroShadow: linear-gradient(90deg, rgba(255, 255, 255, .878) 0%, rgba(255, 255, 255, .768) 45%, transparent 100%);
+    --heroShadow12mini: linear-gradient(90deg, rgba(255, 255, 255, .693) 0%, rgba(255, 255, 255, .768) 100%, transparent 100%);
+    --secondary-color: #6e6e73;
+    --secondary-dim-color: #393c3f;
+    --card-border-color: #d9dff0;
+    --success-color: #28a745;
+    --danger-color: #e0526b;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --card-color-light: rgba(255, 255, 255, .65);
+    --background-light: #f6f8fd;
+    --dark-color: #393939;
+    --search-icon-background: ;
+    --background: #ffffff;
+    --page-background: #ffffff;
+    --page-text: #393939;
+    --muted-text: #6e6e73;
+    --surface-color: #f5f5f7;
+    --trend-color: #ededed5b;
+    --trend-color-2: #fffffffe;
+    --surface-color-2: #e8e8ed;
+    --border-color: #c7c7c7;
+    --card-background: rgba(246, 246, 246, .87);
+    --input-background: #f8f9fa;
+    --modal-background: #fffaf4;
+    --secondary-surface: #eeeeee;
+    --hero-background: #fffaf4;
+    --hero-pill-background: rgba(227, 236, 255, .437);
+    --heroH1-text-1: #526ff5;
+    --heroH1-text-2: #6f8dff;
+    --heroH1-text-3: #74cfcb;
+    --footer-background: #060911;
+    --footer-dots: rgba(255, 255, 255, .04);
+    --footer-glow-1: rgba(108, 140, 255, .10);
+    --footer-glow-2: rgba(103, 217, 208, .08);
+    --auth-background: #f5f5f7;
+    --auth-card-background: #ffffff;
+    --auth-input-background: #f8f9fa;
+    --auth-border: #d9d9df;
+    --auth-heading: #242426;
+    --auth-muted: #6e6e73;
+    --font-size-sm: 1.4rem;
+    --font-size-base: 1.6rem;
+    --font-size-lg: 1.8rem;
+    --letter-spacing-sm: -.05em;
+    --letter-spacing-base: 0;
+    --letter-spacing-lg: .05em;
+    --spacing-sm: .5rem;
+    --spacing-base: 1rem;
+    --spacing-lg: 2rem;
+    --border-radius: .8rem;
+    --nav-height: 5rem;
 }
-.darkMode{
-    --page-background:#050505;
-    --heroLeftShadow:rgba(0,0,0,.92);
-    --heroLeftShadow2:rgba(0,0,0,.82);
-    --heroLeftShadow3:rgb(24,24,24);
-    --heroShadow:linear-gradient(90deg,var(--heroLeftShadow) 0%,var(--heroLeftShadow2) 100%,transparent 100%);
-    --heroShadow12mini:var(--heroShadow);
-    --heroH1-text-1:#aac2ff;
-    --heroH1-text-2:#e4ecff;
-    --heroH1-text-3:#d0ddff;
-    --page-text:#f5f5f7;
-    --muted-text:#aaa5a0;
-    --surface-color:#3d3d3d9b;
-    --trend-color:#3d3d3d9b;
-    --trend-color-2:#1a1a1abf;
-    --surface-color-2:#1a1a1abf;
-    --primary-color-light:#8EA7FF;
-    --primary-color-shadow:#fff;
-    --border-color:#242424;
-    --card-border-color:#242424;
-    --dark-color:#f5f5f7;
-    --secondary-color:#fcfcfc;
-    --secondary-dim-color:#8d8782;
-    --light-color:#e8eeff;
-    --search-icon-background:#6c8cff;
-    --card-color-light:#0a0a0a;
-    --black-color:#0a0a0a;
-    --navbar-background:rgba(0,0,0,.94);
-    --mobile-menu-background:#050505;
-    --hero-pill-background:rgba(30,45,82,.72);
-    --footer-background:#060911;
-    --auth-background:#080808;
-    --auth-card-background:#121214;
-    --auth-input-background:#1b1b1e;
-    --auth-border:#303035;
-    --auth-heading:#f5f5f7;
-    --auth-muted:#aaa5a0;
+
+.darkMode {
+    --page-background: #050505;
+    --heroLeftShadow: rgba(0, 0, 0, .92);
+    --heroLeftShadow2: rgba(0, 0, 0, .82);
+    --heroLeftShadow3: rgb(24, 24, 24);
+    --heroShadow: linear-gradient(90deg, var(--heroLeftShadow) 0%, var(--heroLeftShadow2) 100%, transparent 100%);
+    --heroShadow12mini: var(--heroShadow);
+    --heroH1-text-1: #aac2ff;
+    --heroH1-text-2: #e4ecff;
+    --heroH1-text-3: #d0ddff;
+    --page-text: #f5f5f7;
+    --muted-text: #aaa5a0;
+    --surface-color: #3d3d3d9b;
+    --secondary-surface: #3d3d3d9b;
+    --trend-color: #3d3d3d9b;
+    --trend-color-2: #1a1a1abf;
+    --surface-color-2: #1a1a1abf;
+    --primary-color-light: #8EA7FF;
+    --primary-color-shadow: #fff;
+    --border-color: #242424;
+    --card-border-color: #242424;
+    --dark-color: #f5f5f7;
+    --secondary-color: #fcfcfc;
+    --secondary-dim-color: #8d8782;
+    --light-color: #e8eeff;
+    --search-icon-background: #6c8cff;
+    --card-color-light: #0a0a0a;
+    --black-color: #0a0a0a;
+    --navbar-background: rgba(0, 0, 0, .94);
+    --mobile-menu-background: #050505;
+    --hero-pill-background: rgba(30, 45, 82, .72);
+    --footer-background: #060911;
+    --auth-background: #080808;
+    --auth-card-background: #121214;
+    --auth-input-background: #1b1b1e;
+    --auth-border: #303035;
+    --auth-heading: #f5f5f7;
+    --auth-muted: #aaa5a0;
 }
-.darkMode{min-height:100vh;background:var(--page-background);color:var(--page-text)}
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
-#root{min-height:100vh;background:var(--page-background)}
-html{scroll-behavior:smooth;font-size:62.5%;background:#ffffff}
-html.dark-theme,html.dark-theme body,html.dark-theme #root{background:#050505}
-html:not(.dark-theme),html:not(.dark-theme) body,html:not(.dark-theme) #root{background:#ffffff}
-html,body{min-height:100%;transition:background-color .3s ease,color .3s ease}
-body{background:#ffffff;color:var(--page-text);font-size:1.4rem;transition:background-color .3s ease,color .3s ease}
-li,ul,a,h1,p,input,button{list-style:none;text-decoration:none;margin:0;width:fit-content;padding:0;color:inherit;border:none}
-button{font:inherit}
-.btn{color:#fff}
+
+.darkMode {
+    min-height: 100vh;
+    background: var(--page-background);
+    color: var(--page-text)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif
+}
+
+#root {
+    min-height: 100vh;
+    background: var(--page-background)
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    background: #ffffff
+}
+
+html.dark-theme,
+html.dark-theme body,
+html.dark-theme #root {
+    background: #050505
+}
+
+html:not(.dark-theme),
+html:not(.dark-theme) body,
+html:not(.dark-theme) #root {
+    background: #ffffff
+}
+
+html,
+body {
+    min-height: 100%;
+    transition: background-color .3s ease, color .3s ease
+}
+
+body {
+    background: #ffffff;
+    color: var(--page-text);
+    font-size: 1.4rem;
+    transition: background-color .3s ease, color .3s ease
+}
+
+li,
+ul,
+a,
+h1,
+p,
+input,
+button {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    width: fit-content;
+    padding: 0;
+    color: inherit;
+    border: none
+}
+
+button {
+    font: inherit
+}
+
+.btn {
+    color: #fff
+}
