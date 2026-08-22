@@ -1,6 +1,6 @@
 import "./ComingSoon.css";
 import { motion } from "framer-motion";
-import { Laptop, ArrowUpRight } from "lucide-react";
+import { FiArrowUpRight } from "react-icons/fi";
 
 function ComingSoon() {
   return (
@@ -13,6 +13,7 @@ function ComingSoon() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="coming-soon-glow" />
+
         <div className="coming-soon-content">
           <motion.p
             className="coming-soon-eyebrow"
@@ -54,7 +55,7 @@ function ComingSoon() {
           >
             <span className="status-dot" />
             <span>In development</span>
-            <ArrowUpRight size={17} />
+            <FiArrowUpRight size={17} />
           </motion.div>
         </div>
 
@@ -66,24 +67,19 @@ function ComingSoon() {
           transition={{ delay: 0.25, duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="laptop-glow" />
-          <div className="laptop">
-            <div className="laptop-screen">
-              <div className="screen-topbar">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="screen-content">
-                <Laptop size={28} strokeWidth={1.4} />
-                <strong>PhoneHub</strong>
-                <small>New experience loading...</small>
-                <div className="loading-line"><i /></div>
-              </div>
-            </div>
-            <div className="laptop-base">
-              <div className="laptop-notch" />
-            </div>
-          </div>
+          <motion.div
+            className="laptop"
+            whileHover={{ scale: 1.025, rotateY: -5, rotateX: 2 }}
+            transition={{ duration: 0.35 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=85"
+              alt="Laptop showing a modern workspace"
+              className="laptop-image"
+              loading="lazy"
+            />
+            <div className="laptop-shine" />
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
