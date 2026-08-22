@@ -10,6 +10,8 @@ import Footer from "../components/Footer";
 import Trends from "../components/Trends";
 import Faq from "../components/Faq";
 import Categories from "../components/Categories";
+import ComingSoon from "../components/ComingSoon";
+import Newsletter from "../components/Newsletter";
 
 function Home({ addToCart, search }) {
 
@@ -75,6 +77,8 @@ function Home({ addToCart, search }) {
             <Categories />
           </section>
 
+          <ComingSoon />
+
           <div className="trends-scroll-section">
 
             <motion.div
@@ -98,6 +102,8 @@ function Home({ addToCart, search }) {
             <Faq />
           </motion.section>
 
+          <Newsletter />
+
           <Footer />
         </>
 
@@ -105,7 +111,7 @@ function Home({ addToCart, search }) {
 
       {/* =========================
           PRODUCT MODAL
-      ========================== */}
+      ========================== */
 
       {selectedPhone && (
         <ProductModal
