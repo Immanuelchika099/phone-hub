@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FiEye, FiEyeOff, FiArrowLeft, FiLock, FiMail, FiUser } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiArrowLeft, FiLock, FiMail, FiUser, FiMoon, FiSun } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import "./Auth.css";
 
-function Signup() {
+function Signup({ darkMode, setDarkMode }) {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -14,10 +14,15 @@ function Signup() {
 
   return (
     <main className="auth-page">
+      <div className="auth-topbar">
+        <Link to="/" className="auth-back"><FiArrowLeft /> Back to PhoneHub</Link>
+        <button className="auth-theme-toggle" onClick={() => setDarkMode(!darkMode)} aria-label="Toggle theme">
+          {darkMode ? <FiSun /> : <FiMoon />}
+        </button>
+      </div>
       <motion.div className="auth-orb auth-orb-one" animate={{ y: [0, -18, 0] }} transition={{ duration: 5, repeat: Infinity }} />
       <motion.div className="auth-orb auth-orb-two" animate={{ y: [0, 20, 0] }} transition={{ duration: 6, repeat: Infinity }} />
       <motion.section className="auth-card" initial={{ opacity: 0, y: 35, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
-        <Link to="/" className="auth-back"><FiArrowLeft /> Back to PhoneHub</Link>
         <div className="auth-brand"><span>PHONE</span>HUB</div>
         <p className="auth-eyebrow">JOIN PHONEHUB</p>
         <h1>Create your account.</h1>
