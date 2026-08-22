@@ -28,7 +28,7 @@ function Login({ darkMode, setDarkMode }) {
       <motion.section className="auth-card" initial={{ opacity: 0, y: 35, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
         <div className="auth-brand"><span>PHONE</span>HUB</div>
         <p className="auth-eyebrow">WELCOME BACK</p>
-        <h1>Sign in to your account.</h1>
+        <h1 className="auth-title">Sign in to your account.</h1>
         <p className="auth-subtitle">Access your PhoneHub experience and keep exploring the latest devices.</p>
         <form onSubmit={handleSubmit} className="auth-form">
           <label>Email address</label>
