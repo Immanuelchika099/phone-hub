@@ -40,6 +40,12 @@
     --footer-dots:rgba(255,255,255,.04);
     --footer-glow-1:rgba(108,140,255,.10);
     --footer-glow-2:rgba(103,217,208,.08);
+    --auth-background:#f5f5f7;
+    --auth-card-background:#ffffff;
+    --auth-input-background:#f8f9fa;
+    --auth-border:#d9d9df;
+    --auth-heading:#242426;
+    --auth-muted:#6e6e73;
     --font-size-sm:1.4rem;
     --font-size-base:1.6rem;
     --font-size-lg:1.8rem;
@@ -83,11 +89,18 @@
     --mobile-menu-background:#050505;
     --hero-pill-background:rgba(30,45,82,.72);
     --footer-background:#060911;
+    --auth-background:#080808;
+    --auth-card-background:#121214;
+    --auth-input-background:#1b1b1e;
+    --auth-border:#303035;
+    --auth-heading:#f5f5f7;
+    --auth-muted:#aaa5a0;
 }
 .darkMode{min-height:100vh;background:var(--page-background);color:var(--page-text)}
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
 #root{min-height:100vh;background:var(--page-background)}
 html{scroll-behavior:smooth;font-size:62.5%;background:var(--page-background)}
+html.dark-theme{background:#080808}
 body{background:var(--page-background);color:var(--page-text);font-size:1.4rem;transition:background-color .3s ease,color .3s ease}
 li,ul,a,h1,p,input,button{list-style:none;text-decoration:none;margin:0;width:fit-content;padding:0;color:inherit;border:none}
 .btn{color:#fff}
