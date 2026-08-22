@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaApple, FaAndroid } from "react-icons/fa";
-import { SiSamsung, SiGoogle, SiXiaomi, SiOneplus, SiNothing } from "react-icons/si";
+import { SiSamsung, SiGoogle, SiXiaomi, SiOneplus } from "react-icons/si";
 import "./BrandMarquee.css";
 
 const brands = [
@@ -9,7 +9,7 @@ const brands = [
   { name: "Google", icon: SiGoogle },
   { name: "Xiaomi", icon: SiXiaomi },
   { name: "OnePlus", icon: SiOneplus },
-  { name: "Nothing", icon: SiNothing },
+  { name: "Nothing", icon: null },
   { name: "Android", icon: FaAndroid },
 ];
 
@@ -26,7 +26,7 @@ function BrandMarquee() {
         >
           {items.map(({ name, icon: Icon }, index) => (
             <div className="brand-marquee-item" key={`${name}-${index}`}>
-              <Icon />
+              {Icon ? <Icon /> : <span className="nothing-mark">◉</span>}
               <span>{name}</span>
             </div>
           ))}
