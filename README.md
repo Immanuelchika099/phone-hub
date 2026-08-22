@@ -55,6 +55,12 @@ src/
 
 ---
 
+## 🧪 Vercel Deployment Test
+
+This line was added as a deployment test on August 22, 2026.
+
+---
+
 ## 👨‍💻 Author
 
 **Iman**
