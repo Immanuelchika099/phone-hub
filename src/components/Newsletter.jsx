@@ -1,8 +1,16 @@
 import "./Newsletter.css";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { FiArrowRight, FiMail } from "react-icons/fi";
+import { useState } from "react";
 
 function Newsletter() {
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubscribed(true);
+  };
+
   return (
     <section className="newsletter-section" aria-labelledby="newsletter-title">
       <motion.div
@@ -29,27 +37,38 @@ function Newsletter() {
 
         <motion.form
           className="newsletter-form"
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25, duration: 0.65 }}
         >
           <label htmlFor="newsletter-email">Email address</label>
+
           <div className="newsletter-input-wrap">
-            <Mail size={19} aria-hidden="true" />
+            <FiMail size={19} aria-hidden="true" />
             <input
               id="newsletter-email"
               type="email"
               placeholder="you@example.com"
               aria-label="Email address"
               required
+              disabled={subscribed}
             />
-            <button type="submit" aria-label="Subscribe to PhoneHub news">
-              <ArrowRight size={20} />
+            <button
+              type="submit"
+              aria-label="Subscribe to PhoneHub news"
+              disabled={subscribed}
+            >
+              <FiArrowRight size={20} />
             </button>
           </div>
-          <small>By subscribing, you agree to receive PhoneHub updates.</small>
+
+          <small>
+            {subscribed
+              ? "You're on the list — we'll keep you updated."
+              : "By subscribing, you agree to receive PhoneHub updates."}
+          </small>
         </motion.form>
       </motion.div>
     </section>
