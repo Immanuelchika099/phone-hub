@@ -18,6 +18,10 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
+    document.documentElement.classList.toggle('dark-theme', darkMode)
+  }, [darkMode])
+
+  useEffect(() => {
     if (location.hash === "#categories") {
       setTimeout(() => document.getElementById("categories")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100)
     } else {
