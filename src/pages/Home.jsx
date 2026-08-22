@@ -109,11 +109,13 @@ function Home({ addToCart, search }) {
 
       )}
 
-      {/* =========================
+      
+      /* =========================
           PRODUCT MODAL
       ========================== */
 
-      {selectedPhone && (
+      {
+        selectedPhone && (
         <ProductModal
           phone={selectedPhone}
           onClose={() => setSelectedPhone(null)}
