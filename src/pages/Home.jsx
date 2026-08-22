@@ -110,9 +110,6 @@ function Home({ addToCart, search }) {
       )}
 
       
-      /* =========================
-          PRODUCT MODAL
-      ========================== */
 
       {
         selectedPhone && (
