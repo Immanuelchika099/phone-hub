@@ -25,12 +25,18 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
     setOpenCategory(null);
   };
 
+  const handleNavPointer = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--nav-x", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--nav-y", `${e.clientY - rect.top}px`);
+  };
+
   return (
     <>
       <div className="announcementBar">New arrivals are here <span>·</span> Shop iPhone & Android <span>→</span></div>
       {menuOpen && <div className="overlay" onClick={closeMenu} />}
       <nav className={`nav ${scrolled ? "navScroll" : ""}`}>
-        <div className="navTop">
+        <div className="navTop" onPointerMove={handleNavPointer}>
           <div className="navLeft">
             <div className="menuIcon" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <IoClose className="ioclose" /> : <HiOutlineMenuAlt3 />}</div>
             <div className="logo"><Link to="/"><img src={navLogo} alt="PhoneHub logo" /></Link></div>
@@ -69,6 +75,17 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
             <a className="mobileMenuLink" href="#trends" onClick={closeMenu}>Latest News <FiChevronRight /></a>
             <a className="mobileMenuLink" href="#contact" onClick={closeMenu}>Contact <FiChevronRight /></a>
 
+            <div className="mobileThemeBlock">
+              <div className="themeCopy">
+                <span>Appearance</span>
+                <small>Choose your theme</small>
+              </div>
+              <div className="themeToggle" role="group" aria-label="Theme selection">
+                <button className={!darkMode ? "themeOption active" : "themeOption"} onClick={() => setDarkMode(false)} aria-label="Use light theme"><FiSun /> <span>Light</span></button>
+                <button className={darkMode ? "themeOption active" : "themeOption"} onClick={() => setDarkMode(true)} aria-label="Use dark theme"><FiMoon /> <span>Dark</span></button>
+              </div>
+            </div>
+
             <div className="mobileMenuContact">
               <span>Need help?</span>
               <a href="tel:07040860338"><FiPhone /> Contact us on <strong>0704 086 0338</strong></a>
@@ -80,7 +97,6 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
             <div className="cartContainer" onClick={() => setCartPopup(prev => !prev)}>
               <FiShoppingCart className="cartIcon" /><span className="cartCount">{cart.length}</span>
             </div>
-            {darkMode ? <FiSun className="darkModeIcon" onClick={() => setDarkMode(!darkMode)} /> : <FiMoon className="darkModeIcon" onClick={() => setDarkMode(!darkMode)} />}
             <Link to="/login" aria-label="Account login"><LuUserRound className="darkModeIcon user" /></Link>
           </div>
         </div>
