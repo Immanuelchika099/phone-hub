@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import navLogo from "../assets/logo/navLogo.PNG";
-import { FiShoppingCart, FiMoon, FiSun } from "react-icons/fi";
+import { FiShoppingCart, FiMoon, FiSun, FiChevronDown, FiChevronRight, FiPhone } from "react-icons/fi";
 import { LuUserRound } from "react-icons/lu";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
@@ -11,6 +11,7 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [openCategory, setOpenCategory] = useState(null);
 
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 50);
@@ -19,10 +20,15 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
   }, []);
 
   const handleSearch = () => setSearch(searchInput);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setOpenCategory(null);
+  };
 
   return (
     <>
-      {menuOpen && <div className="overlay" onClick={() => setMenuOpen(false)} />}
+      <div className="announcementBar">New arrivals are here <span>·</span> Shop iPhone & Android <span>→</span></div>
+      {menuOpen && <div className="overlay" onClick={closeMenu} />}
       <nav className={`nav ${scrolled ? "navScroll" : ""}`}>
         <div className="navTop">
           <div className="navLeft">
@@ -31,11 +37,42 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
           </div>
 
           <div className={`navLinks ${menuOpen ? "activeMenu" : ""}`}>
-            <NavLink className="navLinkText" to="/" onClick={() => setMenuOpen(false)}>Home</NavLink>
-            <a href="#products" className="navLinkText" onClick={() => setMenuOpen(false)}>Products</a>
-            <a href="#trends" className="navLinkText" onClick={() => setMenuOpen(false)}>Trends</a>
-            <a href="#" className="navLinkText" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#contact" className="navLinkText" onClick={() => setMenuOpen(false)}>Contact</a>
+            <NavLink className="navLinkText" to="/" onClick={closeMenu}>Home</NavLink>
+
+            <div className={`mobileCategory ${openCategory === "iphone" ? "categoryOpen" : ""}`}>
+              <button className="categoryTrigger" onClick={() => setOpenCategory(openCategory === "iphone" ? null : "iphone")}>iPhone <FiChevronDown /></button>
+              {openCategory === "iphone" && <div className="categorySubmenu">
+                <Link to="/phones?category=iPhone" onClick={closeMenu}>Shop iPhone</Link>
+                <Link to="/phones?category=iPhone 17" onClick={closeMenu}>iPhone 17 Series</Link>
+                <Link to="/phones?category=iPhone 16" onClick={closeMenu}>iPhone 16 Series</Link>
+                <Link to="/phones?category=iPhone 15" onClick={closeMenu}>iPhone 15 Series</Link>
+                <Link className="categoryViewAll" to="/phones?category=iPhone" onClick={closeMenu}>View all iPhone <FiChevronRight /></Link>
+              </div>}
+            </div>
+
+            <div className={`mobileCategory ${openCategory === "android" ? "categoryOpen" : ""}`}>
+              <button className="categoryTrigger" onClick={() => setOpenCategory(openCategory === "android" ? null : "android")}>Android <FiChevronDown /></button>
+              {openCategory === "android" && <div className="categorySubmenu">
+                <Link to="/phones?category=Android" onClick={closeMenu}>Shop Android</Link>
+                <Link to="/phones?category=Samsung" onClick={closeMenu}>Samsung</Link>
+                <Link to="/phones?category=Google Pixel" onClick={closeMenu}>Google Pixel</Link>
+                <Link to="/phones?category=OnePlus" onClick={closeMenu}>OnePlus</Link>
+                <Link className="categoryViewAll" to="/phones?category=Android" onClick={closeMenu}>View all Android <FiChevronRight /></Link>
+              </div>}
+            </div>
+
+            <a href="#products" className="navLinkText desktopOnlyNav" onClick={closeMenu}>Products</a>
+            <a href="#trends" className="navLinkText desktopOnlyNav" onClick={closeMenu}>Trends</a>
+            <a href="#" className="navLinkText desktopOnlyNav" onClick={closeMenu}>About</a>
+            <a href="#contact" className="navLinkText desktopOnlyNav" onClick={closeMenu}>Contact</a>
+            <Link className="mobileMenuLink" to="/phones" onClick={closeMenu}>All Products <FiChevronRight /></Link>
+            <a className="mobileMenuLink" href="#trends" onClick={closeMenu}>Latest News <FiChevronRight /></a>
+            <a className="mobileMenuLink" href="#contact" onClick={closeMenu}>Contact <FiChevronRight /></a>
+
+            <div className="mobileMenuContact">
+              <span>Need help?</span>
+              <a href="tel:07040860338"><FiPhone /> Contact us on <strong>0704 086 0338</strong></a>
+            </div>
           </div>
 
           <div className="navActions">
