@@ -22,10 +22,6 @@
     z-index: 2;
 }
 
-/* ==================================================
-   HERO SLIDER DOTS
-================================================== */
-
 .hero-dots{
     position: absolute;
     bottom: 2.5rem;
@@ -37,7 +33,6 @@
     z-index: 20;
 }
 
-
 .hero-dot{
     width: .8rem;
     height: .8rem;
@@ -47,12 +42,8 @@
     background: var(--secondary-color);
     opacity: .35;
     cursor: pointer;
-    transition:
-        width .3s ease,
-        opacity .3s ease,
-        transform .3s ease;
+    transition: width .3s ease, opacity .3s ease, transform .3s ease;
 }
-
 
 .hero-dot.active{
     width: 2.5rem;
@@ -71,7 +62,6 @@
     z-index: 2;
 }
 
-
 .summerTx{
     display: inline-block;
     padding: 1rem 1.7rem;
@@ -83,8 +73,8 @@
     font-size: var(--font-size-sm);
 }
 
-
 .heroH1{
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 7.8rem;
     line-height: 1;
     letter-spacing: -1px;
@@ -93,14 +83,8 @@
     color: var(--page-text);
 }
 
-
 .heroH1 span {
-    background: linear-gradient(
-        90deg,
-        var(--heroH1-text-1) 0%,
-        var(--heroH1-text-2) 45%,
-        var(--heroH1-text-3) 100%
-    );
+    background: linear-gradient(90deg, var(--heroH1-text-1) 0%, var(--heroH1-text-2) 45%, var(--heroH1-text-3) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -126,9 +110,7 @@
     border-radius: 99rem;
     background: var(--primary-color-light);
     font-size: var(--font-size-lg);
-    transition:
-        transform .2s ease,
-        background-color .3s ease;
+    transition: transform .2s ease, background-color .3s ease;
 }
 button.explore.btn{
     width: 18rem;
@@ -140,18 +122,9 @@ button.explore.btn{
     color: var(--primary-color-shadow);
     font-size: var(--font-size-lg);
     font-weight: 600;
-    transition:
-        transform .2s ease,
-        border-color .3s ease;
+    transition: transform .2s ease, border-color .3s ease;
 }
-.explore.btn:hover{
-    cursor: pointer;
-}
-
-
-/* ==================================================
-   HERO FOOTER
-================================================== */
+.explore.btn:hover{ cursor: pointer; }
 
 .hero-footerTx{
     color: #fff;
@@ -169,120 +142,206 @@ button.explore.btn{
     text-decoration-color: #fff;
 }
 
-
-/* ==================================================
-   TABLET
-================================================== */
-
 @media (max-width: 992px){
-
-    .hero-container{
-        height: 93vh;
-    }
-    .heroFlex{
-        padding: 0 3rem;
-        gap: 3rem;
-    }
-
-    .heroH1{
-        font-size: 5rem;
-        width: 100%;
-    }
-
-    .heroText{
-        width: 100%;
-    }
-
+    .hero-container{ height: 93vh; }
+    .heroFlex{ padding: 0 3rem; gap: 3rem; }
+    .heroH1{ font-size: 5rem; width: 100%; }
+    .heroText{ width: 100%; }
 }
 
-
 /* ==================================================
-   MOBILE
+   CINEMATIC MOBILE HERO
 ================================================== */
-
 @media (max-width: 768px){
-
     .hero-container{
-        height: auto;
-        padding: 10rem 2rem;
+        height: 92svh;
+        min-height: 62rem;
+        padding: 0 2rem 3.5rem;
+        background-position: center center;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .hero-container::before{
+        background:
+            linear-gradient(180deg,
+                rgba(0,0,0,.04) 0%,
+                rgba(0,0,0,.08) 34%,
+                rgba(0,0,0,.34) 57%,
+                rgba(0,0,0,.84) 82%,
+                rgba(0,0,0,.97) 100%);
+        z-index: 1;
+    }
+
+    .hero-container::after{
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+            radial-gradient(circle at 72% 34%, rgba(142,167,255,.16), transparent 32%),
+            radial-gradient(circle at 25% 85%, rgba(116,207,203,.10), transparent 28%),
+            linear-gradient(90deg, rgba(0,0,0,.12), transparent 55%, rgba(0,0,0,.18));
+        mix-blend-mode: screen;
     }
 
     .heroFlex{
+        width: 100%;
+        max-width: none;
+        height: auto;
+        padding: 0;
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        gap: 5rem;
+        justify-content: flex-end;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0;
+        position: relative;
+        z-index: 3;
     }
 
-    .heroH1{
-        width: 100%;
-        font-size: 4.4rem;
-    }
-
-    .heroText{
-        width: 100%;
-        font-size: 1.8rem;
-    }
-
-     .hero-buttons{
+    .hero-content{
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-    }
-    .shopNow.btn{
-        margin: auto;
-    }
-    button.explore.btn{
-        margin: auto;
-    }
-
-}
-
-
-/* ==================================================
-   SMALL MOBILE
-================================================== */
-
-@media (max-width: 576px){
-
-    .hero-container{
-        height: 96vh;
-        min-height: 61rem;
-        padding: 10rem 1.8rem 2rem;
-        background-position: 58% center;
-        box-sizing: border-box;
-    }
-    .hero-container::before{
-        background: var(--heroShadow12mini);
+        align-items: flex-start;
     }
 
     .summerTx{
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 4rem;
+        order: 0;
+        padding: .65rem 1rem;
+        margin-bottom: 1.6rem;
+        border: 1px solid rgba(255,255,255,.16);
+        background: rgba(255,255,255,.10);
+        color: #fff;
+        font-size: 1.05rem;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        backdrop-filter: blur(1.4rem);
+        -webkit-backdrop-filter: blur(1.4rem);
     }
 
     .heroH1{
-        font-size: 4.2rem;
-        line-height: 1.2;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        color: #fff;
+        font-size: clamp(4.4rem, 12.5vw, 6.4rem);
+        line-height: .92;
+        letter-spacing: -.065em;
+        font-weight: 750;
+        text-wrap: balance;
+        text-shadow: 0 8px 35px rgba(0,0,0,.22);
+    }
+
+    .heroH1 span{
+        background: linear-gradient(100deg, #ffffff 0%, var(--heroH1-text-2) 52%, var(--heroH1-text-3) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .heroText{
-        font-size: 1.7rem;
+        width: min(100%, 38rem);
+        padding: 1.8rem 0 2.2rem;
+        color: rgba(255,255,255,.78);
+        font-size: 1.55rem;
         line-height: 1.5;
-        letter-spacing: .1px;
-        color: var(--secondary-color);
+        letter-spacing: -.01em;
+        text-shadow: 0 4px 20px rgba(0,0,0,.3);
+    }
+
+    .hero-buttons{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    .shopNow.btn,
+    button.explore.btn{
+        width: auto;
+        min-width: 0;
+        padding: 1.15rem 1.7rem;
+        font-size: 1.4rem;
+        border-radius: 999px;
     }
 
     .shopNow.btn{
-        width: 80%;
-        font-size: 1.6rem;
-        backdrop-filter: blur(1rem);
-        padding: 1.4rem;
+        background: #fff;
+        color: #111;
+        box-shadow: 0 12px 35px rgba(0,0,0,.24);
     }
+
     button.explore.btn{
-        width: 80%;
-        font-size: 1.6rem;
-        padding: 1.4rem;
+        color: #fff;
+        border-color: rgba(255,255,255,.38);
+        background: rgba(255,255,255,.08);
+        backdrop-filter: blur(1.2rem);
+        -webkit-backdrop-filter: blur(1.2rem);
     }
+
+    .hero-dots{
+        left: 2rem;
+        bottom: 2rem;
+        transform: none;
+        gap: .55rem;
+    }
+
+    .hero-dot{
+        width: .55rem;
+        height: .55rem;
+        background: rgba(255,255,255,.72);
+    }
+
+    .hero-dot.active{
+        width: 2rem;
+        background: #fff;
+    }
+}
+
+@media (max-width: 576px){
+    .hero-container{
+        height: 91svh;
+        min-height: 59rem;
+        padding: 0 1.8rem 4.4rem;
+        background-position: center center;
+    }
+
+    .heroH1{
+        font-size: clamp(4.15rem, 13.2vw, 5.8rem);
+        line-height: .91;
+    }
+
+    .heroText{
+        font-size: 1.5rem;
+        line-height: 1.48;
+        max-width: 33rem;
+        padding-top: 1.6rem;
+        padding-bottom: 2rem;
+    }
+
+    .hero-buttons{ gap: .8rem; }
+
+    .shopNow.btn,
+    button.explore.btn{
+        padding: 1.1rem 1.45rem;
+        font-size: 1.3rem;
+    }
+
+    .hero-dots{
+        left: 1.8rem;
+        bottom: 2.1rem;
+    }
+}
+
+.darkMode .hero-container::after{
+    background:
+        radial-gradient(circle at 72% 34%, rgba(142,167,255,.18), transparent 32%),
+        radial-gradient(circle at 25% 85%, rgba(116,207,203,.08), transparent 28%),
+        linear-gradient(90deg, rgba(0,0,0,.08), transparent 55%, rgba(0,0,0,.16));
+    mix-blend-mode: screen;
 }
