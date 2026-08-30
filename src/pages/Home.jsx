@@ -1,10 +1,8 @@
 import "../pages/Home.css";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { searchProducts } from "../data/productFunctions";
 import products from "../data/products";
 import PhoneCard from "../components/PhoneCard";
-import ProductModal from "../components/ProductModal";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Trends from "../components/Trends";
@@ -15,7 +13,6 @@ import Newsletter from "../components/Newsletter";
 import BrandMarquee from "../components/BrandMarquee";
 
 function Home({ addToCart, search }) {
-  const [selectedPhone, setSelectedPhone] = useState(null);
   const filteredProducts = search ? searchProducts(products, search) : [];
 
   return (
@@ -25,7 +22,7 @@ function Home({ addToCart, search }) {
           <div className="phoneHeadContainer"><p className="phoneTx">SEARCH</p><h1 className="phoneHeading main">Search Results</h1></div>
           <ul className="phone-container">
             {filteredProducts.length > 0 ? filteredProducts.map((product) => (
-              <PhoneCard key={product.id} phone={product} addToCart={addToCart} onClick={(phone) => setSelectedPhone(phone)} />
+              <PhoneCard key={product.id} phone={product} addToCart={addToCart} />
             )) : <h2 className="noResults">No phones found.</h2>}
           </ul>
         </section>
@@ -43,7 +40,6 @@ function Home({ addToCart, search }) {
           <Footer />
         </>
       )}
-      {selectedPhone && <ProductModal phone={selectedPhone} onClose={() => setSelectedPhone(null)} addToCart={addToCart} />}
     </main>
   );
 }
