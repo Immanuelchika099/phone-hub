@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import CartPopup from './components/CartPopup'
+import CookieConsent from './components/CookieConsent'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       {cartPopup && !authPage && <CartPopup setCartPopup={setCartPopup} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />}
+      {!authPage && <CookieConsent />}
     </div>
   )
 }
