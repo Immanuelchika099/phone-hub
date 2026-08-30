@@ -22,13 +22,12 @@ const stories = [
 
 function StoryCard({ story, index, total }) {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start start"] });
-  const scale = useTransform(scrollYProgress, [0, 0.65, 1], [1, 1, 0.9]);
-  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const scale = useTransform(scrollYProgress, [0, 0.78, 1], [1, 1, 0.91]);
 
   return (
     <div ref={ref} className="story-stack-item" style={{ zIndex: index + 1 }}>
-      <motion.article className="story-stack-card" style={{ scale, y }}>
+      <motion.article className="story-stack-card" style={{ scale }}>
         <div className="story-card-topline">
           <span>{String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
           <span>{story.category}</span>
