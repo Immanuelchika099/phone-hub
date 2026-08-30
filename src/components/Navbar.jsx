@@ -35,7 +35,7 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
     <>
       <div className="announcementBar">New arrivals are here <span>·</span> Shop iPhone & Android <span>→</span></div>
       {menuOpen && <div className="overlay" onClick={closeMenu} />}
-      <nav className={`nav ${scrolled ? "navScroll" : ""}`}>
+      <nav className={`nav ${scrolled ? "navScroll" : ""} ${darkMode && !scrolled ? "darkTransparent" : ""}`}>
         <div className="navTop" onPointerMove={handleNavPointer}>
           <div className="navLeft">
             <div className="menuIcon" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <IoClose className="ioclose" /> : <HiOutlineMenuAlt3 />}</div>
