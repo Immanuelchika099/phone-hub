@@ -1,33 +1,32 @@
 import { motion } from "framer-motion";
-import { FaApple, FaAndroid } from "react-icons/fa";
-import { SiSamsung, SiGoogle, SiXiaomi, SiOneplus } from "react-icons/si";
 import "./BrandMarquee.css";
 
-const brands = [
-  { name: "Apple", icon: FaApple },
-  { name: "Samsung", icon: SiSamsung },
-  { name: "Google", icon: SiGoogle },
-  { name: "Xiaomi", icon: SiXiaomi },
-  { name: "OnePlus", icon: SiOneplus },
-  { name: "Nothing", icon: null },
-  { name: "Android", icon: FaAndroid },
+const specs = [
+  "IPHONE 17 PRO",
+  "A18 PRO",
+  "48MP CAMERA",
+  "TITANIUM DESIGN",
+  "PRO PERFORMANCE",
+  "ALL-DAY BATTERY",
+  "SAMSUNG GALAXY",
+  "GOOGLE PIXEL",
 ];
 
 function BrandMarquee() {
-  const items = [...brands, ...brands];
+  const items = [...specs, ...specs];
 
   return (
-    <section className="brand-marquee" aria-label="Brands available on PhoneHub">
+    <section className="brand-marquee" aria-label="Phone Hub product highlights">
       <div className="brand-marquee-track">
         <motion.div
           className="brand-marquee-inner"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
         >
-          {items.map(({ name, icon: Icon }, index) => (
-            <div className="brand-marquee-item" key={`${name}-${index}`}>
-              {Icon ? <Icon /> : <span className="nothing-mark">◉</span>}
-              <span>{name}</span>
+          {items.map((item, index) => (
+            <div className="brand-marquee-item" key={`${item}-${index}`}>
+              <span className="brand-marquee-text">{item}</span>
+              <span className="brand-marquee-dot" aria-hidden="true" />
             </div>
           ))}
         </motion.div>
