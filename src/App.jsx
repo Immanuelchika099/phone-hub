@@ -9,6 +9,7 @@ import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import CartPopup from './components/CartPopup'
 import CookieConsent from './components/CookieConsent'
+import PhoneHubIntro from './components/PhoneHubIntro'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className={darkMode ? "darkMode" : ""}>
+      <PhoneHubIntro />
       {!authPage && <Navbar cart={cart} cartPopup={cartPopup} setCartPopup={setCartPopup} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} search={search} setSearch={setSearch} searchInput={searchInput} setSearchInput={setSearchInput} darkMode={darkMode} setDarkMode={setDarkMode} />}
       <Routes>
         <Route path="/" element={<Home addToCart={addToCart} search={search} />} />
