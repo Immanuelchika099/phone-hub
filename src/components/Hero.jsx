@@ -54,11 +54,6 @@ function Hero() {
                         </div>
                     </motion.div>
                 </div>
-
-                <div className="cinematic-hero-bottom">
-                    <span>Designed for everyday life</span>
-                    <span className="hero-scroll">Scroll to explore <b>↓</b></span>
-                </div>
             </div>
         </section>
     );
