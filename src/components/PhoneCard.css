@@ -72,6 +72,22 @@
 .featured-meta { margin: .65rem 0; color: rgba(255,255,255,.72); font-size: .9rem; }
 .featured-details strong { display: block; font-size: 1.15rem; }
 
+/* Featured phones: give dark mode its own surface instead of inheriting the light card background. */
+.darkMode .featured-card {
+    background: #111113;
+    border-color: #29292d;
+}
+
+.darkMode .featured-card:hover {
+    background: #151518;
+    border-color: #34343a;
+    box-shadow: 0 14px 34px rgba(0,0,0,.28);
+}
+
+.darkMode .featured-card .phoneImgFlex {
+    background: #0c0c0e;
+}
+
 @media (max-width: 480px) {
     .phone-container { width: 94%; grid-template-columns: 1fr; gap: 0; }
     .phoneCard {
