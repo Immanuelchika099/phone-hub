@@ -41,14 +41,14 @@
 }
 
 .featured-card .phoneImgFlex img {
-    width: 50%;
-    max-width: 155px;
-    max-height: 225px;
+    width: 42%;
+    max-width: 125px;
+    max-height: 185px;
     padding: 0;
     transition: transform .45s cubic-bezier(.22,1,.36,1);
 }
 
-.featured-card .phoneImgFlex:hover img { transform: scale(1.035); }
+.featured-card .phoneImgFlex:hover img { transform: scale(1.025); }
 
 .featured-details {
     position: absolute;
@@ -118,7 +118,7 @@
         align-items: stretch;
     }
     .featured-card .phoneImgFlex { flex: 1; min-height: 0; border-radius: 9px; }
-    .featured-card .phoneImgFlex img { width: 58%; max-width: 95px; max-height: 150px; }
+    .featured-card .phoneImgFlex img { width: 48%; max-width: 80px; max-height: 125px; }
     .featured-card .phoneCardFlex { display: flex; width: 100%; }
     .featured-card .phoneCard-title {
         font-size: 1.05rem;
