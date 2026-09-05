@@ -127,7 +127,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .featured-card .card-info-row { display: none; }
+    .featured-card .card-info-row { display: flex; }
+    .featured-card .card-info-row .phoneCard-stars { display: none; }
+    .featured-card .card-info-row .phoneCard-price { font-size: 1.15rem; margin: .1rem 0; }
+    .featured-card .card-info-row.outline { display: none; }
     .featured-card .btn.buy {
         display: block;
         width: 100%;
