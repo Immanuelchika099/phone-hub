@@ -1,6 +1,7 @@
 import "./PhoneCard.css"
 import { motion } from "framer-motion"
 import { FaStar } from "react-icons/fa"
+import { IoAdd } from "react-icons/io5"
 import { useNavigate } from "react-router-dom"
 
 function PhoneCard({ phone, addToCart, featured = false }) {
@@ -65,7 +66,8 @@ function PhoneCard({ phone, addToCart, featured = false }) {
                     addToCart(phone)
                 }}
             >
-                Add to Cart
+                <span>Add to Cart</span>
+                <IoAdd aria-hidden="true" />
             </button>
         </motion.div>
     )
