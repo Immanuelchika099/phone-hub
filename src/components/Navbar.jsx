@@ -4,20 +4,13 @@ import { FiShoppingCart, FiMoon, FiSun, FiChevronDown, FiChevronRight, FiPhone }
 import { LuUserRound } from "react-icons/lu";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Navbar.css";
 
 function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput, setSearchInput, darkMode, setDarkMode }) {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openCategory, setOpenCategory] = useState(null);
-
-  useEffect(() => {
-    const f = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", f);
-    return () => window.removeEventListener("scroll", f);
-  }, []);
 
   const handleSearch = () => setSearch(searchInput);
   const closeMenu = () => {
@@ -35,7 +28,7 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
     <>
       <div className="announcementBar">New arrivals are here <span>·</span> Shop iPhone & Android <span>→</span></div>
       {menuOpen && <div className="overlay" onClick={closeMenu} />}
-      <nav className={`nav ${scrolled ? "navScroll" : ""} ${darkMode && !scrolled ? "darkTransparent" : ""}`}>
+      <nav className="nav">
         <div className="navTop" onPointerMove={handleNavPointer}>
           <div className="navLeft">
             <div className="menuIcon" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <IoClose className="ioclose" /> : <HiOutlineMenuAlt3 />}</div>
