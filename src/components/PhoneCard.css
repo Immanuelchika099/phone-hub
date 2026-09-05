@@ -19,7 +19,7 @@
 }
 
 .phoneCard:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
-.phoneCard img { width: 55%; max-width: 180px; height: auto; object-fit: contain; padding-bottom: 2rem; }
+.phoneCard img { width: 48%; max-width: 160px; max-height: 250px; height: auto; object-fit: contain; padding-bottom: 2rem; }
 .phoneImgFlex { display: flex; align-items: center; justify-content: center; position: relative; }
 .phoneCardFlex { display: flex; width: 100%; justify-content: space-between; align-items: center; color: var(--secondary-color); }
 .phoneCardFlex.outline { border-bottom: 1px solid var(--card-border-color); padding-bottom: 2rem; }
@@ -31,7 +31,7 @@
 .btn.buy:hover { background: var(--surface-color-2); color: var(--page-text); box-shadow: inset 0 0 7px -3px var(--primary-color-shadow); }
 .btn.buy:active { transform: scale(.8); }
 
-/* Featured cards keep the product image dominant and reveal extra details on image hover. */
+/* Featured cards keep the product image comfortably inside the card. */
 .featured-card .phoneImgFlex {
     width: 100%;
     flex: 1;
@@ -41,13 +41,14 @@
 }
 
 .featured-card .phoneImgFlex img {
-    width: 68%;
-    max-width: 220px;
+    width: 58%;
+    max-width: 185px;
+    max-height: 270px;
     padding: 0;
     transition: transform .45s cubic-bezier(.22,1,.36,1);
 }
 
-.featured-card .phoneImgFlex:hover img { transform: scale(1.06); }
+.featured-card .phoneImgFlex:hover img { transform: scale(1.04); }
 
 .featured-details {
     position: absolute;
@@ -92,7 +93,7 @@
     }
     .phoneCard:hover { transform: none; box-shadow: none; background: var(--surface-color); }
     .phoneImgFlex { grid-column: 1; grid-row: 1 / 5; width: 100%; height: 100%; min-height: 12rem; }
-    .phoneCard img { width: 92%; max-width: 145px; max-height: 145px; padding: 0; }
+    .phoneCard img { width: 82%; max-width: 130px; max-height: 130px; padding: 0; }
     .phoneCardFlex { grid-column: 2; width: 100%; }
     .phoneCardFlex:nth-of-type(2) { grid-row: 1; }
     .phoneCardFlex:nth-of-type(3) { grid-row: 2; }
@@ -103,7 +104,7 @@
     .phoneCard-brand, .phoneCard-storage { font-size: 1.05rem; opacity: .62; }
     .btn.buy { grid-column: 2; grid-row: 4; width: fit-content; padding: .8rem 1.3rem; margin: .3rem 0 0; font-size: 1.05rem; box-shadow: none; border-radius: 4px; }
 
-    /* Featured phones: two compact cards per row, no horizontal slider. */
+    /* Featured phones: two compact cards per row, keeping the phones contained. */
     .featured-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: .8rem !important; }
     .featured-card {
         min-height: 23rem;
@@ -117,7 +118,7 @@
         align-items: stretch;
     }
     .featured-card .phoneImgFlex { flex: 1; min-height: 0; border-radius: 9px; }
-    .featured-card .phoneImgFlex img { width: 78%; max-width: 130px; }
+    .featured-card .phoneImgFlex img { width: 70%; max-width: 115px; max-height: 180px; }
     .featured-card .phoneCardFlex { display: flex; width: 100%; }
     .featured-card .phoneCard-title {
         font-size: 1.05rem;
