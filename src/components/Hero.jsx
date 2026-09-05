@@ -1,41 +1,38 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import products from "../data/products";
 import "../components/Hero.css";
 
 function Hero() {
-    const featured = products.slice(0, 3);
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const product = featured[currentSlide];
+    const product = products[0];
 
     return (
         <section className="store-hero">
             <div className="store-hero-inner">
                 <div className="store-hero-copy">
-                    <p className="store-hero-kicker">PHONE HUB · PREMIUM DEVICES</p>
-                    <h1>Choose your next phone.</h1>
+                    <p className="store-hero-kicker">NEW ARRIVAL · PHONE HUB</p>
+                    <h1>Meet your next phone.</h1>
                     <p className="store-hero-description">
-                        Shop the latest iPhones and Android devices with clear prices, storage options and product details — all in one place.
+                        Discover the latest iPhones and Android devices with clear prices, storage options and the details you need before you buy.
                     </p>
                     <div className="store-hero-actions">
-                        <Link to="/phones" className="store-primary-btn">Shop all phones</Link>
+                        <Link to="/phones" className="store-primary-btn">Explore phones <span>↗</span></Link>
                         <Link to={`/phones/${product.id}`} className="store-secondary-btn">View {product.title}</Link>
                     </div>
-                    <div className="store-hero-meta">
-                        <span>✓ 30+ devices</span>
-                        <span>✓ iPhone & Android</span>
-                        <span>✓ Add to cart</span>
+                    <div className="store-hero-meta" aria-label="Phone Hub benefits">
+                        <span>30+ devices</span>
+                        <span>iPhone & Android</span>
+                        <span>Easy checkout</span>
                     </div>
                 </div>
 
                 <motion.div
                     className="store-hero-product"
-                    key={product.id}
-                    initial={{ opacity: 0, y: 30, scale: .96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: .45, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                 >
+                    <div className="hero-product-glow" aria-hidden="true" />
                     <div className="hero-product-label">FEATURED</div>
                     <Link to={`/phones/${product.id}`} className="hero-product-image-wrap">
                         <img src={product.thumbnail} alt={product.title} />
@@ -49,20 +46,6 @@ function Hero() {
                         <strong>₦{Number(product.price).toLocaleString()}</strong>
                     </div>
                 </motion.div>
-            </div>
-
-            <div className="store-hero-switcher">
-                {featured.map((item, index) => (
-                    <button
-                        key={item.id}
-                        className={currentSlide === index ? "active" : ""}
-                        onClick={() => setCurrentSlide(index)}
-                        aria-label={`Show ${item.title}`}
-                    >
-                        <span>{String(index + 1).padStart(2, "0")}</span>
-                        <b>{item.title}</b>
-                    </button>
-                ))}
             </div>
         </section>
     );
