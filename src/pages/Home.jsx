@@ -53,7 +53,7 @@ function Home({ addToCart, search }) {
                             </div>
                             <Link className="shop-view-all" to="/phones">View all phones <span>→</span></Link>
                         </div>
-                        <div className="home-product-grid">
+                        <div className="home-product-grid featured-product-rail">
                             {featuredProducts.map((product) => (
                                 <PhoneCard key={product.id} phone={product} addToCart={addToCart} />
                             ))}
