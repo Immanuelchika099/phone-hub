@@ -8,42 +8,34 @@ function Hero() {
 
     return (
         <section className="store-hero">
+            <div className="store-hero-orb" aria-hidden="true" />
             <div className="store-hero-inner">
                 <div className="store-hero-copy">
-                    <p className="store-hero-kicker">NEW ARRIVAL · PHONE HUB</p>
-                    <h1>Meet your next phone.</h1>
+                    <p className="store-hero-kicker">PHONE HUB</p>
+                    <h1>Meet your<br />next phone.</h1>
                     <p className="store-hero-description">
-                        Discover the latest iPhones and Android devices with clear prices, storage options and the details you need before you buy.
+                        The latest iPhones and Androids. One place to find the one that feels right.
                     </p>
-                    <div className="store-hero-actions">
-                        <Link to="/phones" className="store-primary-btn">Explore phones <span>↗</span></Link>
-                        <Link to={`/phones/${product.id}`} className="store-secondary-btn">View {product.title}</Link>
-                    </div>
-                    <div className="store-hero-meta" aria-label="Phone Hub benefits">
-                        <span>30+ devices</span>
-                        <span>iPhone & Android</span>
-                        <span>Easy checkout</span>
-                    </div>
+                    <Link to="/phones" className="store-primary-btn">
+                        Explore phones <span>↗</span>
+                    </Link>
                 </div>
 
                 <motion.div
                     className="store-hero-product"
-                    initial={{ opacity: 0, y: 22 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 28, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
                 >
                     <div className="hero-product-glow" aria-hidden="true" />
-                    <div className="hero-product-label">FEATURED</div>
-                    <Link to={`/phones/${product.id}`} className="hero-product-image-wrap">
-                        <img src={product.thumbnail} alt={product.title} />
-                    </Link>
-                    <div className="hero-product-info">
-                        <div>
-                            <p>{product.brand}</p>
-                            <h2>{product.title}</h2>
-                            <span>{product.storage} · {product.color || "Multiple colours"}</span>
-                        </div>
-                        <strong>₦{Number(product.price).toLocaleString()}</strong>
+                    <div className="hero-product-image-wrap">
+                        <Link to={`/phones/${product.id}`} aria-label={`View ${product.title}`}>
+                            <img src={product.thumbnail} alt={product.title} />
+                        </Link>
+                    </div>
+                    <div className="hero-product-caption">
+                        <span>{product.brand}</span>
+                        <strong>{product.title}</strong>
                     </div>
                 </motion.div>
             </div>
