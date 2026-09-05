@@ -37,13 +37,6 @@ function Home({ addToCart, search }) {
                 <>
                     <Hero />
 
-                    <section className="shop-trust-bar">
-                        <div><strong>30+</strong><span>Phones available</span></div>
-                        <div><strong>256GB+</strong><span>Storage options</span></div>
-                        <div><strong>4.5★+</strong><span>Top rated picks</span></div>
-                        <div><strong>Secure</strong><span>Easy checkout</span></div>
-                    </section>
-
                     <section className="shop-section featured-section">
                         <div className="shop-section-head">
                             <div>
