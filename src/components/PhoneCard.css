@@ -31,7 +31,7 @@
 .btn.buy:hover { background: var(--surface-color-2); color: var(--page-text); box-shadow: inset 0 0 7px -3px var(--primary-color-shadow); }
 .btn.buy:active { transform: scale(.8); }
 
-/* Featured cards: keep the card clean and reveal product details over the image. */
+/* Featured cards keep the product image dominant and reveal extra details on image hover. */
 .featured-card .phoneImgFlex {
     width: 100%;
     flex: 1;
@@ -44,10 +44,10 @@
     width: 68%;
     max-width: 220px;
     padding: 0;
-    transition: transform .45s cubic-bezier(.22,1,.36,1), filter .35s ease;
+    transition: transform .45s cubic-bezier(.22,1,.36,1);
 }
 
-.featured-card:hover .phoneImgFlex img { transform: scale(1.06); }
+.featured-card .phoneImgFlex:hover img { transform: scale(1.06); }
 
 .featured-details {
     position: absolute;
@@ -64,7 +64,7 @@
     pointer-events: none;
 }
 
-.featured-card:hover .featured-details { opacity: 1; transform: translateY(0); }
+.featured-card .phoneImgFlex:hover .featured-details { opacity: 1; transform: translateY(0); }
 .featured-rating, .featured-meta { display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
 .featured-rating { font-size: 1rem; font-weight: 700; }
 .featured-stars { letter-spacing: .08em; font-size: .8rem; }
@@ -103,30 +103,26 @@
     .phoneCard-brand, .phoneCard-storage { font-size: 1.05rem; opacity: .62; }
     .btn.buy { grid-column: 2; grid-row: 4; width: fit-content; padding: .8rem 1.3rem; margin: .3rem 0 0; font-size: 1.05rem; box-shadow: none; border-radius: 4px; }
 
-    /* Featured cards stay compact: two products per row, with only the essentials visible. */
+    /* Featured phones: two compact cards per row, no horizontal slider. */
     .featured-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: .8rem !important; }
     .featured-card {
-        min-height: 24rem;
-        height: 24rem;
+        min-height: 23rem;
+        height: 23rem;
         display: flex;
         padding: .9rem;
-        gap: .25rem;
+        gap: .15rem;
         border: 1px solid var(--border-color);
         border-radius: 12px;
         background: var(--card-background);
         align-items: stretch;
     }
-    .featured-card .phoneImgFlex {
-        flex: 1;
-        min-height: 0;
-        border-radius: 9px;
-    }
+    .featured-card .phoneImgFlex { flex: 1; min-height: 0; border-radius: 9px; }
     .featured-card .phoneImgFlex img { width: 78%; max-width: 130px; }
     .featured-card .phoneCardFlex { display: flex; width: 100%; }
     .featured-card .phoneCard-title {
         font-size: 1.05rem;
         line-height: 1.2;
-        margin: .55rem 0 .25rem;
+        margin: .55rem 0 .15rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -141,6 +137,5 @@
         box-shadow: none;
         border-radius: 6px;
     }
-    /* On touch screens there is no true hover; keep the compact card uncluttered. */
     .featured-card .featured-details { display: none; }
 }
