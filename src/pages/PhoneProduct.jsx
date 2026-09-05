@@ -80,7 +80,7 @@ function PhoneProduct({ addToCart }) {
 
                 <section className="phone-pdp-main">
                     <motion.div
-                        className="phone-pdp-gallery"
+                        className={`phone-pdp-gallery${gallery.length > 1 ? " has-thumbs" : ""}`}
                         initial={{ opacity: 0, x: -25 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
