@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import products from "../data/products";
 import "../components/Hero.css";
 
 const CINEMATIC_IMAGE = "https://assets.lummi.ai/assets/QmcF94zZRfhUWA3fnU1yMvxpGru6cAr1EviBF8rbRoExvN?auto=format&w=1600";
 
 function Hero() {
-    const product = products[0];
-
     return (
         <section className="cinematic-hero">
             <div className="cinematic-hero-bg" style={{ backgroundImage: `url(${CINEMATIC_IMAGE})` }} aria-hidden="true" />
@@ -36,22 +33,6 @@ function Hero() {
                         <Link to="/phones" className="cinematic-cta">
                             <span>Explore phones</span><b>↗</b>
                         </Link>
-                    </motion.div>
-
-                    <motion.div
-                        className="cinematic-product"
-                        initial={{ opacity: 0, scale: 0.92, y: 35 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    >
-                        <div className="cinematic-product-light" />
-                        <Link to={`/phones/${product.id}`} className="cinematic-product-link" aria-label={`View ${product.title}`}>
-                            <img src={product.thumbnail} alt={product.title} />
-                        </Link>
-                        <div className="cinematic-product-info">
-                            <span>{product.brand}</span>
-                            <strong>{product.title}</strong>
-                        </div>
                     </motion.div>
                 </div>
             </div>
