@@ -1,16 +1,43 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiEye, FiEyeOff, FiArrowLeft, FiLock, FiMail, FiUser, FiMoon, FiSun } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import "./Auth.css";
+import "./Commerce.css";
+import { useAuth } from "../context/AuthContext";
 
 function Signup({ darkMode, setDarkMode }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { signUp } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [busy, setBusy] = useState(false);
+  const redirect = new URLSearchParams(location.search).get("redirect") || "/";
+
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); navigate("/"); };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setMessage("");
+    setBusy(true);
+    try {
+      const data = await signUp(form);
+      if (data.session) {
+        navigate(redirect, { replace: true });
+      } else {
+        setMessage("Account created. Check your email to confirm your account, then sign in.");
+      }
+    } catch (err) {
+      setError(err.message || "Unable to create your account.");
+    } finally {
+      setBusy(false);
+    }
+  };
 
   return (
     <main className="auth-page">
@@ -27,7 +54,9 @@ function Signup({ darkMode, setDarkMode }) {
         <p className="auth-eyebrow">JOIN PHONEHUB</p>
         <h1 className="auth-title">Create your account.</h1>
         <p className="auth-subtitle">Join PhoneHub and make your next device search simpler.</p>
-        <motion.button type="button" className="google-submit" whileHover={{ y: -2 }} whileTap={{ scale: .98 }} onClick={() => alert("Google sign-in will be connected when authentication is added.")}><FcGoogle /> Continue with Google</motion.button>
+        {error && <div className="commerce-error">{error}</div>}
+        {message && <div className="commerce-success">{message}</div>}
+        <motion.button type="button" className="google-submit" whileHover={{ y: -2 }} whileTap={{ scale: .98 }} onClick={() => setError("Google sign-in is not connected yet. Use email and password for now.")}><FcGoogle /> Continue with Google</motion.button>
         <div className="auth-divider"><span>or continue with email</span></div>
         <form onSubmit={handleSubmit} className="auth-form">
           <label>Full name</label>
@@ -37,19 +66,9 @@ function Signup({ darkMode, setDarkMode }) {
           <label>Password</label>
           <div className="auth-input-wrap"><FiLock /><input name="password" value={form.password} onChange={handleChange} type={showPassword ? "text" : "password"} placeholder="Create a password" minLength="6" required /><button type="button" className="password-toggle" onClick={() => setShowPassword(!showPassword)} aria-label="Toggle password visibility">{showPassword ? <FiEyeOff /> : <FiEye />}</button></div>
           <label className="terms"><input type="checkbox" required /> I agree to the terms and privacy policy.</label>
-          <motion.button
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: .98 }}
-            className="auth-submit"
-            type="submit"
-          >
-            Create account
-          </motion.button>
+          <motion.button whileHover={{ y: -2 }} whileTap={{ scale: .98 }} className="auth-submit" type="submit" disabled={busy}>{busy ? "Creating account…" : "Create account"}</motion.button>
         </form>
-        <p className="auth-switch">
-          Already have an account?
-          <Link to="/login">Sign in</Link>
-        </p>
+        <p className="auth-switch">Already have an account? <Link to={`/login${redirect !== "/" ? `?redirect=${encodeURIComponent(redirect)}` : ""}`}>Sign in</Link></p>
       </motion.section>
     </main>
   );
