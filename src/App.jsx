@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import PhoneDetails from './pages/PhoneDetails'
@@ -6,11 +6,23 @@ import PhoneProduct from './pages/PhoneProduct'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Checkout from './pages/Checkout'
+import TrackOrder from './pages/TrackOrder'
+import Admin from './pages/Admin'
 import Navbar from './components/Navbar'
 import CartPopup from './components/CartPopup'
 import CookieConsent from './components/CookieConsent'
 import PhoneHubIntro from './components/PhoneHubIntro'
 import { useState, useEffect } from 'react'
+import { useAuth } from './context/AuthContext'
+
+function ProtectedCheckout({ cart, clearCart }) {
+  const { user, loading } = useAuth()
+  const navigate = useNavigate()
+  useEffect(() => { if (!loading && !user) navigate('/login?redirect=/checkout', { replace: true }) }, [loading, user, navigate])
+  if (loading || !user) return null
+  return <Checkout cart={cart} clearCart={clearCart} />
+}
 
 function App() {
   const [cart, setCart] = useState([])
@@ -27,29 +39,33 @@ function App() {
   }, [darkMode])
 
   useEffect(() => {
-    if (location.hash === "#categories") {
-      setTimeout(() => document.getElementById("categories")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100)
-    } else {
-      window.scrollTo({ top: 0, behavior: "instant" })
-    }
+    if (location.hash === "#categories") setTimeout(() => document.getElementById("categories")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100)
+    else window.scrollTo({ top: 0, behavior: "instant" })
   }, [location.pathname, location.search, location.hash])
+
+  useEffect(() => {
+    const saved = localStorage.getItem('phonehub-cart')
+    if (saved) try { setCart(JSON.parse(saved)) } catch {}
+  }, [])
+  useEffect(() => { localStorage.setItem('phonehub-cart', JSON.stringify(cart)) }, [cart])
 
   const addToCart = (phone) => {
     const existingItem = cart.find((item) => item.id === phone.id)
     if (existingItem) setCart(cart.map((item) => item.id === phone.id ? { ...item, quantity: item.quantity + 1 } : item))
     else setCart([...cart, { ...phone, quantity: 1 }])
   }
-
   const increaseQuantity = (id) => setCart(cart.map((item) => item.id === id ? { ...item, quantity: item.quantity + 1 } : item))
   const decreaseQuantity = (id) => setCart(cart.map((item) => item.id === id ? { ...item, quantity: item.quantity - 1 } : item).filter((item) => item.quantity > 0))
   const removeFromCart = (id) => setCart(cart.filter((item) => item.id !== id))
+  const clearCart = () => setCart([])
 
-  const authPage = location.pathname === "/login" || location.pathname === "/signup"
+  const authPage = ["/login", "/signup"].includes(location.pathname)
+  const commercePage = location.pathname.startsWith('/checkout') || location.pathname.startsWith('/track') || location.pathname.startsWith('/admin')
 
   return (
     <div className={darkMode ? "darkMode" : ""}>
       <PhoneHubIntro />
-      {!authPage && <Navbar cart={cart} cartPopup={cartPopup} setCartPopup={setCartPopup} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} search={search} setSearch={setSearch} searchInput={searchInput} setSearchInput={setSearchInput} darkMode={darkMode} setDarkMode={setDarkMode} />}
+      {!authPage && !commercePage && <Navbar cart={cart} cartPopup={cartPopup} setCartPopup={setCartPopup} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} search={search} setSearch={setSearch} searchInput={searchInput} setSearchInput={setSearchInput} darkMode={darkMode} setDarkMode={setDarkMode} />}
       <Routes>
         <Route path="/" element={<Home addToCart={addToCart} search={search} />} />
         <Route path="/contact" element={<Contact />} />
@@ -57,10 +73,14 @@ function App() {
         <Route path="/phones/:id" element={<PhoneProduct addToCart={addToCart} />} />
         <Route path="/login" element={<Login darkMode={darkMode} setDarkMode={setDarkMode} />} />
         <Route path="/signup" element={<Signup darkMode={darkMode} setDarkMode={setDarkMode} />} />
+        <Route path="/checkout" element={<ProtectedCheckout cart={cart} clearCart={clearCart} />} />
+        <Route path="/track" element={<TrackOrder />} />
+        <Route path="/track/:number" element={<TrackOrder />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {cartPopup && !authPage && <CartPopup setCartPopup={setCartPopup} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />}
-      {!authPage && <CookieConsent />}
+      {cartPopup && !authPage && !commercePage && <CartPopup setCartPopup={setCartPopup} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />}
+      {!authPage && !commercePage && <CookieConsent />}
     </div>
   )
 }
