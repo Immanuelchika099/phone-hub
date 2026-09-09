@@ -93,6 +93,23 @@
     background: #0c0c0e;
 }
 
+/* Customer favourite cards follow the same dark-mode surface as featured cards. */
+.darkMode .phoneCard {
+    background: #111113;
+    border-color: #29292d;
+    color: var(--page-text);
+}
+
+.darkMode .phoneCard:hover {
+    background: #151518;
+    border-color: #34343a;
+    box-shadow: 0 14px 34px rgba(0,0,0,.28);
+}
+
+.darkMode .phoneCardFlex.outline {
+    border-bottom-color: #29292d;
+}
+
 @media (max-width: 480px) {
     .phone-container { width: 94%; grid-template-columns: 1fr; gap: 0; }
     .phoneCard {
