@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiEye, FiEyeOff, FiArrowLeft, FiLock, FiMail, FiMoon, FiSun } from "react-icons/fi";
 import "./Auth.css";
+import "./Commerce.css";
 import { useAuth } from '../context/AuthContext'
 
 function Login({ darkMode, setDarkMode }) {
