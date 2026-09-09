@@ -19,7 +19,7 @@ export default function Checkout({ cart, clearCart }) {
 
   const change = (e) => setForm((v) => ({ ...v, [e.target.name]: e.target.value }))
 
-  const submit = async (e) => {
+  async function submit(e) {
     e.preventDefault()
     setError('')
     if (!supabase || !user) return setError('Please sign in before placing an order.')
@@ -27,31 +27,27 @@ export default function Checkout({ cart, clearCart }) {
     setBusy(true)
 
     try {
-      const { data: order, error: orderError } = await supabase.from('orders').insert({
-        user_id: user.id,
-        subtotal,
-        shipping_fee: shipping,
-        total,
-        shipping_name: form.name,
-        shipping_phone: form.phone,
-        shipping_email: form.email,
-        shipping_address: form.address,
-        shipping_city: form.city,
-        shipping_state: form.state,
-      }).select().single()
-      if (orderError) throw orderError
-
       const items = cart.map((item) => ({
-        order_id: order.id,
-        legacy_product_id: item.id,
+        legacy_product_id: String(item.id),
+        product_id: String(item.id),
         title: item.title,
         price: Number(item.price),
-        quantity: item.quantity,
+        quantity: Number(item.quantity),
         thumbnail_url: item.thumbnail || item.thumbnail_url || '',
       }))
-      const { error: itemError } = await supabase.from('order_items').insert(items)
-      if (itemError) throw itemError
-      await supabase.from('tracking_events').insert({ order_id: order.id, status: 'Order placed', note: 'Your order has been received by PhoneHub.' })
+
+      const { data: order, error: orderError } = await supabase.rpc('create_order', {
+        p_items: items,
+        p_shipping_name: form.name,
+        p_shipping_phone: form.phone,
+        p_shipping_email: form.email,
+        p_shipping_address: form.address,
+        p_shipping_city: form.city,
+        p_shipping_state: form.state,
+      })
+
+      if (orderError) throw orderError
+      if (!order?.order_number) throw new Error('The order was created but no order number was returned.')
 
       clearCart()
       setSuccess(order)
