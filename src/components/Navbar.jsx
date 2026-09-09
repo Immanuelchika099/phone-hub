@@ -5,12 +5,14 @@ import { LuUserRound } from "react-icons/lu";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import "./Navbar.css";
 
 function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput, setSearchInput, darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [openCategory, setOpenCategory] = useState(null);
+  const { user, profile } = useAuth();
 
   const handleSearch = () => setSearch(searchInput);
   const closeMenu = () => {
@@ -23,6 +25,9 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
     e.currentTarget.style.setProperty("--nav-x", `${e.clientX - rect.left}px`);
     e.currentTarget.style.setProperty("--nav-y", `${e.clientY - rect.top}px`);
   };
+
+  const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.email || "Account";
+  const userInitial = displayName.trim().charAt(0).toUpperCase() || "U";
 
   return (
     <>
@@ -90,7 +95,14 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
             <div className="cartContainer" onClick={() => setCartPopup(prev => !prev)}>
               <FiShoppingCart className="cartIcon" /><span className="cartCount">{cart.length}</span>
             </div>
-            <Link to="/login" aria-label="Account login"><LuUserRound className="darkModeIcon user" /></Link>
+            <Link
+              to={user ? "/account" : "/login"}
+              className="navAccount"
+              aria-label={user ? `Signed in as ${displayName}` : "Account login"}
+              title={user ? `Signed in as ${displayName}` : "Sign in"}
+            >
+              {user ? <span className="userAvatar">{userInitial}</span> : <LuUserRound className="darkModeIcon user" />}
+            </Link>
           </div>
         </div>
 
