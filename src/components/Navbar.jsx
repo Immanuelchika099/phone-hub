@@ -32,15 +32,25 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
   return (
     <>
       <div className="announcementBar">New arrivals are here <span>·</span> Shop iPhone & Android <span>→</span></div>
-      {menuOpen && <div className="overlay" onClick={closeMenu} />}
+      {menuOpen && <div className="overlay" onClick={closeMenu} aria-hidden="true" />}
       <nav className="nav">
         <div className="navTop" onPointerMove={handleNavPointer}>
           <div className="navLeft">
-            <div className="menuIcon" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <IoClose className="ioclose" /> : <HiOutlineMenuAlt3 />}</div>
-            <div className="logo"><Link to="/"><img src={navLogo} alt="PhoneHub logo" /></Link></div>
+            <div className="logo">
+              <Link to="/" onClick={closeMenu} aria-label="Phone Hub home">
+                <img src={navLogo} alt="Phone Hub logo" />
+              </Link>
+            </div>
           </div>
 
           <div className={`navLinks ${menuOpen ? "activeMenu" : ""}`}>
+            <div className="mobileMenuHeader">
+              <span>MENU</span>
+              <button type="button" className="mobileMenuClose" onClick={closeMenu} aria-label="Close menu">
+                <IoClose />
+              </button>
+            </div>
+
             <NavLink className="navLinkText" to="/" onClick={closeMenu}>Home</NavLink>
 
             <div className={`mobileCategory ${openCategory === "iphone" ? "categoryOpen" : ""}`}>
@@ -103,6 +113,9 @@ function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput,
             >
               {user ? <span className="userAvatar">{userInitial}</span> : <LuUserRound className="darkModeIcon user" />}
             </Link>
+            <button type="button" className="menuIcon" onClick={() => setMenuOpen(prev => !prev)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
+              {menuOpen ? <IoClose className="ioclose" /> : <HiOutlineMenuAlt3 />}
+            </button>
           </div>
         </div>
 
