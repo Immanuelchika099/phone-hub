@@ -2,7 +2,7 @@
 
 :root {
     --primary-color: #5B7CFA;
-    --navbar-background: rgba(255, 255, 255, .83);
+    --navbar-background: #ffffff;
     --mobile-menu-background: #ffffff;
     --primary-color-light: #8EA7FF;
     --primary-color-shadow: #6c8cff;
@@ -89,7 +89,7 @@
     --search-icon-background: #6c8cff;
     --card-color-light: #0a0a0a;
     --black-color: #0a0a0a;
-    --navbar-background: rgba(0, 0, 0, .94);
+    --navbar-background: #050505;
     --mobile-menu-background: #050505;
     --hero-pill-background: rgba(30, 45, 82, .72);
     --footer-background: #060911;
