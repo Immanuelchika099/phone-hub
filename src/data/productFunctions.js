@@ -4,15 +4,12 @@ export const searchProducts = (products, search) => {
     );
 };
 
-
 export const getProductsByCategory = (products, category) => {
-    if (category.toLowerCase() === "iphone") {
-        return products.filter((phone) => phone.brand === "Apple");
-    }
-
-    if (category.toLowerCase() === "android") {
-        return products.filter((phone) => phone.brand !== "Apple");
-    }
-
-    return products;
+    const value = category.toLowerCase();
+    if (value === "iphone") return products.filter((phone) => phone.brand === "Apple");
+    if (value === "android") return products.filter((phone) => phone.brand !== "Apple");
+    return products.filter((phone) =>
+        phone.brand?.toLowerCase() === value ||
+        phone.category?.toLowerCase() === value
+    );
 };
