@@ -11,6 +11,7 @@ import "./PhoneDetails.css";
 function PhoneDetails({ addToCart, search }) {
     const [searchParams] = useSearchParams();
     const category = searchParams.get("category");
+    const deals = searchParams.get("deals") === "true";
     const [filterOpen, setFilterOpen] = useState(false);
     const [sort, setSort] = useState("featured");
     const [brand, setBrand] = useState("all");
@@ -20,8 +21,9 @@ function PhoneDetails({ addToCart, search }) {
 
     const basePhones = useMemo(() => {
         let list = category ? getProductsByCategory(products, category) : products;
+        if (deals) list = list.filter((phone) => phone.discount || phone.originalPrice || phone.isDeal);
         return search ? searchProducts(list, search) : list;
-    }, [category, search]);
+    }, [category, deals, search]);
 
     const brands = [...new Set(basePhones.map((phone) => phone.brand).filter(Boolean))];
     const storages = [...new Set(basePhones.map((phone) => phone.storage).filter(Boolean))];
@@ -51,15 +53,15 @@ function PhoneDetails({ addToCart, search }) {
         setBrand("all"); setPriceRange("all"); setStorage("all"); setRating("all");
     };
 
-    useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [category]);
+    useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [category, deals]);
 
     return (
         <>
             <section className="phone-section phone-shop-page">
                 <div className="phoneHeadContainer">
-                    <p className="phoneTx">{category ? category.toUpperCase() : "ALL PHONES"}</p>
-                    <h1 className="phoneHeading main">{category ? `${category} Phones` : "Our Phone Collection"}</h1>
-                    <p className="shop-subtitle">Find the device that's right for you.</p>
+                    <p className="phoneTx">{deals ? "DEALS" : category ? category.toUpperCase() : "ALL PHONES"}</p>
+                    <h1 className="phoneHeading main">{deals ? "Today's deals" : category ? `${category} Phones` : "Our Phone Collection"}</h1>
+                    <p className="shop-subtitle">{deals ? "Limited-time offers across the Phone Hub catalogue." : "Find the device that's right for you."}</p>
                 </div>
 
                 <div className="shop-toolbar">
