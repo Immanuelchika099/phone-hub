@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import "./Home.css";
 import "./PhoneDetails.css";
 
-function PhoneDetails({ addToCart, search }) {
+function PhoneDetails({ addToCart, search, favorites, toggleFavorite }) {
     const [searchParams] = useSearchParams();
     const category = searchParams.get("category");
     const deals = searchParams.get("deals") === "true";
@@ -20,7 +20,7 @@ function PhoneDetails({ addToCart, search }) {
     const [rating, setRating] = useState("all");
 
     const basePhones = useMemo(() => {
-        let list = deals ? products.slice(4, 10) : (category ? getProductsByCategory(products, category) : products);
+        const list = deals ? products.slice(4, 10) : (category ? getProductsByCategory(products, category) : products);
         return search ? searchProducts(list, search) : list;
     }, [category, deals, search]);
 
@@ -28,7 +28,7 @@ function PhoneDetails({ addToCart, search }) {
     const storages = [...new Set(basePhones.map((phone) => phone.storage).filter(Boolean))];
 
     const filteredPhones = useMemo(() => {
-        let list = basePhones.filter((phone) => {
+        const list = basePhones.filter((phone) => {
             const matchesBrand = brand === "all" || phone.brand === brand;
             const matchesStorage = storage === "all" || phone.storage === storage;
             const matchesRating = rating === "all" || Number(phone.rating) >= Number(rating);
@@ -62,7 +62,6 @@ function PhoneDetails({ addToCart, search }) {
                     <h1 className="phoneHeading main">{deals ? "Today's deals" : category ? `${category} Phones` : "Our Phone Collection"}</h1>
                     <p className="shop-subtitle">{deals ? "Limited-time offers across the Phone Hub catalogue." : "Find the device that's right for you."}</p>
                 </div>
-
                 <div className="shop-toolbar">
                     <span className="product-count">{filteredPhones.length} {filteredPhones.length === 1 ? "product" : "products"}</span>
                     <div className="shop-actions">
@@ -70,19 +69,16 @@ function PhoneDetails({ addToCart, search }) {
                         <label className="sort-control"><span>Sort by</span><select value={sort} onChange={(e) => setSort(e.target.value)}><option value="featured">Featured</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="rating">Top Rated</option></select><IoChevronDown /></label>
                     </div>
                 </div>
-
                 <ul className="phone-container">
-                    {filteredPhones.length > 0 ? filteredPhones.map((product) => <PhoneCard key={product.id} phone={product} addToCart={addToCart} />) : <h2 className="noResults">No phones found.</h2>}
+                    {filteredPhones.length > 0 ? filteredPhones.map(product => <PhoneCard key={product.id} phone={product} addToCart={addToCart} isFavorite={favorites.includes(product.id)} toggleFavorite={toggleFavorite} />) : <h2 className="noResults">No phones found.</h2>}
                 </ul>
-
                 <div className="togglePages"><Link to="/#categories" className="prevPages"><IoChevronBack /> previous</Link></div>
             </section>
-
             {filterOpen && <div className="filter-overlay" onClick={() => setFilterOpen(false)}><aside className="filter-drawer" onClick={(e) => e.stopPropagation()}>
                 <div className="filter-header"><div><p>REFINE</p><h2>Filter</h2></div><button onClick={() => setFilterOpen(false)}><IoCloseOutline /></button></div>
-                <div className="filter-group"><label>Brand</label><select value={brand} onChange={(e) => setBrand(e.target.value)}><option value="all">All brands</option>{brands.map((item) => <option key={item} value={item}>{item}</option>)}</select></div>
+                <div className="filter-group"><label>Brand</label><select value={brand} onChange={(e) => setBrand(e.target.value)}><option value="all">All brands</option>{brands.map(item => <option key={item} value={item}>{item}</option>)}</select></div>
                 <div className="filter-group"><label>Price range</label><select value={priceRange} onChange={(e) => setPriceRange(e.target.value)}><option value="all">Any price</option><option value="under500">Under ₦500,000</option><option value="500-1m">₦500,000 – ₦1m</option><option value="1-2m">₦1m – ₦2m</option><option value="over2m">₦2m+</option></select></div>
-                <div className="filter-group"><label>Storage</label><select value={storage} onChange={(e) => setStorage(e.target.value)}><option value="all">Any storage</option>{storages.map((item) => <option key={item} value={item}>{item}</option>)}</select></div>
+                <div className="filter-group"><label>Storage</label><select value={storage} onChange={(e) => setStorage(e.target.value)}><option value="all">Any storage</option>{storages.map(item => <option key={item} value={item}>{item}</option>)}</select></div>
                 <div className="filter-group"><label>Rating</label><select value={rating} onChange={(e) => setRating(e.target.value)}><option value="all">Any rating</option><option value="4">4★ & up</option><option value="4.5">4.5★ & up</option></select></div>
                 <div className="filter-footer"><button className="clear-filters" onClick={clearFilters}>Clear all</button><button className="apply-filters" onClick={() => setFilterOpen(false)}>Show {filteredPhones.length} products</button></div>
             </aside></div>}
@@ -90,5 +86,4 @@ function PhoneDetails({ addToCart, search }) {
         </>
     );
 }
-
 export default PhoneDetails;
