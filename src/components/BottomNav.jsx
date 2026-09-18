@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FiHome, FiHeart, FiShoppingBag, FiUser } from "react-icons/fi";
+import { FiHome, FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
 import "./BottomNav.css";
 
 export default function BottomNav({ cartCount, onCart }) {
@@ -12,7 +12,7 @@ export default function BottomNav({ cartCount, onCart }) {
                 <FiHeart /><span>Favorites</span>
             </NavLink>
             <NavLink to="/checkout" className={({ isActive }) => "bottom-nav-item cart-bottom" + (isActive ? " active" : "")}>
-                <span className="bottom-cart-icon"><FiShoppingBag />{cartCount > 0 && <b>{cartCount > 99 ? "99+" : cartCount}</b>}</span><span>Cart</span>
+                <span className="bottom-cart-icon"><FiShoppingCart />{cartCount > 0 && <b>{cartCount > 99 ? "99+" : cartCount}</b>}</span><span>Cart</span>
             </NavLink>
             <NavLink to="/account" className={({ isActive }) => "bottom-nav-item" + (isActive ? " active" : "")}>
                 <FiUser /><span>Profile</span>
