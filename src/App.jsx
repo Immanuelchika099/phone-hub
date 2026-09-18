@@ -131,7 +131,7 @@ function App() {
 
       {shopChrome && (
         <>
-          <BottomNav cartCount={totalCartItems} />
+          <BottomNav cartCount={totalCartItems} onCart={() => setCartPopup(true)} />
           <CookieConsent />
         </>
       )}
