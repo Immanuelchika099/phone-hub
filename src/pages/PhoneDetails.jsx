@@ -20,8 +20,7 @@ function PhoneDetails({ addToCart, search }) {
     const [rating, setRating] = useState("all");
 
     const basePhones = useMemo(() => {
-        let list = category ? getProductsByCategory(products, category) : products;
-        if (deals) list = list.filter((phone) => phone.discount || phone.originalPrice || phone.isDeal);
+        let list = deals ? products.slice(4, 10) : (category ? getProductsByCategory(products, category) : products);
         return search ? searchProducts(list, search) : list;
     }, [category, deals, search]);
 
