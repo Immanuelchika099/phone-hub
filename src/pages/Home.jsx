@@ -11,14 +11,15 @@ import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
 import { FiTruck, FiShield, FiRefreshCw, FiMapPin } from "react-icons/fi";
 
-function Home({ addToCart, search }) {
+function Home({ addToCart, search, favorites, toggleFavorite }) {
     const filteredProducts = search ? searchProducts(products, search) : [];
     const deals = products.slice(4, 10);
     const featured = products.slice(0, 8);
     const newArrivals = products.slice(18, 26);
     const topRated = [...products].sort((a,b) => Number(String(b.rating).replace(/[^0-9.]/g,"")) - Number(String(a.rating).replace(/[^0-9.]/g,""))).slice(0,4);
+    const cardProps = (phone) => ({ phone, addToCart, isFavorite: favorites.includes(phone.id), toggleFavorite });
 
-    if (search) return <main className="home-container"><section className="search-store"><div className="search-store-head"><span>SEARCH</span><h1>Results for “{search}”</h1><p>{filteredProducts.length} products found</p></div><div className="market-grid">{filteredProducts.length ? filteredProducts.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>) : <div className="empty-search">No phones found. Try another brand or model.</div>}</div></section><Footer/></main>;
+    if (search) return <main className="home-container"><section className="search-store"><div className="search-store-head"><span>SEARCH</span><h1>Results for “{search}”</h1><p>{filteredProducts.length} products found</p></div><div className="market-grid">{filteredProducts.length ? filteredProducts.map(p => <PhoneCard key={p.id} {...cardProps(p)} />) : <div className="empty-search">No phones found. Try another brand or model.</div>}</div></section><Footer/></main>;
 
     return <main className="home-container">
         <Hero />
@@ -31,7 +32,7 @@ function Home({ addToCart, search }) {
         <Categories />
         <section className="market-section deal-section">
             <div className="market-head"><div><span>LIMITED-TIME OFFERS</span><h2>Today's deals.</h2><p>Good phones. Clear prices. No hunting around.</p></div><Link to="/phones">View all deals →</Link></div>
-            <div className="market-grid six">{deals.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>)}</div>
+            <div className="market-grid six">{deals.map(p => <PhoneCard key={p.id} {...cardProps(p)} />)}</div>
         </section>
         <section className="dark-market-band">
             <div className="dark-band-copy"><span>PHONE HUB PICKS</span><h2>The phones worth<br/><em>a closer look.</em></h2><p>A curated mix of new releases, popular upgrades and devices customers keep coming back to.</p><Link to="/phones">Explore the collection <span>→</span></Link></div>
@@ -39,11 +40,11 @@ function Home({ addToCart, search }) {
         </section>
         <section className="market-section">
             <div className="market-head"><div><span>JUST LANDED</span><h2>New arrivals.</h2><p>The latest additions to the Phone Hub catalogue.</p></div><Link to="/phones">Shop all →</Link></div>
-            <div className="market-grid">{newArrivals.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>)}</div>
+            <div className="market-grid">{newArrivals.map(p => <PhoneCard key={p.id} {...cardProps(p)} />)}</div>
         </section>
         <section className="market-section top-rated-section">
             <div className="market-head"><div><span>CUSTOMER FAVOURITES</span><h2>Top-rated phones.</h2></div><Link to="/phones">Shop all →</Link></div>
-            <div className="market-grid four">{topRated.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>)}</div>
+            <div className="market-grid four">{topRated.map(p => <PhoneCard key={p.id} {...cardProps(p)} />)}</div>
         </section>
         <section className="market-promo">
             <div><span>UPGRADE SEASON</span><h2>Ready for your<br/><em>next device?</em></h2><p>Compare the latest iPhone and Android models and find the one that fits your budget.</p><Link to="/phones">Start shopping →</Link></div>
