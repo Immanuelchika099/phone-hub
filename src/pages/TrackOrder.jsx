@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { FiArrowLeft, FiCheck, FiChevronRight, FiClock, FiPackage, FiSearch, FiTruck } from 'react-icons/fi'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import './Commerce.css'
+
+const steps = ['pending', 'confirmed', 'processing', 'shipped', 'out_for_delivery', 'delivered']
 
 const labels = {
   pending: 'Order placed',
@@ -15,8 +17,29 @@ const labels = {
   cancelled: 'Cancelled'
 }
 
-function money(value) { return `₦${Number(value || 0).toLocaleString()}` }
-function statusLabel(value) { return labels[value] || String(value || '').replaceAll('_', ' ') }
+function money(value) {
+  return `₦${Number(value || 0).toLocaleString()}`
+}
+
+function statusLabel(value) {
+  return labels[value] || String(value || '').replaceAll('_', ' ')
+}
+
+function formatDate(value) {
+  if (!value) return ''
+  return new Date(value).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+function formatDateTime(value) {
+  if (!value) return 'Awaiting update'
+  return new Date(value).toLocaleString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  })
+}
 
 export default function TrackOrder() {
   const { number } = useParams()
@@ -61,6 +84,7 @@ export default function TrackOrder() {
   }
 
   useEffect(() => { if (user) loadOrders() }, [user])
+
   useEffect(() => {
     if (!number || !orders.length) return
     const match = orders.find(order => order.order_number === number.toUpperCase())
@@ -68,31 +92,77 @@ export default function TrackOrder() {
     else loadOrder(number)
   }, [number, orders.length])
 
+  const progress = useMemo(() => {
+    if (!selected) return { index: 0, percent: 0, eventMap: {} }
+    const index = steps.indexOf(selected.status)
+    const currentIndex = index < 0 ? 0 : index
+    const percent = steps.length === 1 ? 100 : (currentIndex / (steps.length - 1)) * 100
+    const eventMap = events.reduce((map, event) => {
+      if (event.status && !map[event.status]) map[event.status] = event
+      return map
+    }, {})
+    return { index: currentIndex, percent, eventMap }
+  }, [selected, events])
+
   if (!user) {
     return <main className="commerce-page"><section className="commerce-card orders-empty"><div className="orders-empty-icon"><FiPackage /></div><p className="commerce-eyebrow">MY ORDERS</p><h1>Sign in to see your orders.</h1><p className="commerce-muted">Your purchases, delivery status and order details will all live here.</p><button className="commerce-primary" onClick={() => navigate('/login?redirect=/track')}>Sign in to continue</button></section></main>
   }
 
   if (selected) {
-    const currentIndex = ['pending','confirmed','processing','shipped','out_for_delivery','delivered'].indexOf(selected.status)
     return (
       <main className="commerce-page orders-page">
         <button className="commerce-back" onClick={() => { setSelected(null); navigate('/track') }}><FiArrowLeft /> All orders</button>
+
         <header className="order-detail-header">
-          <div><p className="commerce-eyebrow">ORDER DETAILS</p><h1>{selected.order_number}</h1><p>Placed {new Date(selected.created_at).toLocaleDateString(undefined, { dateStyle: 'long' })}</p></div>
+          <div>
+            <p className="commerce-eyebrow">ORDER DETAILS</p>
+            <h1>{selected.order_number}</h1>
+            <p>Placed {formatDate(selected.created_at)}</p>
+          </div>
           <span className={`order-status status-${selected.status}`}>{statusLabel(selected.status)}</span>
         </header>
 
         <div className="order-detail-grid">
           <section className="order-detail-main">
-            <div className="commerce-card order-card">
-              <div className="order-card-heading"><div><p className="commerce-eyebrow">DELIVERY STATUS</p><h2>{statusLabel(selected.status)}</h2></div><FiTruck /></div>
-              <div className="order-progress">
-                {['pending','confirmed','processing','shipped','out_for_delivery','delivered'].map((step, i) => <div className={i <= currentIndex ? 'done' : ''} key={step}><span>{i <= currentIndex ? <FiCheck /> : i + 1}</span><small>{statusLabel(step)}</small></div>)}
+            <div className="commerce-card order-card delivery-progress-card">
+              <div className="order-card-heading">
+                <div>
+                  <p className="commerce-eyebrow">DELIVERY PROGRESS</p>
+                  <h2>{statusLabel(selected.status)}</h2>
+                </div>
+                <div className="delivery-progress-percent">{Math.round(progress.percent)}%</div>
               </div>
+
+              <div className="delivery-progress">
+                <div className="delivery-progress-track">
+                  <div className="delivery-progress-fill" style={{ width: `${progress.percent}%` }} />
+                </div>
+
+                <div className="delivery-steps">
+                  {steps.map((step, i) => {
+                    const event = progress.eventMap[step]
+                    const done = i <= progress.index
+                    const current = i === progress.index
+
+                    return (
+                      <div className={`delivery-step ${done ? 'done' : ''} ${current ? 'current' : ''}`} key={step}>
+                        <span className="delivery-step-dot">
+                          {done ? <FiCheck /> : i + 1}
+                        </span>
+                        <div>
+                          <strong>{statusLabel(step)}</strong>
+                          <small>{event ? formatDateTime(event.created_at) : done ? formatDateTime(step === 'pending' ? selected.created_at : null) : 'Pending'}</small>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
               <div className="tracking-meta">
                 <span><FiTruck /> Courier: {selected.courier || 'PhoneHub delivery'}</span>
                 <span><FiPackage /> Tracking: {selected.tracking_number || 'Awaiting dispatch'}</span>
-                <span><FiClock /> Placed: {new Date(selected.created_at).toLocaleDateString()}</span>
+                <span><FiClock /> Placed: {formatDateTime(selected.created_at)}</span>
               </div>
             </div>
 
@@ -106,7 +176,7 @@ export default function TrackOrder() {
             <div className="commerce-card order-card">
               <div className="order-card-heading"><div><p className="commerce-eyebrow">UPDATES</p><h2>Tracking activity</h2></div></div>
               <div className="timeline">
-                {events.length ? events.map((event, i) => <div className="timeline-item" key={event.id}><div className="timeline-dot">{i === 0 ? <FiCheck /> : <FiPackage />}</div><div><strong>{statusLabel(event.status)}</strong><p>{event.note || 'Package update'}</p><small>{event.location || ''}{event.location ? ' · ' : ''}{new Date(event.created_at).toLocaleString()}</small></div></div>) : <div className="tracking-empty">No tracking events yet. Your order is being prepared.</div>}
+                {events.length ? events.map((event, i) => <div className="timeline-item" key={event.id}><div className="timeline-dot">{i === 0 ? <FiCheck /> : <FiPackage />}</div><div><strong>{statusLabel(event.status)}</strong><p>{event.note || 'Package update'}</p><small>{event.location || ''}{event.location ? ' · ' : ''}{formatDateTime(event.created_at)}</small></div></div>) : <div className="tracking-empty">No tracking events yet. Your order is being prepared.</div>}
               </div>
             </div>
           </section>
@@ -148,7 +218,7 @@ export default function TrackOrder() {
         <div className="orders-list">
           {orders.map(order => (
             <button className="order-list-card" key={order.id} onClick={() => { openOrder(order); navigate(`/track/${order.order_number}`) }}>
-              <div className="order-list-top"><div><span>ORDER PLACED</span><strong>{new Date(order.created_at).toLocaleDateString()}</strong></div><div><span>ORDER NUMBER</span><strong>{order.order_number}</strong></div><span className={`order-status status-${order.status}`}>{statusLabel(order.status)}</span><FiChevronRight /></div>
+              <div className="order-list-top"><div><span>ORDER PLACED</span><strong>{formatDate(order.created_at)}</strong></div><div><span>ORDER NUMBER</span><strong>{order.order_number}</strong></div><span className={`order-status status-${order.status}`}>{statusLabel(order.status)}</span><FiChevronRight /></div>
               <div className="order-list-bottom"><div><span>TOTAL</span><strong>{money(order.total)}</strong></div><div><span>DELIVERY TO</span><strong>{order.shipping_city}, {order.shipping_state}</strong></div><div><span>TRACKING</span><strong>{order.tracking_number || 'Not dispatched yet'}</strong></div><div className="order-view">View order <FiChevronRight /></div></div>
             </button>
           ))}
