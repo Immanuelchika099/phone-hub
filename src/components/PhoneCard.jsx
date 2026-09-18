@@ -1,76 +1,28 @@
-import "./PhoneCard.css"
-import { motion } from "framer-motion"
-import { FaStar } from "react-icons/fa"
-import { IoAdd } from "react-icons/io5"
-import { useNavigate } from "react-router-dom"
+import "./PhoneCard.css";
+import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
+import { IoAdd } from "react-icons/io5";
+import { FiHeart } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function PhoneCard({ phone, addToCart, featured = false }) {
-    const navigate = useNavigate()
-    const rating = Number(String(phone.rating).replace(/[^0-9.]/g, ""))
-
-    return(
-        <motion.div
-            className={`phoneCard${featured ? " featured-card" : ""}`}
-            onClick={() => navigate(`/phones/${phone.id}`)}
-            role="link"
-            tabIndex={0}
-            onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault()
-                    navigate(`/phones/${phone.id}`)
-                }
-            }}
-        >
-            <div className="phoneImgFlex">
-                <img src={phone.thumbnail} alt={phone.title} />
-                {featured && (
-                    <div className="featured-details">
-                        <div className="featured-rating">
-                            <span>{rating.toFixed(1)}</span>
-                            <span className="featured-stars">★★★★★</span>
-                        </div>
-                        <div className="featured-meta">
-                            <span>{phone.storage}</span>
-                            <span>{phone.color}</span>
-                        </div>
-                        <strong>₦{Number(phone.price).toLocaleString()}</strong>
-                    </div>
-                )}
+    const navigate = useNavigate();
+    const rating = Number(String(phone.rating).replace(/[^0-9.]/g, "")) || 0;
+    return (
+        <motion.article className={"phoneCard" + (featured ? " featured-card" : "")} whileHover={{ y: -4 }} transition={{ duration: .2 }} onClick={() => navigate("/phones/" + phone.id)} role="link" tabIndex={0} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); navigate("/phones/" + phone.id); } }}>
+            <div className="phone-card-image">
+                <div className="phone-discount">New</div>
+                <button className="phone-wishlist" type="button" aria-label={"Save " + phone.title} onClick={(e) => e.stopPropagation()}><FiHeart /></button>
+                <img src={phone.thumbnail} alt={phone.title} loading="lazy" />
             </div>
-
-            <div className="phoneCardFlex">
-                <h3 className="phoneCard-title">{phone.title}</h3>
+            <div className="phone-card-body">
+                <span className="phone-card-brand">{phone.brand}</span>
+                <h3>{phone.title}</h3>
+                <div className="phone-rating"><span className="stars">{[...Array(5)].map((_, i) => <FaStar key={i} className={i < Math.floor(rating) ? "filled" : "empty"} />)}</span><span>{rating.toFixed(1)}</span></div>
+                <div className="phone-card-specs"><span>{phone.storage}</span><span>{phone.color}</span></div>
+                <div className="phone-card-buy"><div><strong>₦{Number(phone.price).toLocaleString()}</strong><small>In stock</small></div><button type="button" aria-label={"Add " + phone.title + " to cart"} onClick={(e) => { e.stopPropagation(); addToCart(phone); }}><IoAdd /></button></div>
             </div>
-
-            <div className="phoneCardFlex card-info-row">
-                <div className="phoneCard-stars">
-                    {[...Array(5)].map((_, i) => (
-                        <FaStar
-                            key={i}
-                            className={i < Math.floor(rating) ? "filled" : "empty"}
-                        />
-                    ))}
-                </div>
-                <p className="phoneCard-price">₦{Number(phone.price).toLocaleString()}</p>
-            </div>
-
-            <div className="phoneCardFlex outline card-info-row">
-                <p className="phoneCard-brand">{phone.brand}</p>
-                <p className="phoneCard-storage">{phone.storage}</p>
-            </div>
-
-            <button
-                className="btn buy"
-                onClick={(e) => {
-                    e.stopPropagation()
-                    addToCart(phone)
-                }}
-            >
-                <span>Add to Cart</span>
-                <IoAdd aria-hidden="true" />
-            </button>
-        </motion.div>
-    )
+        </motion.article>
+    );
 }
-
-export default PhoneCard
+export default PhoneCard;
