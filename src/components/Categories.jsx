@@ -17,7 +17,7 @@ function Categories() {
             <div className="brand-rail">
                 {featuredBrands.map((brand, index) => {
                     const product = products.find((item) => item.brand === brand);
-                    return <motion.button key={brand} className="brand-tile" onClick={() => navigate("/phones?brand=" + encodeURIComponent(brand))} whileHover={{ y: -4 }} transition={{ duration: .2 }}>
+                    return <motion.button key={brand} className="brand-tile" onClick={() => navigate("/phones?category=" + encodeURIComponent(brand))} whileHover={{ y: -4 }} transition={{ duration: .2 }}>
                         <span className="brand-index">{String(index + 1).padStart(2, "0")}</span>
                         <img src={product?.thumbnail} alt="" />
                         <div><strong>{brand}</strong><span>{products.filter((item) => item.brand === brand).length} devices</span></div>
