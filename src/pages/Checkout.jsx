@@ -59,7 +59,7 @@ export default function Checkout({ cart, clearCart }) {
       if (orderError) throw orderError
       if (!order?.order_number) throw new Error('The order was created but no order number was returned.')
       clearCart()
-      setSuccess(order)
+      navigate(`/track/${order.order_number}`, { replace: true })
     } catch (err) {
       setError(err.message || 'Unable to place order.')
     } finally {
