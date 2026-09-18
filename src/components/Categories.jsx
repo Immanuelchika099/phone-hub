@@ -1,135 +1,31 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import products from "../data/products";
 import { motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
+import products from "../data/products";
 import "./Categories.css";
 
 function Categories() {
-
     const navigate = useNavigate();
-    const [selectedCategory, setSelectedCategory] = useState(null);
-
-    // Get representative phones from our existing products
-    const iphone = products.find(
-        (product) => product.brand === "Apple"
-    );
-
-    const android = products.find(
-        (product) => product.brand !== "Apple"
-    );
-
-
-    const handleCategory = (category) => {
-        setSelectedCategory(category);
-        navigate(`/phones?category=${category.toLowerCase()}`);
-    };
-
-
+    const brands = [...new Set(products.map((product) => product.brand))];
+    const featuredBrands = ["Apple", "Samsung", "Google", "Xiaomi", "OnePlus", "Nothing", "OPPO", "Realme"].filter((brand) => brands.includes(brand));
     return (
-        <section id="categories" className="categories">
-
-            <div className="categoryHeading">
-
-                <p className="phoneTx">
-                    EXPLORE
-                </p>
-
-                <h2 className="phoneHeading">
-                    Shop By Category
-                </h2>
-
+        <section id="categories" className="market-categories">
+            <div className="category-heading">
+                <div><span>SHOP BY BRAND</span><h2>Find your match.</h2></div>
+                <button onClick={() => navigate("/phones")}>View all phones <FiArrowUpRight /></button>
             </div>
-
-
-            <div className="categoryContainer">
-
-                {/* IPHONE */}
-
-                <motion.button
-                    initial={{ opacity: 0, y: 90 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.8 }}
-                    className={`categoryCard ${
-                        selectedCategory === "iPhone"
-                            ? "selected"
-                            : ""
-                    }`}
-                    onClick={() => handleCategory("iPhone")}
-                >
-
-                    <div className="categoryText">
-
-                        <span>01</span>
-                        <h3>iPhone</h3>
-                        <p>
-                            Explore the latest Apple smartphones.
-                        </p>
-
-                    </div>
-
-
-                    {iphone && (
-                        <img
-                            src={iphone.thumbnail}
-                            alt={iphone.title}
-                            className="categoryPhoneImage"
-                        />
-                    )}
-
-
-                    <span className="categoryArrow">
-                        →
-                    </span>
-
-                </motion.button>
-
-
-                {/* ANDROID */}
-
-                <motion.button
-                    initial={{ opacity: 0, y: 90 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.8 }}
-                    className={`categoryCard ${
-                        selectedCategory === "Android"
-                            ? "selected"
-                            : ""
-                    }`}
-                    onClick={() => handleCategory("Android")}
-                >
-
-                    <div className="categoryText">
-
-                        <span>02</span>
-                        <h3>Android</h3>
-                        <p>
-                            Discover powerful Android devices.
-                        </p>
-
-                    </div>
-
-
-                    {android && (
-                        <img
-                            src={android.thumbnail}
-                            alt={android.title}
-                            className="categoryPhoneImage"
-                        />
-                    )}
-
-
-                    <span className="categoryArrow">
-                        →
-                    </span>
-
-                </motion.button>
-
+            <div className="brand-rail">
+                {featuredBrands.map((brand, index) => {
+                    const product = products.find((item) => item.brand === brand);
+                    return <motion.button key={brand} className="brand-tile" onClick={() => navigate("/phones?brand=" + encodeURIComponent(brand))} whileHover={{ y: -4 }} transition={{ duration: .2 }}>
+                        <span className="brand-index">{String(index + 1).padStart(2, "0")}</span>
+                        <img src={product?.thumbnail} alt="" />
+                        <div><strong>{brand}</strong><span>{products.filter((item) => item.brand === brand).length} devices</span></div>
+                        <FiArrowUpRight />
+                    </motion.button>;
+                })}
             </div>
-
         </section>
     );
 }
-
 export default Categories;
