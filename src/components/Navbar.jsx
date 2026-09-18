@@ -1,133 +1,46 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import navLogo from "../assets/logo/navLogo.PNG";
-import { FiShoppingCart, FiMoon, FiSun, FiChevronDown, FiChevronRight, FiPhone } from "react-icons/fi";
-import { LuUserRound } from "react-icons/lu";
+import { FiShoppingCart, FiMoon, FiSun, FiChevronDown, FiChevronRight, FiPhone, FiUser, FiPackage } from "react-icons/fi";
 import { IoSearch, IoClose } from "react-icons/io5";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import "./Navbar.css";
 
-function Navbar({ cartPopup, setCartPopup, cart, search, setSearch, searchInput, setSearchInput, darkMode, setDarkMode }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [openCategory, setOpenCategory] = useState(null);
-  const { user, profile } = useAuth();
+function Navbar({ cartPopup, setCartPopup, cart, searchInput, setSearchInput, setSearch, darkMode, setDarkMode }) {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const { user, profile } = useAuth();
+    const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.email || "Account";
+    const firstName = displayName.includes("@") ? "Account" : displayName.split(" ")[0];
+    const userInitial = displayName.trim().charAt(0).toUpperCase() || "U";
+    const handleSearch = () => setSearch(searchInput.trim());
+    const closeMenu = () => setMenuOpen(false);
 
-  const handleSearch = () => setSearch(searchInput);
-  const closeMenu = () => {
-    setMenuOpen(false);
-    setOpenCategory(null);
-  };
-
-  const handleNavPointer = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty("--nav-x", `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty("--nav-y", `${e.clientY - rect.top}px`);
-  };
-
-  const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.email || "Account";
-  const userInitial = displayName.trim().charAt(0).toUpperCase() || "U";
-
-  return (
-    <>
-      <div className="announcementBar">New arrivals are here <span>·</span> Shop iPhone & Android <span>→</span></div>
-      {menuOpen && <div className="overlay" onClick={closeMenu} aria-hidden="true" />}
-      <nav className="nav">
-        <div className="navTop" onPointerMove={handleNavPointer}>
-          <div className="navLeft">
-            <div className="logo">
-              <Link to="/" onClick={closeMenu} aria-label="Phone Hub home">
-                <img src={navLogo} alt="Phone Hub logo" />
-              </Link>
+    return <>
+        <div className="announcementBar"><span>Free delivery updates</span><b>·</b><span>Shop the latest iPhone & Android devices</span><b>·</b><span>Track your order anytime</span></div>
+        {menuOpen && <div className="overlay" onClick={closeMenu} aria-hidden="true" />}
+        <header className="nav">
+            <div className="nav-main">
+                <Link to="/" className="logo" onClick={closeMenu} aria-label="Phone Hub home"><img src={navLogo} alt="Phone Hub"/></Link>
+                <div className="desktop-search"><IoSearch/><input value={searchInput} onChange={(e)=>{setSearchInput(e.target.value);if(!e.target.value.trim())setSearch("");}} onKeyDown={(e)=>e.key==="Enter"&&handleSearch()} placeholder="Search phones, brands, models..." aria-label="Search phones"/>{searchInput&&<button type="button" onClick={()=>{setSearchInput("");setSearch("");}} aria-label="Clear search"><IoClose/></button>}</div>
+                <div className="nav-actions">
+                    <Link to={user?"/account":"/login"} className="account-action" aria-label={user?"Open account for "+displayName:"Sign in or create an account"}><span className="account-icon">{user?userInitial:<FiUser/>}</span><span className="account-copy"><small>{user?"Hello":"Welcome"}</small><strong>{user?firstName:"Sign in"}</strong></span></Link>
+                    <Link to={user?"/track":"/login"} className="orders-action"><FiPackage/><span><small>Track</small><strong>Orders</strong></span></Link>
+                    <button type="button" className="cart-action" onClick={()=>setCartPopup(prev=>!prev)} aria-label="Open cart"><span className="cart-icon-wrap"><FiShoppingCart/><b>{cart.length}</b></span><span className="cart-copy"><small>Cart</small><strong>₦</strong></span></button>
+                    <button type="button" className="menuIcon" onClick={()=>setMenuOpen(prev=>!prev)} aria-label={menuOpen?"Close menu":"Open menu"}>{menuOpen?<IoClose/>:<HiOutlineMenuAlt3/>}</button>
+                </div>
             </div>
-          </div>
-
-          <div className={`navLinks ${menuOpen ? "activeMenu" : ""}`}>
-            <div className="mobileMenuHeader">
-              <span>MENU</span>
-              <button type="button" className="mobileMenuClose" onClick={closeMenu} aria-label="Close menu">
-                <IoClose />
-              </button>
+            <div className="nav-secondary">
+                <div className="nav-category-button"><span>☰</span> Categories <FiChevronDown/></div>
+                <Link to="/phones">All Phones</Link><Link to="/phones?category=iPhone">iPhone</Link><Link to="/phones?category=Samsung">Samsung</Link><Link to="/phones?category=Android">Android</Link><Link to="/phones?category=Google">Google Pixel</Link><Link to="/phones?category=Xiaomi">Xiaomi</Link><Link to="/phones?deals=true">Deals</Link><Link to="/contact">Contact</Link>
             </div>
-
-            <NavLink className="navLinkText" to="/" onClick={closeMenu}>Home</NavLink>
-
-            <div className={`mobileCategory ${openCategory === "iphone" ? "categoryOpen" : ""}`}>
-              <button className="categoryTrigger" onClick={() => setOpenCategory(openCategory === "iphone" ? null : "iphone")}>iPhone <FiChevronDown /></button>
-              {openCategory === "iphone" && <div className="categorySubmenu">
-                <Link to="/phones?category=iPhone" onClick={closeMenu}>Shop iPhone</Link>
-                <Link to="/phones?category=iPhone 17" onClick={closeMenu}>iPhone 17 Series</Link>
-                <Link to="/phones?category=iPhone 16" onClick={closeMenu}>iPhone 16 Series</Link>
-                <Link to="/phones?category=iPhone 15" onClick={closeMenu}>iPhone 15 Series</Link>
-                <Link className="categoryViewAll" to="/phones?category=iPhone" onClick={closeMenu}>View all iPhone <FiChevronRight /></Link>
-              </div>}
+            <div className={"nav-mobile-menu "+(menuOpen?"open":"")}>
+                <div className="mobile-menu-top"><span>SHOP</span><button onClick={closeMenu} aria-label="Close menu"><IoClose/></button></div>
+                <Link to="/phones" onClick={closeMenu}>All Phones <FiChevronRight/></Link><Link to="/phones?category=iPhone" onClick={closeMenu}>iPhone <FiChevronRight/></Link><Link to="/phones?category=Samsung" onClick={closeMenu}>Samsung <FiChevronRight/></Link><Link to="/phones?category=Android" onClick={closeMenu}>Android <FiChevronRight/></Link><Link to="/phones?category=Google" onClick={closeMenu}>Google Pixel <FiChevronRight/></Link><Link to="/phones?category=Xiaomi" onClick={closeMenu}>Xiaomi <FiChevronRight/></Link><Link to="/phones?deals=true" onClick={closeMenu}>Deals <FiChevronRight/></Link><Link to="/contact" onClick={closeMenu}>Contact <FiChevronRight/></Link>
+                <div className="mobile-appearance"><span>Appearance</span><div><button className={!darkMode?"active":""} onClick={()=>setDarkMode(false)}><FiSun/> Light</button><button className={darkMode?"active":""} onClick={()=>setDarkMode(true)}><FiMoon/> Dark</button></div></div>
+                <a className="mobile-help" href="tel:07040860338"><FiPhone/> Need help? <strong>0704 086 0338</strong></a>
             </div>
-
-            <div className={`mobileCategory ${openCategory === "android" ? "categoryOpen" : ""}`}>
-              <button className="categoryTrigger" onClick={() => setOpenCategory(openCategory === "android" ? null : "android")}>Android <FiChevronDown /></button>
-              {openCategory === "android" && <div className="categorySubmenu">
-                <Link to="/phones?category=Android" onClick={closeMenu}>Shop Android</Link>
-                <Link to="/phones?category=Samsung" onClick={closeMenu}>Samsung</Link>
-                <Link to="/phones?category=Google Pixel" onClick={closeMenu}>Google Pixel</Link>
-                <Link to="/phones?category=OnePlus" onClick={closeMenu}>OnePlus</Link>
-                <Link className="categoryViewAll" to="/phones?category=Android" onClick={closeMenu}>View all Android <FiChevronRight /></Link>
-              </div>}
-            </div>
-
-            <a href="#products" className="navLinkText desktopOnlyNav" onClick={closeMenu}>Products</a>
-            <a href="#trends" className="navLinkText desktopOnlyNav" onClick={closeMenu}>Trends</a>
-            <a href="#" className="navLinkText desktopOnlyNav" onClick={closeMenu}>About</a>
-            <a href="#contact" className="navLinkText desktopOnlyNav" onClick={closeMenu}>Contact</a>
-            <Link className="mobileMenuLink" to="/phones" onClick={closeMenu}>All Products <FiChevronRight /></Link>
-            <a className="mobileMenuLink" href="#trends" onClick={closeMenu}>Latest News <FiChevronRight /></a>
-            <a className="mobileMenuLink" href="#contact" onClick={closeMenu}>Contact <FiChevronRight /></a>
-
-            <div className="mobileThemeBlock">
-              <div className="themeCopy">
-                <span>Appearance</span>
-                <small>Choose your theme</small>
-              </div>
-              <div className="themeToggle" role="group" aria-label="Theme selection">
-                <button className={!darkMode ? "themeOption active" : "themeOption"} onClick={() => setDarkMode(false)} aria-label="Use light theme"><FiSun /> <span>Light</span></button>
-                <button className={darkMode ? "themeOption active" : "themeOption"} onClick={() => setDarkMode(true)} aria-label="Use dark theme"><FiMoon /> <span>Dark</span></button>
-              </div>
-            </div>
-
-            <div className="mobileMenuContact">
-              <span>Need help?</span>
-              <a href="tel:07040860338"><FiPhone /> Contact us on <strong>0704 086 0338</strong></a>
-            </div>
-          </div>
-
-          <div className="navActions">
-            <IoSearch className="searchIcon" onClick={() => setSearchOpen(!searchOpen)} />
-            <div className="cartContainer" onClick={() => setCartPopup(prev => !prev)}>
-              <FiShoppingCart className="cartIcon" /><span className="cartCount">{cart.length}</span>
-            </div>
-            <Link
-              to={user ? "/account" : "/login"}
-              className="navAccount"
-              aria-label={user ? `Signed in as ${displayName}` : "Account login"}
-              title={user ? `Signed in as ${displayName}` : "Sign in"}
-            >
-              {user ? <span className="userAvatar">{userInitial}</span> : <LuUserRound className="darkModeIcon user" />}
-            </Link>
-            <button type="button" className="menuIcon" onClick={() => setMenuOpen(prev => !prev)} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
-              {menuOpen ? <IoClose className="ioclose" /> : <HiOutlineMenuAlt3 />}
-            </button>
-          </div>
-        </div>
-
-        <div className="navSearch">
-          {searchOpen && <div className="search-container">
-            <input className="searchInput" type="text" value={searchInput} onChange={(e) => { const value = e.target.value; setSearchInput(value); if (!value.trim()) setSearch(""); }} placeholder="Search phones, and categories..." onKeyDown={(e) => e.key === "Enter" && handleSearch()} />
-            <button className="search-icon" onClick={handleSearch}><IoSearch /></button>
-          </div>}
-        </div>
-      </nav>
-    </>
-  );
+        </header>
+    </>;
 }
-
 export default Navbar;
