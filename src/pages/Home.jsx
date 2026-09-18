@@ -9,96 +9,52 @@ import Footer from "../components/Footer";
 import Faq from "../components/Faq";
 import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
+import { FiTruck, FiShield, FiRefreshCw, FiMapPin } from "react-icons/fi";
 
 function Home({ addToCart, search }) {
     const filteredProducts = search ? searchProducts(products, search) : [];
-    const featuredProducts = products.slice(0, 8);
-    const topRated = [...products]
-        .filter((product) => Number(String(product.rating).replace(/[^0-9.]/g, "")) >= 4.6)
-        .slice(0, 4);
+    const deals = products.slice(4, 10);
+    const featured = products.slice(0, 8);
+    const newArrivals = products.slice(18, 26);
+    const topRated = [...products].sort((a,b) => Number(String(b.rating).replace(/[^0-9.]/g,"")) - Number(String(a.rating).replace(/[^0-9.]/g,""))).slice(0,4);
 
-    return (
-        <main className="home-container">
-            {search ? (
-                <section className="phone-section search-results-section">
-                    <div className="phoneHeadContainer">
-                        <p className="phoneTx">SEARCH</p>
-                        <h1 className="phoneHeading main">Search Results</h1>
-                        <p className="shop-subtitle">{filteredProducts.length} products found</p>
-                    </div>
-                    <ul className="phone-container">
-                        {filteredProducts.length > 0
-                            ? filteredProducts.map((product) => <PhoneCard key={product.id} phone={product} addToCart={addToCart} />)
-                            : <h2 className="noResults">No phones found.</h2>}
-                    </ul>
-                    <Footer />
-                </section>
-            ) : (
-                <>
-                    <Hero />
+    if (search) return <main className="home-container"><section className="search-store"><div className="search-store-head"><span>SEARCH</span><h1>Results for “{search}”</h1><p>{filteredProducts.length} products found</p></div><div className="market-grid">{filteredProducts.length ? filteredProducts.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>) : <div className="empty-search">No phones found. Try another brand or model.</div>}</div></section><Footer/></main>;
 
-                    <section className="shop-section featured-section">
-                        <div className="shop-section-head">
-                            <div>
-                                <p className="shop-kicker">FEATURED PHONES</p>
-                                <h2>Find your next phone.</h2>
-                                <p>Real products, real prices, and the details you need before you buy.</p>
-                            </div>
-                            <Link className="shop-view-all" to="/phones">View all phones <span>→</span></Link>
-                        </div>
-                        <div className="home-product-grid featured-product-grid">
-                            {featuredProducts.map((product) => (
-                                <PhoneCard key={product.id} phone={product} addToCart={addToCart} featured />
-                            ))}
-                        </div>
-                    </section>
-
-                    <section className="shop-category-wrap">
-                        <Categories />
-                    </section>
-
-                    <section className="shop-section rated-section">
-                        <div className="shop-section-head compact">
-                            <div>
-                                <p className="shop-kicker">CUSTOMER FAVOURITES</p>
-                                <h2>Top-rated devices.</h2>
-                            </div>
-                            <Link className="shop-view-all" to="/phones">Shop all <span>→</span></Link>
-                        </div>
-                        <div className="home-product-grid four">
-                            {topRated.map((product) => (
-                                <PhoneCard key={product.id} phone={product} addToCart={addToCart} />
-                            ))}
-                        </div>
-                    </section>
-
-                    <section className="shopping-benefits">
-                        <div className="benefit-heading">
-                            <p className="shop-kicker">WHY PHONE HUB</p>
-                            <h2>A better way to shop for your next device.</h2>
-                        </div>
-                        <div className="benefit-grid">
-                            <article><span>01</span><h3>Clear pricing</h3><p>See the price, storage, brand and rating before you open a product.</p></article>
-                            <article><span>02</span><h3>Compare easily</h3><p>Browse iPhone and Android options side by side and choose what fits you.</p></article>
-                            <article><span>03</span><h3>Built to buy</h3><p>Add products to your cart directly from the collection without hunting for a button.</p></article>
-                        </div>
-                    </section>
-
-                    <motion.section
-                        className="shop-faq-section"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                    >
-                        <Faq />
-                    </motion.section>
-
-                    <Newsletter />
-                    <Footer />
-                </>
-            )}
-        </main>
-    );
+    return <main className="home-container">
+        <Hero />
+        <section className="trust-strip">
+            <div><FiShield/><strong>Authentic devices</strong><span>Shop with confidence</span></div>
+            <div><FiTruck/><strong>Nationwide delivery</strong><span>Across Nigeria</span></div>
+            <div><FiRefreshCw/><strong>Easy support</strong><span>We're here to help</span></div>
+            <div><FiMapPin/><strong>Order tracking</strong><span>From store to doorstep</span></div>
+        </section>
+        <Categories />
+        <section className="market-section deal-section">
+            <div className="market-head"><div><span>LIMITED-TIME OFFERS</span><h2>Today's deals.</h2><p>Good phones. Clear prices. No hunting around.</p></div><Link to="/phones">View all deals →</Link></div>
+            <div className="market-grid six">{deals.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>)}</div>
+        </section>
+        <section className="dark-market-band">
+            <div className="dark-band-copy"><span>PHONE HUB PICKS</span><h2>The phones worth<br/><em>a closer look.</em></h2><p>A curated mix of new releases, popular upgrades and devices customers keep coming back to.</p><Link to="/phones">Explore the collection <span>→</span></Link></div>
+            <div className="dark-band-products">{featured.slice(0,3).map(p => <motion.div key={p.id} whileHover={{y:-8}} className="dark-mini-card"><img src={p.thumbnail} alt={p.title}/><div><span>{p.brand}</span><strong>{p.title}</strong><b>₦{Number(p.price).toLocaleString()}</b></div></motion.div>)}</div>
+        </section>
+        <section className="market-section">
+            <div className="market-head"><div><span>JUST LANDED</span><h2>New arrivals.</h2><p>The latest additions to the Phone Hub catalogue.</p></div><Link to="/phones">Shop all →</Link></div>
+            <div className="market-grid">{newArrivals.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>)}</div>
+        </section>
+        <section className="market-section top-rated-section">
+            <div className="market-head"><div><span>CUSTOMER FAVOURITES</span><h2>Top-rated phones.</h2></div><Link to="/phones">Shop all →</Link></div>
+            <div className="market-grid four">{topRated.map(p => <PhoneCard key={p.id} phone={p} addToCart={addToCart}/>)}</div>
+        </section>
+        <section className="market-promo">
+            <div><span>UPGRADE SEASON</span><h2>Ready for your<br/><em>next device?</em></h2><p>Compare the latest iPhone and Android models and find the one that fits your budget.</p><Link to="/phones">Start shopping →</Link></div>
+            <img src={products[4].thumbnail} alt={products[4].title}/>
+        </section>
+        <section className="market-benefits">
+            <div className="benefit-intro"><span>WHY PHONE HUB</span><h2>Everything you need to buy with confidence.</h2></div>
+            <div className="benefit-grid"><article><FiShield/><h3>Authentic devices</h3><p>Clear product information so you know what you're buying.</p></article><article><FiTruck/><h3>Delivery across Nigeria</h3><p>Get your order moving with straightforward delivery updates.</p></article><article><FiMapPin/><h3>Track every order</h3><p>Follow your purchase from confirmation to your doorstep.</p></article></div>
+        </section>
+        <motion.section className="home-faq" initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}}><Faq/></motion.section>
+        <Newsletter/><Footer/>
+    </main>;
 }
-
 export default Home;
