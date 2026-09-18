@@ -1,7 +1,7 @@
 .bottom-nav{display:none}
 @media(max-width:760px){
  .bottom-nav{position:fixed;left:0;right:0;bottom:0;height:7.2rem;z-index:1100;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:0 .7rem calc(.35rem + env(safe-area-inset-bottom));background:rgba(18,19,22,.96);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 35px rgba(0,0,0,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
- .bottom-nav-item{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;color:#a9abb2;text-decoration:none;font-size:.72rem;font-weight:650;transition:.2s}
+ .bottom-nav-item{border:0;background:transparent;cursor:pointer;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;color:#a9abb2;text-decoration:none;font-size:.72rem;font-weight:650;transition:.2s}
  .bottom-nav-item svg{font-size:2.1rem;stroke-width:1.8}
  .bottom-nav-item.active{color:var(--primary-color)}
  .bottom-nav-item.active svg{stroke-width:2.2}
