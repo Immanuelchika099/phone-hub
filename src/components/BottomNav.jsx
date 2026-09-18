@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { FiHome, FiHeart, FiShoppingBag, FiUser } from "react-icons/fi";
 import "./BottomNav.css";
 
-export default function BottomNav({ cartCount }) {
+export default function BottomNav({ cartCount, onCart }) {
     return (
         <nav className="bottom-nav" aria-label="Mobile navigation">
             <NavLink to="/" end className={({ isActive }) => "bottom-nav-item" + (isActive ? " active" : "")}>
