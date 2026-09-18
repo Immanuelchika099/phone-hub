@@ -11,9 +11,13 @@ export default function BottomNav({ cartCount, onCart }) {
             <NavLink to="/favorites" className={({ isActive }) => "bottom-nav-item" + (isActive ? " active" : "")}>
                 <FiHeart /><span>Favorites</span>
             </NavLink>
-            <NavLink to="/checkout" className={({ isActive }) => "bottom-nav-item cart-bottom" + (isActive ? " active" : "")}>
-                <span className="bottom-cart-icon"><FiShoppingCart />{cartCount > 0 && <b>{cartCount > 99 ? "99+" : cartCount}</b>}</span><span>Cart</span>
-            </NavLink>
+            <button type="button" className="bottom-nav-item bottom-cart-button" onClick={onCart} aria-label="Open cart">
+                <span className="bottom-cart-icon">
+                    <FiShoppingCart />
+                    {cartCount > 0 && <b>{cartCount > 99 ? "99+" : cartCount}</b>}
+                </span>
+                <span>Cart</span>
+            </button>
             <NavLink to="/account" className={({ isActive }) => "bottom-nav-item" + (isActive ? " active" : "")}>
                 <FiUser /><span>Profile</span>
             </NavLink>
