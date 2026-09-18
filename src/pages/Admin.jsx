@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import navLogo from '../assets/logo/navLogo.PNG'
 import './Commerce.css'
+import './Admin.css'
 
 const blank={title:'',brand:'',price:'',stock:'',thumbnail_url:'',storage:'',color:'',description:''}
 const states=['pending','confirmed','processing','shipped','out_for_delivery','delivered','cancelled']
