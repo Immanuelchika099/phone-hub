@@ -66,7 +66,7 @@ function AdminPortal() {
         <div className="adminPortalBrand">
           <div className="adminPortalMark">PH</div>
           <div>
-            <span>PHONE HUB</span>
+            <span>FRANKY GADGET</span>
             <small>CONTROL CENTRE</small>
           </div>
         </div>
@@ -74,7 +74,7 @@ function AdminPortal() {
         <div className="adminLoginCard">
           <div className="adminLoginEyebrow">RESTRICTED ACCESS</div>
           <h1>Welcome back.</h1>
-          <p>Enter the administrator credentials to access the Phone Hub control centre.</p>
+          <p>Enter the administrator credentials to access the Franky Gadget control centre.</p>
 
           <form onSubmit={handleSubmit}>
             <label>
@@ -109,7 +109,7 @@ function AdminPortal() {
           </form>
 
           <div className="adminLoginFooter">
-            <span>PHONE HUB</span>
+            <span>FRANKY GADGET</span>
             <span>ADMIN ONLY</span>
           </div>
         </div>
