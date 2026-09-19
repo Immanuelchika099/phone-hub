@@ -19,7 +19,7 @@ function Footer(){
                         <img
                             className="Logo"
                             src={navLogo}
-                            alt="PhoneHub Logo"
+                            alt="FrankyGadget Logo"
                         />
 
                         <p>
@@ -104,7 +104,7 @@ function Footer(){
                 <div className="footer-bottom">
 
                     <p>
-                        © 2026 <strong>PhoneHub</strong>. All rights reserved.
+                        © 2026 <strong>FrankyGadget</strong>. All rights reserved.
                     </p>
 
                 </div>
