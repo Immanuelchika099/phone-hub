@@ -16,7 +16,7 @@ import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import CartPopup from './components/CartPopup'
 import CookieConsent from './components/CookieConsent'
-import PhoneHubIntro from './components/PhoneHubIntro'
+import FrankyGadgetIntro from './components/FrankyGadgetIntro'
 import { useState, useEffect } from 'react'
 import { useAuth } from './context/AuthContext'
 
@@ -54,18 +54,18 @@ function App() {
   }, [location.pathname, location.search, location.hash])
 
   useEffect(() => {
-    const savedCart = localStorage.getItem('phonehub-cart')
+    const savedCart = localStorage.getItem('frankygadget-cart')
     if (savedCart) try { setCart(JSON.parse(savedCart)) } catch {}
-    const savedFavorites = localStorage.getItem('phonehub-favorites')
+    const savedFavorites = localStorage.getItem('frankygadget-favorites')
     if (savedFavorites) try { setFavorites(JSON.parse(savedFavorites)) } catch {}
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('phonehub-cart', JSON.stringify(cart))
+    localStorage.setItem('frankygadget-cart', JSON.stringify(cart))
   }, [cart])
 
   useEffect(() => {
-    localStorage.setItem('phonehub-favorites', JSON.stringify(favorites))
+    localStorage.setItem('frankygadget-favorites', JSON.stringify(favorites))
   }, [favorites])
 
   const addToCart = (phone) => {
@@ -87,7 +87,7 @@ function App() {
 
   return (
     <div className={darkMode ? 'darkMode' : ''}>
-      <PhoneHubIntro />
+      <FrankyGadgetIntro />
       {shopChrome && (
         <Navbar
           cart={cart}
