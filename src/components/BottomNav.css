@@ -1,11 +1,15 @@
 .bottom-nav{display:none}
 @media(max-width:760px){
- .bottom-nav{position:fixed;left:0;right:0;bottom:0;height:7.2rem;z-index:1100;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:0 .7rem calc(.35rem + env(safe-area-inset-bottom));background:rgba(18,19,22,.96);border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -10px 35px rgba(0,0,0,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
- .bottom-nav-item{border:0;background:transparent;cursor:pointer;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;color:#a9abb2;text-decoration:none;font-size:.72rem;font-weight:650;transition:.2s}
- .bottom-nav-item svg{font-size:2.1rem;stroke-width:1.8}
- .bottom-nav-item.active{color:var(--primary-color)}
- .bottom-nav-item.active svg{stroke-width:2.2}
- .bottom-cart-icon{position:relative;display:grid;place-items:center}
- .bottom-cart-icon b{position:absolute;top:-.7rem;right:-1rem;min-width:1.75rem;height:1.75rem;padding:0 .35rem;border-radius:999px;background:var(--primary-color);color:#fff;display:grid;place-items:center;font-size:.68rem;font-weight:800;border:2px solid #121316}
- body{padding-bottom:7.2rem}
+ .bottom-nav{position:fixed;left:.8rem;right:.8rem;bottom:.8rem;height:6.4rem;z-index:1100;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:.45rem .45rem calc(.45rem + env(safe-area-inset-bottom));background:rgba(12,13,16,.94);border:1px solid rgba(255,255,255,.1);border-radius:1.8rem;box-shadow:0 1.2rem 4rem rgba(0,0,0,.28);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+ .bottom-nav-item{position:relative;border:0;background:transparent;cursor:pointer;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;color:#92959e;text-decoration:none;font-size:.7rem;font-weight:700;transition:transform .2s ease,color .2s ease}
+ .bottom-nav-item svg{font-size:1.95rem;stroke-width:1.8}
+ .bottom-nav-item.active{color:#fff}
+ .bottom-nav-item.active:before{content:"";position:absolute;top:.35rem;width:2.2rem;height:.22rem;border-radius:99px;background:var(--primary-color)}
+ .bottom-nav-item.active svg{color:var(--primary-color);stroke-width:2.3}
+ .bottom-cart-button{color:#92959e}
+ .bottom-cart-button:active{transform:scale(.95)}
+ .bottom-cart-icon{position:relative;width:3.8rem;height:3.2rem;display:grid;place-items:center}
+ .bottom-cart-icon svg{width:2.1rem;height:2.1rem}
+ .bottom-cart-icon b{position:absolute;top:-.1rem;right:-.15rem;min-width:1.7rem;height:1.7rem;padding:0 .35rem;border-radius:999px;background:var(--primary-color);color:#fff;display:grid;place-items:center;font-size:.62rem;font-weight:850;border:2px solid #0c0d10;box-shadow:0 .2rem .7rem rgba(91,124,250,.35)}
+ body{padding-bottom:8rem}
 }
