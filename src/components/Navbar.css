@@ -2,7 +2,7 @@
 .announcementBar b{color:#5B7CFA}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navbar-background);border-bottom:1px solid var(--border-color);box-shadow:0 .4rem 1.8rem rgba(0,0,0,.04)}
 .nav-main{width:min(1440px,94%);height:6.8rem;margin:0 auto;display:flex;align-items:center;gap:2rem}
-.logo{display:flex;align-items:center;flex:0 0 auto}.logo img{width:9.8rem;height:auto;display:block;object-fit:contain}
+.logo{display:flex;align-items:center;flex:0 0 auto}.logo img{width:7.8rem;height:auto;display:block;object-fit:contain}
 .desktop-search{height:4.2rem;flex:1;max-width:70rem;display:flex;align-items:center;border:1px solid var(--border-color);background:var(--light-color);border-radius:.65rem;overflow:hidden;color:var(--muted-text)}
 .desktop-search>svg{font-size:1.7rem;margin-left:1.2rem}.desktop-search input{flex:1;min-width:0;height:100%;border:0;outline:0;background:transparent;padding:0 1rem;color:var(--page-text);font-size:1.15rem}.desktop-search input::placeholder{color:var(--muted-text)}.desktop-search button{width:4rem;height:100%;background:transparent;color:var(--muted-text);cursor:pointer;display:grid;place-items:center;font-size:1.5rem}
 .mobile-search-button,.mobile-search-panel{display:none}
@@ -16,9 +16,9 @@
 @media(max-width:760px){
  .announcementBar{display:none}
  .nav{height:7rem;background:var(--navbar-background);border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 8px 30px rgba(0,0,0,.14)}
- .nav-main{height:7rem;width:92%;gap:0}.logo img{width:9.2rem}
+ .nav-main{height:7rem;width:92%;gap:0}.logo img{width:7.4rem}
  .desktop-search,.orders-action,.cart-action{display:none}
- .mobile-search-button{display:grid;place-items:center;border:0;background:transparent;color:var(--page-text);font-size:2.6rem;margin-left:auto;margin-right:.9rem;cursor:pointer}
+ .mobile-search-button{display:grid;place-items:center;border:0;background:transparent;color:var(--page-text);font-size:2.05rem;margin-left:auto;margin-right:.9rem;cursor:pointer}
  .nav-actions{gap:.9rem;margin-left:0}
  .account-action{display:flex}.account-copy{display:none}.account-icon{width:3.55rem;height:3.55rem;font-size:1.75rem;background:transparent;border-color:rgba(127,127,127,.45);color:var(--page-text)}
  .menuIcon{display:grid;place-items:center;font-size:2.8rem;background:transparent;border:0;margin-left:.15rem}
