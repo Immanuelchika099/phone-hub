@@ -160,7 +160,7 @@ export default function TrackOrder() {
               </div>
 
               <div className="tracking-meta">
-                <span><FiTruck /> Courier: {selected.courier || 'PhoneHub delivery'}</span>
+                <span><FiTruck /> Courier: {selected.courier || 'FrankyGadget delivery'}</span>
                 <span><FiPackage /> Tracking: {selected.tracking_number || 'Awaiting dispatch'}</span>
                 <span><FiClock /> Placed: {formatDateTime(selected.created_at)}</span>
               </div>
@@ -203,7 +203,7 @@ export default function TrackOrder() {
   return (
     <main className="commerce-page orders-page">
       <header className="orders-header">
-        <div><p className="commerce-eyebrow">ACCOUNT</p><h1>My orders</h1><p>Everything you've bought from Phone Hub, in one place.</p></div>
+        <div><p className="commerce-eyebrow">ACCOUNT</p><h1>My orders</h1><p>Everything you've bought from Franky Gadget, in one place.</p></div>
         <button className="commerce-secondary" onClick={() => navigate('/phones')}>Continue shopping <FiChevronRight /></button>
       </header>
 
