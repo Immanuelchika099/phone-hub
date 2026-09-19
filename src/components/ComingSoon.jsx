@@ -42,7 +42,7 @@ function ComingSoon() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            We are working on a new PhoneHub experience built to make discovering,
+            We are working on a new FrankyGadget experience built to make discovering,
             comparing and getting your next device even better.
           </motion.p>
 
