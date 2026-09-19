@@ -21,7 +21,7 @@ function Navbar({ cartPopup, setCartPopup, cart, searchInput, setSearchInput, se
         {menuOpen && <div className="overlay" onClick={closeMenu} aria-hidden="true" />}
         <header className="nav">
             <div className="nav-main">
-                <Link to="/" className="logo" onClick={closeMenu} aria-label="Phone Hub home"><img src={navLogo} alt="Phone Hub" /></Link>
+                <Link to="/" className="logo" onClick={closeMenu} aria-label="Franky Gadget home"><img src={navLogo} alt="Franky Gadget" /></Link>
 
                 <div className="desktop-search">
                     <IoSearch />
