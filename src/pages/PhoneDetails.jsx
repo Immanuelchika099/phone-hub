@@ -56,7 +56,7 @@ function PhoneDetails({ addToCart, search, favorites, toggleFavorite }) {
 
     return (
         <>
-            <section className="phone-section phone-shop-page">
+            <section className="phone-shop-page">
                 <div className="phoneHeadContainer">
                     <p className="phoneTx">{deals ? "DEALS" : category ? category.toUpperCase() : "ALL PHONES"}</p>
                     <h1 className="phoneHeading main">{deals ? "Today's deals" : category ? `${category} Phones` : "Our Phone Collection"}</h1>
