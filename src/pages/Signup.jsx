@@ -51,9 +51,9 @@ function Signup({ darkMode, setDarkMode }) {
       <motion.div className="auth-orb auth-orb-two" animate={{ y: [0, 20, 0] }} transition={{ duration: 6, repeat: Infinity }} />
       <motion.section className="auth-card" initial={{ opacity: 0, y: 35, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
         <div className="auth-brand"><span>PHONE</span>HUB</div>
-        <p className="auth-eyebrow">JOIN PHONEHUB</p>
+        <p className="auth-eyebrow">JOIN FRANKYGADGET</p>
         <h1 className="auth-title">Create your account.</h1>
-        <p className="auth-subtitle">Join PhoneHub and make your next device search simpler.</p>
+        <p className="auth-subtitle">Join FrankyGadget and make your next device search simpler.</p>
         {error && <div className="commerce-error">{error}</div>}
         {message && <div className="commerce-success">{message}</div>}
         <motion.button type="button" className="google-submit" whileHover={{ y: -2 }} whileTap={{ scale: .98 }} onClick={() => setError("Google sign-in is not connected yet. Use email and password for now.")}><FcGoogle /> Continue with Google</motion.button>
