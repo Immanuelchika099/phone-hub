@@ -16,7 +16,7 @@ function BrandMarquee() {
   const items = [...specs, ...specs];
 
   return (
-    <section className="brand-marquee" aria-label="Phone Hub product highlights">
+    <section className="brand-marquee" aria-label="Franky Gadget product highlights">
       <div className="brand-marquee-track">
         <motion.div
           className="brand-marquee-inner"
