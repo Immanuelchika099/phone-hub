@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import navLogo from '../assets/logo/navLogo.PNG';
-import './FrankyGadgetIntro.css';
+import './PhoneHubIntro.css';
 
 export default function FrankyGadgetIntro() {
   const [visible, setVisible] = useState(() => sessionStorage.getItem('frankygadget-intro-seen') !== 'true');
@@ -19,8 +19,8 @@ export default function FrankyGadgetIntro() {
   if (!visible) return null;
 
   return (
-    <div className="frankygadget-intro" aria-label="Franky Gadget">
-      <img src={navLogo} alt="Franky Gadget" className="frankygadget-logo" />
+    <div className="phonehub-intro" aria-label="Franky Gadget">
+      <img src={navLogo} alt="Franky Gadget" className="phonehub-logo" />
     </div>
   );
 }
