@@ -30,7 +30,7 @@ function Newsletter() {
           <p className="newsletter-eyebrow">STAY IN THE LOOP</p>
           <h2 id="newsletter-title">Get the latest <span>news.</span></h2>
           <p>
-            New devices, product drops, PhoneHub updates and more — delivered
+            New devices, product drops, FrankyGadget updates and more — delivered
             straight to your inbox. No noise, just the good stuff.
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ function Newsletter() {
             />
             <button
               type="submit"
-              aria-label="Subscribe to PhoneHub news"
+              aria-label="Subscribe to FrankyGadget news"
               disabled={subscribed}
             >
               <FiArrowRight size={20} />
@@ -67,7 +67,7 @@ function Newsletter() {
           <small>
             {subscribed
               ? "You're on the list — we'll keep you updated."
-              : "By subscribing, you agree to receive PhoneHub updates."}
+              : "By subscribing, you agree to receive FrankyGadget updates."}
           </small>
         </motion.form>
       </motion.div>
