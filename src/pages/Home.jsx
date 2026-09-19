@@ -8,7 +8,6 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Faq from "../components/Faq";
 import Categories from "../components/Categories";
-import Newsletter from "../components/Newsletter";
 import { FiTruck, FiShield, FiRefreshCw, FiMapPin } from "react-icons/fi";
 
 function Home({ addToCart, search, favorites, toggleFavorite }) {
@@ -55,7 +54,7 @@ function Home({ addToCart, search, favorites, toggleFavorite }) {
             <div className="benefit-grid"><article><FiShield/><h3>Authentic devices</h3><p>Clear product information so you know what you're buying.</p></article><article><FiTruck/><h3>Delivery across Nigeria</h3><p>Get your order moving with straightforward delivery updates.</p></article><article><FiMapPin/><h3>Track every order</h3><p>Follow your purchase from confirmation to your doorstep.</p></article></div>
         </section>
         <motion.section className="home-faq" initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}}><Faq/></motion.section>
-        <Newsletter/><Footer/>
+        <Footer/>
     </main>;
 }
 export default Home;
