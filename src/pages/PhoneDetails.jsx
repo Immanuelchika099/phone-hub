@@ -60,7 +60,7 @@ function PhoneDetails({ addToCart, search, favorites, toggleFavorite }) {
                 <div className="phoneHeadContainer">
                     <p className="phoneTx">{deals ? "DEALS" : category ? category.toUpperCase() : "ALL PHONES"}</p>
                     <h1 className="phoneHeading main">{deals ? "Today's deals" : category ? `${category} Phones` : "Our Phone Collection"}</h1>
-                    <p className="shop-subtitle">{deals ? "Limited-time offers across the Phone Hub catalogue." : "Find the device that's right for you."}</p>
+                    <p className="shop-subtitle">{deals ? "Limited-time offers across the Franky Gadget catalogue." : "Find the device that's right for you."}</p>
                 </div>
                 <div className="shop-toolbar">
                     <span className="product-count">{filteredPhones.length} {filteredPhones.length === 1 ? "product" : "products"}</span>
