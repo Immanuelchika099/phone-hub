@@ -110,5 +110,17 @@ html:not(.dark-theme), html:not(.dark-theme) body, html:not(.dark-theme) #root {
 html, body { min-height: 100%; transition: background-color .3s ease, color .3s ease }
 body { background: #ffffff; color: var(--page-text); font-size: 1.4rem; transition: background-color .3s ease, color .3s ease }
 li, ul, a, h1, p, input, button { list-style: none; text-decoration: none; margin: 0; width: fit-content; padding: 0; color: inherit; border: none }
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    font-size: 1.6rem;
+    -webkit-text-size-adjust: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity: 1;
+}
 button { font: inherit }
 .btn { color: #fff }
