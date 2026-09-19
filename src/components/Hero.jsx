@@ -12,7 +12,7 @@ function Hero() {
             <div className="hero-orb hero-orb-one" />
             <div className="hero-orb hero-orb-two" />
             <div className="store-hero-copy">
-                <div className="hero-kicker"><span /> PHONE HUB · 2026</div>
+                <div className="hero-kicker"><span /> FRANKY GADGET · 2026</div>
                 <h1>Find the phone<br /><em>you've been looking for.</em></h1>
                 <p>Shop genuine iPhone and Android devices at clear prices, with nationwide delivery and order tracking.</p>
                 <div className="hero-actions">
