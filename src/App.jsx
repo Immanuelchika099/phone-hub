@@ -16,7 +16,7 @@ import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import CartPopup from './components/CartPopup'
 import CookieConsent from './components/CookieConsent'
-import FrankyGadgetIntro from './components/FrankyGadgetIntro'
+import PhoneHubIntro from './components/PhoneHubIntro'
 import { useState, useEffect } from 'react'
 import { useAuth } from './context/AuthContext'
 
@@ -87,7 +87,7 @@ function App() {
 
   return (
     <div className={darkMode ? 'darkMode' : ''}>
-      <FrankyGadgetIntro />
+      <PhoneHubIntro />
       {shopChrome && (
         <Navbar
           cart={cart}
