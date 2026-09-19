@@ -16,7 +16,7 @@
 @media(max-width:760px){
  .announcementBar{display:none}
  .nav{height:7rem;background:var(--navbar-background);border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 8px 30px rgba(0,0,0,.14)}
- .nav-main{height:7rem;width:92%;gap:0}.logo img{width:7.4rem}
+ .nav-main{height:7rem;width:92%;gap:0}.logo img{width:6.6rem}
  .desktop-search,.orders-action,.cart-action{display:none}
  .mobile-search-button{display:grid;place-items:center;border:0;background:transparent;color:var(--page-text);font-size:2.05rem;margin-left:auto;margin-right:.9rem;cursor:pointer}
  .nav-actions{gap:.9rem;margin-left:0}
