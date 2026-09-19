@@ -66,7 +66,7 @@ function ResetPassword() {
       <div className="auth-brand"><span>PHONE</span>HUB</div>
       <p className="auth-eyebrow">SECURE ACCESS</p>
       <h1 className="auth-title">Create a new password.</h1>
-      <p className="auth-subtitle">Set a new password for your Phone Hub account.</p>
+      <p className="auth-subtitle">Set a new password for your Franky Gadget account.</p>
       {!ready && !error && <div className="commerce-error">Your recovery session is still loading. Please wait a moment and try again.</div>}
       {error && <div className="commerce-error">{error}</div>}
       {message && <div className="commerce-success">{message}</div>}
