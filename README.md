@@ -1,6 +1,6 @@
-# 📱 Phone Hub
+# 📱 Franky Gadget
 
-Phone Hub is a modern e-commerce web application built with **React** and **Vite**. It allows users to browse a collection of premium smartphones, search for products, manage a shopping cart, and enjoy a clean, responsive user experience.
+Franky Gadget is a modern e-commerce web application built with **React** and **Vite**. It allows users to browse a collection of premium smartphones, search for products, manage a shopping cart, and enjoy a clean, responsive user experience.
 
 ---
 
