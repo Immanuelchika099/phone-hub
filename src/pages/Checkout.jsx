@@ -16,7 +16,7 @@ export default function Checkout({ cart, clearCart }) {
   useEffect(() => {
     if (!user) return
     let stored = {}
-    try { stored = JSON.parse(localStorage.getItem(`phonehub-profile-${user.id}`) || '{}') } catch {}
+    try { stored = JSON.parse(localStorage.getItem(`frankygadget-profile-${user.id}`) || '{}') } catch {}
     setForm({
       name: profile?.full_name || user?.user_metadata?.full_name || '',
       email: profile?.email || user?.email || '',
@@ -107,7 +107,7 @@ export default function Checkout({ cart, clearCart }) {
 
       <header className="checkout-heading">
         <div>
-          <p className="commerce-eyebrow">PHONE HUB CHECKOUT</p>
+          <p className="commerce-eyebrow">FRANKY GADGET CHECKOUT</p>
           <h1>Complete your order.</h1>
           <p>Fast delivery. Clear pricing. No surprises.</p>
         </div>
