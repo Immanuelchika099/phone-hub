@@ -111,6 +111,9 @@ create policy "orders customer insert" on public.orders for insert with check (u
 drop policy if exists "orders admin update" on public.orders;
 create policy "orders admin update" on public.orders for update using (public.is_admin()) with check (public.is_admin());
 
+drop policy if exists "orders admin delete" on public.orders;
+create policy "orders admin delete" on public.orders for delete using (public.is_admin());
+
 drop policy if exists "order items own read" on public.order_items;
 create policy "order items own read" on public.order_items for select using (exists(select 1 from public.orders o where o.id = order_id and (o.user_id = auth.uid() or public.is_admin())));
 
