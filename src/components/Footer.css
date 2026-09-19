@@ -1,359 +1,67 @@
-/* =========================================================
-   FOOTER
-========================================================= */
-
+/* Premium e-commerce footer */
 .footer {
     position: relative;
+    margin-top: 7rem;
+    padding: 0 7% 1.5rem;
+    background: #080a0f;
+    color: #fff;
     overflow: hidden;
-    background:
-        /* tiny dots */
-        radial-gradient(
-            circle,
-            var(--footer-dots) 1px,
-            transparent 1px
-        ),
-
-        /* TOP LEFT GLOW */
-        radial-gradient(
-            circle at 5% 10%,
-            var(--footer-glow-1),
-            transparent 30%
-        ),
-
-        /* BOTTOM RIGHT GLOW */
-        radial-gradient(
-            circle at 95% 90%,
-            var(--footer-glow-2),
-            transparent 30%
-        ),
-
-        /* BASE */
-        var(--footer-background);
-
-    background-size:
-        28px 28px,
-        auto,
-        auto,
-        auto;
-    color: #ffffff;
-    padding: 7rem 8% 3rem;
-    margin-top: 8rem;
-    isolation: isolate;
 }
 
-
-/* =========================================================
-   SUBTLE GLOW
-========================================================= */
-
-.footer::before,
-.footer::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-    filter: blur(80px);
-}
-
-
-/* TOP LEFT */
-
-.footer::before {
-    width: 25rem;
-    height: 25rem;
-
-    top: -12rem;
-    left: -8rem;
-    background: var(--hero-glow-1);
-    opacity: .25;
-}
-
-
-/* BOTTOM RIGHT */
-
-.footer::after {
-    width: 28rem;
-    height: 28rem;
-    right: -10rem;
-    bottom: -15rem;
-    background: var(--hero-glow-2);
-    opacity: .25;
-}
-
-
-/* =========================================================
-   FOOTER TOP
-========================================================= */
-
-.footer-top {
+.footer-newsletter {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.10);
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    flex-wrap: wrap;
+    gap: 3rem;
 }
+.footer-eyebrow { font-size: .72rem; font-weight: 800; letter-spacing: .16em; color: #8da2ff; }
+.footer-newsletter h2 { margin: .65rem 0 .5rem; font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -.04em; }
+.footer-newsletter p { margin: 0; max-width: 520px; color: rgba(255,255,255,.58); line-height: 1.6; }
+.footer-subscribe { display: flex; align-items: stretch; gap: .65rem; min-width: min(100%, 440px); }
+.footer-input { flex: 1; display: flex; align-items: center; gap: .7rem; padding: 0 1rem; min-height: 50px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.055); border-radius: 10px; }
+.footer-input svg { color: rgba(255,255,255,.5); flex-shrink: 0; }
+.footer-input input { width: 100%; border: 0; outline: 0; background: transparent; color: #fff; font: inherit; }
+.footer-input input::placeholder { color: rgba(255,255,255,.4); }
+.footer-subscribe button { border: 0; min-width: 120px; padding: 0 1rem; border-radius: 10px; background: var(--primary-color, #5B7CFA); color: #fff; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; transition: transform .2s ease, opacity .2s ease; }
+.footer-subscribe button:hover { transform: translateY(-2px); }
+.footer-subscribe button:disabled { opacity: .65; cursor: default; transform: none; }
 
+.footer-main { max-width: 1280px; margin: 0 auto; padding: 4rem 0 3.5rem; display: grid; grid-template-columns: 1.7fr repeat(4, 1fr); gap: 3rem; }
+.footer-brand .Logo { width: 8.5rem; height: auto; padding: .45rem; border-radius: 8px; background: #fff; }
+.footer-brand > p { max-width: 300px; margin: 1.4rem 0 0; color: rgba(255,255,255,.55); line-height: 1.7; }
+.socialIcons { display: flex; gap: .55rem; margin-top: 1.5rem; }
+.socialIcons a { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: rgba(255,255,255,.7); background: rgba(255,255,255,.04); transition: .2s ease; }
+.socialIcons a:hover { color: #fff; border-color: rgba(141,162,255,.7); background: rgba(91,124,250,.14); transform: translateY(-2px); }
 
-/* =========================================================
-   LOGO SECTION
-========================================================= */
+.footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: .85rem; }
+.footer-column h3 { margin: 0 0 .45rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; color: #fff; }
+.footer-column a, .footer-column p { margin: 0; color: rgba(255,255,255,.56); text-decoration: none; font-size: .9rem; line-height: 1.5; display: flex; align-items: center; gap: .45rem; transition: color .2s ease, transform .2s ease; }
+.footer-column a:hover { color: #fff; transform: translateX(3px); }
+.footer-contact svg { color: rgba(141,162,255,.9); flex-shrink: 0; }
 
-.footer-logo {
-    flex: 1;
-    min-width: 250px;
+.footer-bottom { max-width: 1280px; margin: 0 auto; padding: 1.3rem 0 0; border-top: 1px solid rgba(255,255,255,.10); display: flex; justify-content: space-between; gap: 1.5rem; color: rgba(255,255,255,.4); font-size: .78rem; }
+.footer-bottom div { display: flex; gap: 1.5rem; }
+.footer-bottom a { color: inherit; text-decoration: none; }
+.footer-bottom a:hover { color: #fff; }
+
+@media (max-width: 1000px) { .footer-main { grid-template-columns: 1.5fr repeat(2, 1fr); } }
+@media (max-width: 700px) {
+    .footer { padding: 0 5% 1.2rem; margin-top: 5rem; }
+    .footer-newsletter { flex-direction: column; align-items: flex-start; padding: 2.8rem 0; gap: 1.5rem; }
+    .footer-subscribe { width: 100%; min-width: 0; }
+    .footer-main { grid-template-columns: repeat(2, 1fr); padding: 3rem 0; gap: 2.5rem 1.5rem; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; gap: .8rem; }
+    .footer-bottom div { gap: 1rem; flex-wrap: wrap; }
 }
-
-.Logo {
-    width: 9rem;
-    height: auto;
-
-    border-radius: 12px;
-    padding: .5rem;
-
-    background: #ffffff;
-}
-
-.footer-logo h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #ffffff;
-}
-
-.footer-logo p {
-    color: #ffffff;
-    opacity: .7;
-
-    line-height: 1.8;
-    max-width: 340px;
-
-    margin-top: 1.5rem;
-}
-
-
-/* =========================================================
-   HEADINGS
-========================================================= */
-
-.footer h3 {
-    font-size: 1.9rem;
-    margin-bottom: 2rem;
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   LINKS
-========================================================= */
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-}
-
-.footer-links h3 {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #ffffff;
-    opacity: .7;
-
-    text-decoration: none;
-
-    transition:
-        color .25s ease,
-        opacity .25s ease,
-        transform .25s ease;
-}
-
-.footer-links a:hover {
-    color: #ffffff;
-    opacity: 1;
-    transform: translateX(6px);
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-}
-
-.footer-contact h3 {
-    margin-bottom: 10px;
-}
-
-.footer-contact p {
-    color: #ffffff;
-    opacity: .7;
-
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-
-/* =========================================================
-   SOCIAL ICONS
-========================================================= */
-
-.socialIcons {
-    display: flex;
-    gap: 1.4rem;
-    margin-top: 2.5rem;
-}
-
-.socialIcons a {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, .08);
-
-    color: #ffffff;
-
-    font-size: 1.7rem;
-
-    transition:
-        background .25s ease,
-        transform .25s ease,
-        box-shadow .25s ease;
-}
-
-.socialIcons a:hover {
-    background: var(--primary-color);
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 8px 25px rgba(244, 124, 32, .25);
-}
-
-
-/* =========================================================
-   AVAILABILITY
-========================================================= */
-
-.available {
-    color: #ffffff;
-    opacity: .8;
-
-    font-weight: 600;
-    margin-top: 1rem;
-}
-
-
-/* =========================================================
-   FOOTER BOTTOM
-========================================================= */
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, .15);
-
-    margin-top: 50px;
-    padding-top: 25px;
-
-    text-align: center;
-
-    color: #ffffff;
-    opacity: .65;
-}
-
-
-
-
-.darkMode .footer,
-.darkMode .footer h2,
-.darkMode .footer h3,
-.darkMode .footer p,
-.darkMode .footer a,
-.darkMode .footer-bottom,
-.darkMode .available {
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .footer {
-        padding: 50px 6%;
-    }
-
-    .footer-top {
-        gap: 40px;
-    }
-
-    .footer-logo {
-        min-width: 100%;
-    }
-
-    .footer-logo p {
-        max-width: 100%;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .footer {
-        padding: 40px 25px;
-        text-align: center;
-    }
-
-    .footer-top {
-        flex-direction: column;
-        align-items: center;
-        gap: 35px;
-    }
-
-    .footer-logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .Logo {
-        width: 7rem;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .footer-logo h2 {
-        font-size: 1.8rem;
-    }
-
-    .footer-links,
-    .footer-contact {
-        align-items: center;
-    }
-
-    .footer-links h3,
-    .footer-contact h3 {
-        margin-bottom: 5px;
-    }
-
-    .footer-bottom {
-        margin-top: 35px;
-        padding-top: 20px;
-        font-size: 1.3rem;
-    }
-
+@media (max-width: 430px) {
+    .footer-newsletter h2 { font-size: 1.55rem; }
+    .footer-subscribe { flex-direction: column; }
+    .footer-subscribe button { min-height: 48px; }
+    .footer-main { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
 }
