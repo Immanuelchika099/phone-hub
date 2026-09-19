@@ -28,7 +28,6 @@ function PhoneCard({ phone, addToCart, featured = false, isFavorite = false, tog
                 <span className="phone-card-brand">{phone.brand}</span>
                 <h3>{phone.title}</h3>
                 <div className="phone-rating"><span className="stars">{[...Array(5)].map((_, i) => <FaStar key={i} className={i < Math.floor(rating) ? "filled" : "empty"} />)}</span><span>{rating.toFixed(1)}</span></div>
-                <div className="phone-card-specs"><span>{phone.storage}</span><span>{phone.color}</span></div>
                 <div className="phone-card-buy"><div><strong>₦{Number(phone.price).toLocaleString()}</strong><small>In stock</small></div><button type="button" aria-label={"Add " + phone.title + " to cart"} onClick={(e) => { e.stopPropagation(); addToCart(phone); }}><IoAdd /></button></div>
             </div>
         </motion.article>
