@@ -19,8 +19,8 @@ export default function Account() {
   useEffect(() => {
     if (!user) return
     let stored = {}
-    try { stored = JSON.parse(localStorage.getItem(`phonehub-profile-${user.id}`) || '{}') } catch {}
-    setName(profile?.full_name || user?.user_metadata?.full_name || 'Phone Hub customer')
+    try { stored = JSON.parse(localStorage.getItem(`frankygadget-profile-${user.id}`) || '{}') } catch {}
+    setName(profile?.full_name || user?.user_metadata?.full_name || 'Franky Gadget customer')
     setSettings({ ...defaultSettings, address: profile?.address ?? stored.address ?? '', city: profile?.city ?? stored.city ?? '', state: profile?.state ?? stored.state ?? '', phone: profile?.phone ?? stored.phone ?? '', currency: profile?.currency ?? stored.currency ?? 'NGN' })
   }, [user, profile])
 
@@ -33,9 +33,9 @@ export default function Account() {
   const save = async (e) => {
     e.preventDefault(); setSaving(true); setSaved(false); setError('')
     try {
-      const cleanName = name.trim() || 'Phone Hub customer'
+      const cleanName = name.trim() || 'Franky Gadget customer'
       const next = { ...settings, address: settings.address.trim(), city: settings.city.trim(), state: settings.state.trim(), phone: settings.phone.trim() }
-      localStorage.setItem(`phonehub-profile-${user.id}`, JSON.stringify(next))
+      localStorage.setItem(`frankygadget-profile-${user.id}`, JSON.stringify(next))
       await updateProfile({ full_name: cleanName, ...next })
       setName(cleanName); setSettings(next); setSaved(true); window.setTimeout(() => setSaved(false), 3000)
     } catch (err) { setError(err.message || 'Unable to save your settings.') }
@@ -49,9 +49,9 @@ export default function Account() {
     <header className="account-hero"><div className="account-avatar">{initial}</div><div className="account-identity"><span className="account-eyebrow">MY ACCOUNT</span><h1>Welcome back, {name.split(' ')[0]}.</h1><p><FiMail /> {email} <span>·</span> Member since {memberSince}</p></div><button className="account-signout" type="button" onClick={logout}><FiLogOut /> Sign out</button></header>
     <div className="account-layout">
       <aside className="account-sidebar"><div className="account-nav-label">ACCOUNT</div><a className="account-nav-item active" href="#profile"><FiUser /> Profile & settings</a><Link className="account-nav-item" to="/track"><FiShoppingBag /> My orders <FiChevronRight /></Link><a className="account-nav-item" href="#delivery"><FiMapPin /> Delivery address <FiChevronRight /></a><div className="account-sidebar-bottom"><Link to="/phones"><FiHome /> Continue shopping</Link><button type="button" onClick={logout}><FiLogOut /> Sign out</button></div></aside>
-      <section className="account-content"><div className="account-section-heading" id="profile"><div><span>PERSONAL DETAILS</span><h2>Profile & settings</h2><p>Keep your details ready for a faster Phone Hub checkout.</p></div></div>
+      <section className="account-content"><div className="account-section-heading" id="profile"><div><span>PERSONAL DETAILS</span><h2>Profile & settings</h2><p>Keep your details ready for a faster Franky Gadget checkout.</p></div></div>
         <form className="settings-card" onSubmit={save}>
-          <div className="settings-card-head"><div><h3>Your information</h3><p>Update the details Phone Hub uses for your account and delivery.</p></div><div className="verified-pill"><FiCheck /> Account active</div></div>
+          <div className="settings-card-head"><div><h3>Your information</h3><p>Update the details Franky Gadget uses for your account and delivery.</p></div><div className="verified-pill"><FiCheck /> Account active</div></div>
           <div className="settings-grid"><label><span>Full name</span><div className="field"><FiUser /><input value={name} onChange={e => setName(e.target.value)} placeholder="Your full name" /></div></label><label><span>Email address</span><div className="field"><FiMail /><input value={email} readOnly /></div><small>Your sign-in email.</small></label><label><span>Phone number</span><div className="field"><FiPhone /><input value={settings.phone} onChange={e => set('phone', e.target.value)} placeholder="e.g. 0803 123 4567" /></div></label></div>
           <div className="settings-divider" /><div className="settings-card-head address-head" id="delivery"><div><h3>Delivery address</h3><p>Save your usual delivery location so checkout is quicker.</p></div></div>
           <div className="settings-grid address-grid"><label className="full-field"><span>Street address</span><div className="field"><FiMapPin /><input value={settings.address} onChange={e => set('address', e.target.value)} placeholder="House number, street, area" /></div></label><label><span>City</span><div className="field"><input value={settings.city} onChange={e => set('city', e.target.value)} placeholder="Port Harcourt" /></div></label><label><span>State</span><div className="field"><input value={settings.state} onChange={e => set('state', e.target.value)} placeholder="Rivers" /></div></label></div>
